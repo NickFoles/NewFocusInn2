@@ -26,7 +26,7 @@ class TimelineTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var timelineTableView: UITableView!
     var totalTimelineItems = Int()
-    var dayTimelineItems = Int()
+    var dayTimelineItems = 1
     var rowNum = 0
     
     
@@ -40,8 +40,6 @@ class TimelineTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
-        dayTimelineItems = 1
         
     }
 
