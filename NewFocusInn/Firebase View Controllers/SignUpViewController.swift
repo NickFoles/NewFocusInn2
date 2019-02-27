@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userNameTextField: UITextField!
@@ -15,7 +16,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signedUpHorizontalConstraint: NSLayoutConstraint!
-    
+    var ref: DatabaseReference!
+
     @IBAction func signUpButtonTouchedUp(_ sender: UIButton) {
         guard let username = userNameTextField.text else {return}
         guard let email = emailTextField.text else {return}
@@ -37,6 +39,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
+        
+        ref = Database.database().reference()
+        
+        if let user = Auth.auth().currentUser{
+            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
+            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
+            ref?.child("hours").child(user.uid).setValue(0)
+        }
+        
         moveMessage()
         self.dismiss(animated: true, completion: nil)
     }
