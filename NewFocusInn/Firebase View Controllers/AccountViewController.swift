@@ -15,6 +15,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var imagePicker: UIImagePickerController?
+    var ref: DatabaseReference!
     
     @IBAction func logOutTouchedUp(_ sender: UIButton) {
         try! Auth.auth().signOut()
@@ -100,6 +101,15 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.cornerRadius = imageView.frame.height/2
         imageView.clipsToBounds = true
+        
+        
+//        ref = Database.database().reference()
+//
+//        if let user = Auth.auth().currentUser{
+//            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
+//            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
+//            ref?.child("hours").child(user.uid).setValue(0)
+//        }
         
         // Do any additional setup after loading the view.
     }

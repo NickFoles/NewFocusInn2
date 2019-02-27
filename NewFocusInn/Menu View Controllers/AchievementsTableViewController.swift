@@ -16,9 +16,9 @@ class AchievementsTableViewController: UITableViewController {
     
     var ref: DatabaseReference!
     var achievements: [Int] = [0,0,0,0,0]
-    var totalTime : Int = 0
+    var totalTime : Int = 10
     
-    var achList : [String] = []
+    var achList : [String] = [""]
 //                              ["Marathon - Study for 2 hours straight",
 //                              "Workaholic - Study for 10 hours in total",
 //                              "Freshmen - Complete 1 study session",
@@ -62,18 +62,21 @@ class AchievementsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return achList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
         let tableViewCell = UITableViewCell()
-        tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
-        tableViewCell.textLabel?.textAlignment = .center
-        tableViewCell.textLabel?.text = achList[indexPath.row]
-        
+        if let user = Auth.auth().currentUser{
+            if achList.count > 0{
+                tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
+                tableViewCell.textLabel?.textAlignment = .center
+                print(indexPath.row)
+                tableViewCell.textLabel?.text = achList[indexPath.row]
+            }
+        }
         return tableViewCell
     }
  
