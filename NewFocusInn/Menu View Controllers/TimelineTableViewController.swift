@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
+// Used to set the Date Cell
 extension Date {
     var weekdayNameAndDate: String {
         let formatter = DateFormatter()
@@ -25,22 +28,29 @@ extension Date {
 class TimelineTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var timelineTableView: UITableView!
+    var ref: DatabaseReference!
+    var dateTimelineHistory = [UITableViewCell]()
     var totalTimelineItems = Int()
     var dayTimelineItems = 1
     var rowNum = 0
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         totalTimelineItems += dayTimelineItems
         
+        // used to access the sidebar menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        ref = Database.database().reference()
+        if let user = Auth.auth().currentUser {
+            ref?.child("dateTimelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.dateTimelineHistory = snapshot.value as! [UITableViewCell]
+            })
+        }
     }
 
     // MARK: - Table view data source
@@ -52,21 +62,26 @@ class TimelineTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return totalTimelineItems
+        return dateTimelineHistory.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // creates the Date Cell with the current date
         if dayTimelineItems == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Date Cell", for: indexPath) as! TimelineTableViewCell
             
             // Configure the cell...
             cell.dateLabel.text = Date().weekdayNameAndDate
+            dateTimelineHistory.append(cell)
+            print(dateTimelineHistory[0])
             print("ran")
-            return cell
         }
         
-     /* else if newBuilding || destroyedBuilding {
+        // uncomment when startFocusing is setup
+     /*
+        // creates the Building Cell, displaying the time a new building was constructed/destroyed, the description of the building, and its image
+        else if newBuilding || destroyedBuilding {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Building Cell", for: indexPath) as! TimelineTableViewCell
          
             // Configure the cell...
@@ -80,9 +95,10 @@ class TimelineTableViewController: UITableViewController {
             }
          
             cell.buildingImage.image = UIImage(named: "\(buildingType)")
-            return cell
+            dateTimelineHistory.append(cell)
         }
          
+         // creates the Achievement Cell, displaying the time an achievement was achieved, the name of the achievemnet , and its image
          else if newAchievement {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! TimelineTableViewCell
          
@@ -90,10 +106,15 @@ class TimelineTableViewController: UITableViewController {
             cell.achievementTime.text = Date().time
             cell.achievementDescription = "New achievement unlocked \(achievementType)."
             cell.achievementImage.image = UIImage(named: "\(achievementType)")
-            return cell
+            dateTimelineHistory.append(cell)
             }
      */
-       return UITableViewCell()
+        
+        if let user = Auth.auth().currentUser {
+            ref?.child("dateTimelineHistory").child(user.uid).setValue(dateTimelineHistory)
+        }
+        
+       return dateTimelineHistory[indexPath.row]
     }
     
  
