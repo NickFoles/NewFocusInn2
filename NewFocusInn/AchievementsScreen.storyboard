@@ -34,12 +34,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5xY-Ms-qfH">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Achievement Cell" rowHeight="89" id="5xY-Ms-qfH">
+                                <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5xY-Ms-qfH" id="qZa-HW-5YS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-8g-jCt">
+                                            <rect key="frame" x="20" y="12.5" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="Fge-Sx-pvw"/>
+                                                <constraint firstAttribute="width" constant="64" id="b17-qw-Pfv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2n-pC-YND">
+                                            <rect key="frame" x="104" y="12.5" width="35.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXf-OT-P3l">
+                                            <rect key="frame" x="104" y="51.5" width="69.5" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pXf-OT-P3l" secondAttribute="bottom" constant="10.5" id="G2D-QO-oZp"/>
+                                        <constraint firstItem="q2n-pC-YND" firstAttribute="top" secondItem="qZa-HW-5YS" secondAttribute="topMargin" constant="1.5" id="T2G-SS-4wE"/>
+                                        <constraint firstItem="cz5-8g-jCt" firstAttribute="centerY" secondItem="qZa-HW-5YS" secondAttribute="centerY" id="Xu0-55-s9A"/>
+                                        <constraint firstItem="q2n-pC-YND" firstAttribute="leading" secondItem="cz5-8g-jCt" secondAttribute="trailing" constant="20" id="kQK-rp-luB"/>
+                                        <constraint firstItem="cz5-8g-jCt" firstAttribute="leading" secondItem="qZa-HW-5YS" secondAttribute="leading" constant="20" id="uF6-Sk-62K"/>
+                                        <constraint firstItem="pXf-OT-P3l" firstAttribute="leading" secondItem="cz5-8g-jCt" secondAttribute="trailing" constant="20" id="y7L-iT-meM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -58,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Shu-Jp-g38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="3295"/>
+            <point key="canvasLocation" x="496.80000000000001" y="3294.6026986506749"/>
         </scene>
     </scenes>
     <resources>

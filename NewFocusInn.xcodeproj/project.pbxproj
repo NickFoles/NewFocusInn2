@@ -15,6 +15,7 @@
 		AFBC8FAA221CD2C5006B1C14 /* AchievementsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */; };
 		AFBC8FAC221CD2D6006B1C14 /* SettingsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FAB221CD2D6006B1C14 /* SettingsScreen.storyboard */; };
 		AFBC8FAE221CD2EB006B1C14 /* FirebaseScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FAD221CD2EB006B1C14 /* FirebaseScreen.storyboard */; };
+		AFBC8FB2221F98E6006B1C14 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC8FB1221F98E6006B1C14 /* TimelineTableViewCell.swift */; };
 		AFC476902200D2B80027001E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC4768F2200D2B80027001E /* AppDelegate.swift */; };
 		AFC476922200D2B80027001E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AFC476912200D2B80027001E /* GameScene.sks */; };
 		AFC476942200D2B80027001E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = AFC476932200D2B80027001E /* Actions.sks */; };
@@ -25,7 +26,7 @@
 		AFC476A02200D2C00027001E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC4769E2200D2C00027001E /* LaunchScreen.storyboard */; };
 		AFC476AB2200D2C10027001E /* NewFocusInnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476AA2200D2C10027001E /* NewFocusInnTests.swift */; };
 		AFC476B62200D2C10027001E /* NewFocusInnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476B52200D2C10027001E /* NewFocusInnUITests.swift */; };
-		AFC476C42200D4030027001E /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = AFC476C32200D4030027001E /* MyTileSet.sks */; };
+		AFC476C42200D4030027001E /* CityTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = AFC476C32200D4030027001E /* CityTileSet.sks */; };
 		AFC476C9220116D50027001E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC476C8220116D50027001E /* SWRevealViewController.m */; };
 		AFC476CB220135A80027001E /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476CA220135A80027001E /* MenuTableViewController.swift */; };
 		AFC476CD220136110027001E /* StartFocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476CC220136110027001E /* StartFocusingViewController.swift */; };
@@ -66,6 +67,7 @@
 		AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AchievementsScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FAB221CD2D6006B1C14 /* SettingsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FAD221CD2EB006B1C14 /* FirebaseScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FB1221F98E6006B1C14 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		AFC4768C2200D2B80027001E /* NewFocusInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewFocusInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC4768F2200D2B80027001E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFC476912200D2B80027001E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -82,7 +84,7 @@
 		AFC476B12200D2C10027001E /* NewFocusInnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFocusInnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC476B52200D2C10027001E /* NewFocusInnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFocusInnUITests.swift; sourceTree = "<group>"; };
 		AFC476B72200D2C10027001E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFC476C32200D4030027001E /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
+		AFC476C32200D4030027001E /* CityTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CityTileSet.sks; sourceTree = "<group>"; };
 		AFC476C6220116D40027001E /* NewFocusInn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewFocusInn-Bridging-Header.h"; sourceTree = "<group>"; };
 		AFC476C7220116D50027001E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		AFC476C8220116D50027001E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -165,7 +167,7 @@
 				AFC476D622014A9A0027001E /* Firebase View Controllers */,
 				AFC476C5220116B50027001E /* SWRevealViewController */,
 				AFC476912200D2B80027001E /* GameScene.sks */,
-				AFC476C32200D4030027001E /* MyTileSet.sks */,
+				AFC476C32200D4030027001E /* CityTileSet.sks */,
 				AFC476932200D2B80027001E /* Actions.sks */,
 				AFC4768F2200D2B80027001E /* AppDelegate.swift */,
 				AFC476952200D2B80027001E /* GameScene.swift */,
@@ -231,6 +233,7 @@
 				AFC476972200D2B80027001E /* GameViewController.swift */,
 				AFC476CC220136110027001E /* StartFocusingViewController.swift */,
 				AFC476CE2201365B0027001E /* TimelineTableViewController.swift */,
+				AFBC8FB1221F98E6006B1C14 /* TimelineTableViewCell.swift */,
 				AFC476D0220136790027001E /* FriendsTableViewController.swift */,
 				AFC476D2220136920027001E /* AchievementsTableViewController.swift */,
 				AFC476D4220136A10027001E /* SettingsTableViewController.swift */,
@@ -353,7 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC476C42200D4030027001E /* MyTileSet.sks in Resources */,
+				AFC476C42200D4030027001E /* CityTileSet.sks in Resources */,
 				AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */,
 				AFC4769B2200D2B80027001E /* Main.storyboard in Resources */,
 				AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */,
@@ -395,7 +398,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -412,7 +415,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A8ECD20703CE9B164B285BA /* [CP] Check Pods Manifest.lock */ = {
@@ -451,6 +454,7 @@
 				AFC476CF2201365B0027001E /* TimelineTableViewController.swift in Sources */,
 				AFC476D1220136790027001E /* FriendsTableViewController.swift in Sources */,
 				AFC476982200D2B80027001E /* GameViewController.swift in Sources */,
+				AFBC8FB2221F98E6006B1C14 /* TimelineTableViewCell.swift in Sources */,
 				AFC476DC22014B370027001E /* LogInViewController.swift in Sources */,
 				AFC476DA22014B270027001E /* SignUpViewController.swift in Sources */,
 				AFC476CB220135A80027001E /* MenuTableViewController.swift in Sources */,

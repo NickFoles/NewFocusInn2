@@ -334,7 +334,7 @@
                         <outlet property="emailTextField" destination="w0k-h0-I0w" id="vhP-fe-uUQ"/>
                         <outlet property="logInButton" destination="314-6x-fg8" id="EmX-2W-lOS"/>
                         <outlet property="passwordTextField" destination="swe-wZ-lca" id="btl-YU-wJV"/>
-                        <segue destination="KPy-tX-upZ" kind="show" identifier="toFirebaseHome" id="2YQ-8n-sPB"/>
+                        <segue destination="KPy-tX-upZ" kind="show" identifier="toAccountHome" id="2YQ-8n-sPB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6F-XH-32p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,7 +350,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oO9-4v-6uT">
-                                <rect key="frame" x="87.5" y="567" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="636" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.81176470590000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QUO-f0-dqY"/>
@@ -371,7 +371,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idj-CP-2g1">
-                                <rect key="frame" x="87.5" y="477" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="546" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.81176470590000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="oCa-ta-4HH"/>
@@ -390,14 +390,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-1p-6n1">
-                                <rect key="frame" x="112.5" y="120" width="150" height="81"/>
+                                <rect key="frame" x="112.5" y="120" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="597-PC-dtE"/>
                                     <constraint firstAttribute="height" constant="150" id="6Ki-Yi-Pgf"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaY-iJ-aux">
-                                <rect key="frame" x="87.5" y="387" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="456" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.81176470590000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kHX-sa-vWB"/>
@@ -416,7 +416,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-gN-T4d">
-                                <rect key="frame" x="20" y="269" width="335" height="50"/>
+                                <rect key="frame" x="20" y="338" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Pkb-x8-xlf"/>
                                 </constraints>
