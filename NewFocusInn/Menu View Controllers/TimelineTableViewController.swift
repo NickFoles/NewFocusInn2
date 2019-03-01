@@ -30,7 +30,7 @@ class TimelineTableViewController: UITableViewController {
     
     var ref: DatabaseReference!
     var dates = [String]()
-    var timelineHistory = [Int: Array<String>]()
+    var timelineHistory = [[String]]()
     var totalTimelineItems = 0
     var dayTimelineItems = 1
     var rowNum = 0
@@ -49,10 +49,12 @@ class TimelineTableViewController: UITableViewController {
         ref = Database.database().reference()
         if let user = Auth.auth().currentUser {
             ref?.child("timelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                self.timelineHistory = snapshot.value as! [Int: Array<String>]
+                self.timelineHistory = snapshot.value as! [[String]]
+                print("timelineHistory: \(snapshot.value as! [[String]])")
             })
             ref?.child("dates").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 self.dates = snapshot.value as! [String]
+                print("dates: \(snapshot.value as! [String])")
             })
         }
     }
@@ -61,14 +63,14 @@ class TimelineTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        print(("dates: \(dates.count)"))
         return dates.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let sectionTimelineHistory = timelineHistory[section]  else {
-            return 0
-        }
+        let sectionTimelineHistory = timelineHistory[section]
+        print("timelineHistory: \(sectionTimelineHistory.count)")
         return sectionTimelineHistory.count/4
     }
 
@@ -78,15 +80,13 @@ class TimelineTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Timeline Cell", for: indexPath) as! TimelineTableViewCell
-        guard let sectionTimelineHistory = timelineHistory[indexPath.section] else {
-            return cell
-        }
+        let sectionTimelineHistory = timelineHistory[indexPath.section]
         
         // Configure the cell...
-        cell.thumbnail.image = UIImage(named: sectionTimelineHistory[indexPath.row * 3])
-        cell.time.text = sectionTimelineHistory[indexPath.row * 3 + 1]
-        cell.cellDescription.text = sectionTimelineHistory[indexPath.row * 3 + 2]
-        cell.cellImage.image = UIImage(named: sectionTimelineHistory[indexPath.row * 3 + 3])
+        cell.thumbnail.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4])
+        cell.time.text = sectionTimelineHistory[indexPath.row * 4 + 1]
+        cell.cellDescription.text = sectionTimelineHistory[indexPath.row * 4 + 2]
+        cell.cellImage.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4 + 3])
         
         // uncomment when startFocusing is setup
      /*
@@ -115,7 +115,7 @@ class TimelineTableViewController: UITableViewController {
          
             // Configure the cell...
             cell.achievementTime.text = Date().time
-            cell.achievementDescription = "New achievement unlocked \(achievementType)."
+            cell.achievementDescription = "New achievement unlocked: \(achievementType)."
             cell.achievementImage.image = UIImage(named: "\(achievementType)")
             timelineHistory.append(cell)
             return cell

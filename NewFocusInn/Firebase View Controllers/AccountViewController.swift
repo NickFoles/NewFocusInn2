@@ -109,11 +109,8 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
             ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
             ref?.child("hours").child(user.uid).setValue(0)
-            ref?.child("timelineHistory").child(user.uid).setValue([0: [""]])
+            ref?.child("timelineHistory").child(user.uid).setValue([[""]])
             ref?.child("dates").child(user.uid).setValue([""])
-
-
-
         }
         
         // Do any additional setup after loading the view.
