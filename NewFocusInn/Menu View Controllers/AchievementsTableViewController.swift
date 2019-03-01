@@ -16,7 +16,7 @@ class AchievementsTableViewController: UITableViewController {
     
     var ref: DatabaseReference!
     var achievements: [Int] = [0,0,0,0,0]
-    var totalTime : Int = 10
+    var totalTime = 10
     
     var achList : [String] = [""]
 //                              ["Marathon - Study for 2 hours straight",
