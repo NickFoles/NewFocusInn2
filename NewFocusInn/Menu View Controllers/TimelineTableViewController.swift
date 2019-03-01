@@ -27,10 +27,11 @@ extension Date {
 
 class TimelineTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet var timelineTableView: UITableView!
+    
     var ref: DatabaseReference!
-    var dateTimelineHistory = [UITableViewCell]()
-    var totalTimelineItems = Int()
+    var dates = [String]()
+    var timelineHistory = [Int: Array<String>]()
+    var totalTimelineItems = 0
     var dayTimelineItems = 1
     var rowNum = 0
     
@@ -47,8 +48,11 @@ class TimelineTableViewController: UITableViewController {
         
         ref = Database.database().reference()
         if let user = Auth.auth().currentUser {
-            ref?.child("dateTimelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                self.dateTimelineHistory = snapshot.value as! [UITableViewCell]
+            ref?.child("timelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.timelineHistory = snapshot.value as! [Int: Array<String>]
+            })
+            ref?.child("dates").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.dates = snapshot.value as! [String]
             })
         }
     }
@@ -57,26 +61,32 @@ class TimelineTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return dates.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dateTimelineHistory.count
+        guard let sectionTimelineHistory = timelineHistory[section]  else {
+            return 0
+        }
+        return sectionTimelineHistory.count/4
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dates[section]
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // creates the Date Cell with the current date
-        if dayTimelineItems == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Date Cell", for: indexPath) as! TimelineTableViewCell
-            
-            // Configure the cell...
-            cell.dateLabel.text = Date().weekdayNameAndDate
-            dateTimelineHistory.append(cell)
-            print(dateTimelineHistory[0])
-            print("ran")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Timeline Cell", for: indexPath) as! TimelineTableViewCell
+        guard let sectionTimelineHistory = timelineHistory[indexPath.section] else {
+            return cell
         }
+        
+        // Configure the cell...
+        cell.thumbnail.image = UIImage(named: sectionTimelineHistory[indexPath.row * 3])
+        cell.time.text = sectionTimelineHistory[indexPath.row * 3 + 1]
+        cell.cellDescription.text = sectionTimelineHistory[indexPath.row * 3 + 2]
+        cell.cellImage.image = UIImage(named: sectionTimelineHistory[indexPath.row * 3 + 3])
         
         // uncomment when startFocusing is setup
      /*
@@ -95,7 +105,8 @@ class TimelineTableViewController: UITableViewController {
             }
          
             cell.buildingImage.image = UIImage(named: "\(buildingType)")
-            dateTimelineHistory.append(cell)
+            timelineHistory.append(cell)
+            return cell
         }
          
          // creates the Achievement Cell, displaying the time an achievement was achieved, the name of the achievemnet , and its image
@@ -106,15 +117,11 @@ class TimelineTableViewController: UITableViewController {
             cell.achievementTime.text = Date().time
             cell.achievementDescription = "New achievement unlocked \(achievementType)."
             cell.achievementImage.image = UIImage(named: "\(achievementType)")
-            dateTimelineHistory.append(cell)
+            timelineHistory.append(cell)
+            return cell
             }
      */
-        
-        if let user = Auth.auth().currentUser {
-            ref?.child("dateTimelineHistory").child(user.uid).setValue(dateTimelineHistory)
-        }
-        
-       return dateTimelineHistory[indexPath.row]
+       return cell
     }
     
  
