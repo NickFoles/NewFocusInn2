@@ -33,7 +33,28 @@
                     <view key="view" contentMode="scaleToFill" id="f9x-Pz-tfX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjQ-Oz-0Em">
+                                <rect key="frame" x="157" y="491.5" width="61" height="30"/>
+                                <state key="normal" title="Set Time"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="6c6-1l-dvt" eventType="touchUpInside" id="jEg-c0-75G"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-L4-tqt">
+                                <rect key="frame" x="27.5" y="225.5" width="320" height="216"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JjQ-Oz-0Em" firstAttribute="top" secondItem="jRP-L4-tqt" secondAttribute="bottom" constant="50" id="5wn-Fj-L43"/>
+                            <constraint firstItem="JjQ-Oz-0Em" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="NUO-HB-QAc"/>
+                            <constraint firstItem="jRP-L4-tqt" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="lj8-Mo-CR4"/>
+                            <constraint firstItem="jRP-L4-tqt" firstAttribute="centerY" secondItem="f9x-Pz-tfX" secondAttribute="centerY" id="xP9-X0-LcL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S9t-MD-yMJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Start Focusing" id="fyh-h0-a2E">
@@ -41,11 +62,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="dN1-Dz-qcf" id="Bp7-Ov-3MS"/>
+                        <outlet property="timeSetter" destination="jRP-L4-tqt" id="uZq-wU-XVM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjZ-PR-z2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="497" y="699"/>
+            <point key="canvasLocation" x="496.80000000000001" y="698.5007496251875"/>
         </scene>
     </scenes>
     <resources>
