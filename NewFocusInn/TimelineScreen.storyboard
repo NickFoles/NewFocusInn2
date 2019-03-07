@@ -34,52 +34,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.31832120752094184" green="0.80188866950118742" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Date Cell" rowHeight="60" id="JHM-GZ-G3a" customClass="TimelineTableViewCell" customModule="NewFocusInn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JHM-GZ-G3a" id="NfR-i3-Ip2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT8-mr-w40">
-                                            <rect key="frame" x="112.5" y="20" width="150" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="RXL-24-Vrf"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <real key="value" value="10.25"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="oT8-mr-w40" firstAttribute="centerY" secondItem="NfR-i3-Ip2" secondAttribute="centerY" id="1sr-zf-YaA"/>
-                                        <constraint firstItem="oT8-mr-w40" firstAttribute="centerX" secondItem="NfR-i3-Ip2" secondAttribute="centerX" id="bLp-zV-ldp"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dateLabel" destination="oT8-mr-w40" id="vJr-aK-8oo"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Building Cell" rowHeight="200" id="7q7-p6-rkV" userLabel="Building Cell" customClass="TimelineTableViewCell" customModule="NewFocusInn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="375" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Timeline Cell" rowHeight="200" id="7q7-p6-rkV" customClass="TimelineTableViewCell" customModule="NewFocusInn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7q7-p6-rkV" id="ZVq-fu-z2B">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house 2" translatesAutoresizingMaskIntoConstraints="NO" id="XSq-er-oIg">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XSq-er-oIg">
                                             <rect key="frame" x="10" y="10" width="32" height="32"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -107,9 +69,13 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DzW-If-ycc">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DzW-If-ycc">
                                             <rect key="frame" x="50" y="70" width="275" height="119"/>
                                             <color key="backgroundColor" red="0.0" green="0.67181866176918281" blue="0.8469622461928934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="119" id="ZEd-YG-27B"/>
+                                                <constraint firstAttribute="width" constant="275" id="a1m-aN-HfJ"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="7"/>
@@ -135,77 +101,10 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="buildingDescription" destination="bCX-0A-BmP" id="F8e-Cz-yyT"/>
-                                    <outlet property="buildingImage" destination="DzW-If-ycc" id="v4J-m3-YdJ"/>
-                                    <outlet property="buildingTime" destination="QKv-XD-VPC" id="aPk-NW-gfK"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Achievement Cell" rowHeight="200" id="Fi4-K2-mHB" userLabel="Achievement Cell" customClass="TimelineTableViewCell" customModule="NewFocusInn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="288" width="375" height="200"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fi4-K2-mHB" id="a68-eL-e2d">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medal" translatesAutoresizingMaskIntoConstraints="NO" id="KtA-Or-eos">
-                                            <rect key="frame" x="10" y="10" width="32" height="32"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="32" id="KDu-ZZ-O3T"/>
-                                                <constraint firstAttribute="width" constant="32" id="ceK-fs-HXf"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="16"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUE-GP-58O">
-                                            <rect key="frame" x="50" y="40.5" width="88" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvc-ji-JIK">
-                                            <rect key="frame" x="50" y="16" width="28" height="14.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I3u-ST-0NM">
-                                            <rect key="frame" x="50" y="70" width="275" height="119"/>
-                                            <color key="backgroundColor" red="0.0" green="0.67181866176918281" blue="0.8469622461928934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="keyPlayer.cornerRadiusath">
-                                                    <integer key="value" value="7"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="gvc-ji-JIK" firstAttribute="leading" secondItem="KtA-Or-eos" secondAttribute="trailing" constant="8" id="27Z-T7-hoc"/>
-                                        <constraint firstItem="gvc-ji-JIK" firstAttribute="top" secondItem="a68-eL-e2d" secondAttribute="topMargin" constant="5" id="2bN-9U-9KY"/>
-                                        <constraint firstItem="I3u-ST-0NM" firstAttribute="top" secondItem="eUE-GP-58O" secondAttribute="bottom" constant="8.5" id="3uF-HX-GRo"/>
-                                        <constraint firstItem="eUE-GP-58O" firstAttribute="top" secondItem="gvc-ji-JIK" secondAttribute="bottom" constant="10" id="ECy-sR-f2C"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="I3u-ST-0NM" secondAttribute="bottom" id="GvS-4a-4e7"/>
-                                        <constraint firstItem="I3u-ST-0NM" firstAttribute="leading" secondItem="a68-eL-e2d" secondAttribute="leadingMargin" constant="34" id="SMG-gs-tZK"/>
-                                        <constraint firstItem="KtA-Or-eos" firstAttribute="leading" secondItem="a68-eL-e2d" secondAttribute="leading" constant="10" id="YbQ-k2-gG9"/>
-                                        <constraint firstItem="KtA-Or-eos" firstAttribute="top" secondItem="a68-eL-e2d" secondAttribute="top" constant="10" id="f6f-Cy-wga"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="I3u-ST-0NM" secondAttribute="trailing" constant="34" id="v6h-ZT-WVc"/>
-                                        <constraint firstItem="eUE-GP-58O" firstAttribute="leading" secondItem="KtA-Or-eos" secondAttribute="trailing" constant="8" id="z86-Oh-iO3"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="achievementDescription" destination="eUE-GP-58O" id="LZI-yb-dYT"/>
-                                    <outlet property="achievementImage" destination="I3u-ST-0NM" id="vs1-rr-gbu"/>
-                                    <outlet property="achievementTime" destination="gvc-ji-JIK" id="LCH-2W-XX6"/>
+                                    <outlet property="cellDescription" destination="bCX-0A-BmP" id="Qx2-pE-BUQ"/>
+                                    <outlet property="cellImage" destination="DzW-If-ycc" id="bRL-JK-Fmd"/>
+                                    <outlet property="thumbnail" destination="XSq-er-oIg" id="y6i-L0-FDu"/>
+                                    <outlet property="time" destination="QKv-XD-VPC" id="XJk-of-zyj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -219,7 +118,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="nWs-bX-IzO" id="woK-ze-cUG"/>
-                        <outlet property="timelineTableView" destination="9rA-DY-hxB" id="xd7-gp-Ft5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwT-0d-iNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,8 +126,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house 2" width="93" height="93"/>
-        <image name="medal" width="700" height="700"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>

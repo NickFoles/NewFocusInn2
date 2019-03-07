@@ -16,7 +16,7 @@ class AchievementsTableViewController: UITableViewController {
     
     var ref: DatabaseReference!
     var achievements: [Int] = [0,0,0,0,0]
-    var totalTime : Int = 10
+    var totalTime = 10
     
     var achList : [String] = [""]
 //                              ["Marathon - Study for 2 hours straight",
@@ -28,6 +28,7 @@ class AchievementsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // used to access the sidebar menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))

@@ -9,18 +9,10 @@
 import UIKit
 
 class TimelineTableViewCell: UITableViewCell {
-    // Date Cell
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    // Building Cell
-    @IBOutlet weak var buildingTime: UILabel!
-    @IBOutlet weak var buildingDescription: UILabel!
-    @IBOutlet weak var buildingImage: UIImageView!
-    
-    // Achievement Cell
-    @IBOutlet weak var achievementTime: UILabel!
-    @IBOutlet weak var achievementDescription: UILabel!
-    @IBOutlet weak var achievementImage: UIImageView!
+    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var cellDescription: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!    
     
     override func awakeFromNib() {
         super.awakeFromNib()

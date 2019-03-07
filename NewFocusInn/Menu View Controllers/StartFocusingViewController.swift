@@ -123,7 +123,8 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         //timeSetter.selectRow(2, inComponent: 2, animated: false)
         //selectPickerViewRows()
         
-        //configurePickerView()
+        // used to access the sidebar menu
+
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))

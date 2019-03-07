@@ -15,9 +15,7 @@ class FirebaseViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func toFirebaseHome(unwindSegue: UIStoryboardSegue) {
-    }
-    
+    // takes the user to their account homescreen if they are already logged in
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {

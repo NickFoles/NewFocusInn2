@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
+// Used to set the Date Cell
 extension Date {
     var weekdayNameAndDate: String {
         let formatter = DateFormatter()
@@ -24,49 +27,71 @@ extension Date {
 
 class TimelineTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet var timelineTableView: UITableView!
-    var totalTimelineItems = Int()
+    
+    var ref: DatabaseReference!
+    var dates = [String]()
+    var timelineHistory = [[String]]()
+    var totalTimelineItems = 0
     var dayTimelineItems = 1
     var rowNum = 0
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         totalTimelineItems += dayTimelineItems
         
+        // used to access the sidebar menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        ref = Database.database().reference()
+        if let user = Auth.auth().currentUser {
+            ref?.child("timelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.timelineHistory = snapshot.value as! [[String]]
+                print("timelineHistory: \(snapshot.value as! [[String]])")
+            })
+            ref?.child("dates").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.dates = snapshot.value as! [String]
+                print("dates: \(snapshot.value as! [String])")
+            })
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        print(("dates: \(dates.count)"))
+        return dates.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return totalTimelineItems
+        let sectionTimelineHistory = timelineHistory[section]
+        print("timelineHistory: \(sectionTimelineHistory.count)")
+        return sectionTimelineHistory.count/4
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dates[section]
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if dayTimelineItems == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Date Cell", for: indexPath) as! TimelineTableViewCell
-            
-            // Configure the cell...
-            cell.dateLabel.text = Date().weekdayNameAndDate
-            print("ran")
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Timeline Cell", for: indexPath) as! TimelineTableViewCell
+        let sectionTimelineHistory = timelineHistory[indexPath.section]
         
-     /* else if newBuilding || destroyedBuilding {
+        // Configure the cell...
+        cell.thumbnail.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4])
+        cell.time.text = sectionTimelineHistory[indexPath.row * 4 + 1]
+        cell.cellDescription.text = sectionTimelineHistory[indexPath.row * 4 + 2]
+        cell.cellImage.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4 + 3])
+        
+        // uncomment when startFocusing is setup
+     /*
+        // creates the Building Cell, displaying the time a new building was constructed/destroyed, the description of the building, and its image
+        else if newBuilding || destroyedBuilding {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Building Cell", for: indexPath) as! TimelineTableViewCell
          
             // Configure the cell...
@@ -80,20 +105,23 @@ class TimelineTableViewController: UITableViewController {
             }
          
             cell.buildingImage.image = UIImage(named: "\(buildingType)")
+            timelineHistory.append(cell)
             return cell
         }
          
+         // creates the Achievement Cell, displaying the time an achievement was achieved, the name of the achievemnet , and its image
          else if newAchievement {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! TimelineTableViewCell
          
             // Configure the cell...
             cell.achievementTime.text = Date().time
-            cell.achievementDescription = "New achievement unlocked \(achievementType)."
+            cell.achievementDescription = "New achievement unlocked: \(achievementType)."
             cell.achievementImage.image = UIImage(named: "\(achievementType)")
+            timelineHistory.append(cell)
             return cell
             }
      */
-       return UITableViewCell()
+       return cell
     }
     
  
