@@ -52,6 +52,7 @@ class TimelineTableViewController: UITableViewController {
                 self.timelineHistory = url ?? [["no"]]
                 self.reloadInputViews()
                 print(self.timelineHistory)
+                
             }
         }
         print("time: \(timelineHistory)")
