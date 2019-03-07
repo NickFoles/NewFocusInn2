@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */; };
+		930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FABBD222EDC1700165F10 /* FocusingViewController.swift */; };
 		AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */; };
 		AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */; };
 		AFBC8FA6221CD280006B1C14 /* TimelineScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */; };
@@ -60,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		930FABBB222EDB9100165F10 /* FocusingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = FocusingScreen.storyboard; path = /Users/s021776/Documents/NewFocusInn2/NewFocusInn/FocusingScreen.storyboard; sourceTree = "<absolute>"; };
+		930FABBD222EDC1700165F10 /* FocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewController.swift; sourceTree = "<group>"; };
 		AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartFocusingScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimelineScreen.storyboard; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 				AFC476992200D2B80027001E /* Main.storyboard */,
 				AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */,
 				AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */,
+				930FABBB222EDB9100165F10 /* FocusingScreen.storyboard */,
 				AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */,
 				AFBC8FA7221CD2B1006B1C14 /* FriendsScreen.storyboard */,
 				AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */,
@@ -230,6 +234,7 @@
 		AFC476DF22014E6B0027001E /* Menu View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				930FABBD222EDC1700165F10 /* FocusingViewController.swift */,
 				AFC476972200D2B80027001E /* GameViewController.swift */,
 				AFC476CC220136110027001E /* StartFocusingViewController.swift */,
 				AFC476CE2201365B0027001E /* TimelineTableViewController.swift */,
@@ -451,6 +456,7 @@
 				AFC476962200D2B80027001E /* GameScene.swift in Sources */,
 				AFC476DE22014B420027001E /* AccountViewController.swift in Sources */,
 				AFC476D3220136920027001E /* AchievementsTableViewController.swift in Sources */,
+				930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */,
 				AFC476CF2201365B0027001E /* TimelineTableViewController.swift in Sources */,
 				AFC476D1220136790027001E /* FriendsTableViewController.swift in Sources */,
 				AFC476982200D2B80027001E /* GameViewController.swift in Sources */,
