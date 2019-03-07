@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 // Used to set the Date Cell
 extension Date {
@@ -45,48 +46,69 @@ class TimelineTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        print(1)
+        getTimelineHistory() { url in
+            if Auth.auth().currentUser != nil {
+                self.timelineHistory = url ?? [["no"]]
+                self.reloadInputViews()
+                print(self.timelineHistory)
+            }
+        }
+        print("time: \(timelineHistory)")
+    }
+    
+    func getTimelineHistory(_completion: @escaping((_ url:[[String]]?) -> ())) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("timelineHistory").child(uid)
         
         ref = Database.database().reference()
         if let user = Auth.auth().currentUser {
             ref?.child("timelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 self.timelineHistory = snapshot.value as! [[String]]
-                print("timelineHistory: \(snapshot.value as! [[String]])")
-            })
-            ref?.child("dates").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                self.dates = snapshot.value as! [String]
-                print("dates: \(snapshot.value as! [String])")
-            })
+                _completion(self.timelineHistory)
+            }) {(error) in
+                print(error.localizedDescription)
+            }
         }
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+        override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        print(("dates: \(dates.count)"))
+        print(6)
         return dates.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print(7)
         let sectionTimelineHistory = timelineHistory[section]
         print("timelineHistory: \(sectionTimelineHistory.count)")
         return sectionTimelineHistory.count/4
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        print(8)
         return dates[section]
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Timeline Cell", for: indexPath) as! TimelineTableViewCell
-        let sectionTimelineHistory = timelineHistory[indexPath.section]
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(9)
+        print("timelineHistory: \(timelineHistory)")
+        print("dates: \(dates)")
+        if dates.count > 0 {
+            print(10)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Timeline Cell", for: indexPath) as! TimelineTableViewCell
+            let sectionTimelineHistory = timelineHistory[indexPath.section]
         
-        // Configure the cell...
-        cell.thumbnail.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4])
-        cell.time.text = sectionTimelineHistory[indexPath.row * 4 + 1]
-        cell.cellDescription.text = sectionTimelineHistory[indexPath.row * 4 + 2]
-        cell.cellImage.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4 + 3])
+            // Configure the cell...
+            cell.thumbnail.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4])
+            cell.time.text = sectionTimelineHistory[indexPath.row * 4 + 1]
+            cell.cellDescription.text = sectionTimelineHistory[indexPath.row * 4 + 2]
+            cell.cellImage.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4 + 3])
+            return cell
+        }
         
         // uncomment when startFocusing is setup
      /*
@@ -120,8 +142,11 @@ class TimelineTableViewController: UITableViewController {
             timelineHistory.append(cell)
             return cell
             }
-     */
-       return cell
+         */
+        else {
+            print(11)
+            return UITableViewCell()
+        }
     }
     
  

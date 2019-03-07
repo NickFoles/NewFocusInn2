@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class MenuTableViewController: UITableViewController {
-
+    var ref: DatabaseReference!
+    var timelineHistory = [[String]]()
+    var dates = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.clearsSelectionOnViewWillAppear = false
+        
     }
-
 }
