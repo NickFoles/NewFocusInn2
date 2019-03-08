@@ -20,4 +20,21 @@ class MenuTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "timeline" {
+            print("work")
+            let vcNav = segue.destination as! UINavigationController
+            let vc = vcNav.topViewController as! TimelineTableViewController
+            
+            ref = Database.database().reference()
+            if let user = Auth.auth().currentUser {
+                ref!.child("timelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    vc.timelineHistory = snapshot.value as! [[String]]
+                })
+                ref!.child("dates").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    vc.dates = snapshot.value as! [String]
+                })
+            }
+        }
+    }
 }
