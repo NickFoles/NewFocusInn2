@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -40,6 +42,7 @@ class SettingsTableViewController: UITableViewController {
         else {
             account.text = "Log In"
         }
+        
+        
     }
-
 }

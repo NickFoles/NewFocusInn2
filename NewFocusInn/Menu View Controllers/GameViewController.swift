@@ -9,6 +9,8 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class GameViewController: UIViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!

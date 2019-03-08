@@ -34,7 +34,7 @@ class AchievementsTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
+        print(1)
         ref = Database.database().reference()
         if let user = Auth.auth().currentUser {
             ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -48,7 +48,7 @@ class AchievementsTableViewController: UITableViewController {
             })
             
         }
-        
+        print(2)
         checkAchievements()
         
         
@@ -58,23 +58,27 @@ class AchievementsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        print(3)
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print(4)
         return achList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        print(5)
         let tableViewCell = UITableViewCell()
         if let user = Auth.auth().currentUser{
             if achList.count > 0{
+                print(6)
                 tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
                 tableViewCell.textLabel?.textAlignment = .center
-                print(indexPath.row)
+//                print(indexPath.row)
                 tableViewCell.textLabel?.text = achList[indexPath.row]
             }
         }
@@ -83,6 +87,7 @@ class AchievementsTableViewController: UITableViewController {
  
     
     func checkAchievements(){
+        print(7)
         if totalTime >= 10{
             achList.append("Workaholic - Study for 10 hours in total")
         }
