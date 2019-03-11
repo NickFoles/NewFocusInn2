@@ -15,9 +15,9 @@ class AchievementsTableViewController: UITableViewController {
     @IBOutlet var table: UITableView!
     
     var ref: DatabaseReference!
-    var achievements: [Int] = [0,0,0,0,0]
+    //var achievements: [Int] = [0,0,0,0,0]
+    var check : [Int]?
     var totalTime : Int = 10
-    
     var achList : [String] = [""]
 //                              ["Marathon - Study for 2 hours straight",
 //                              "Workaholic - Study for 10 hours in total",
@@ -35,18 +35,26 @@ class AchievementsTableViewController: UITableViewController {
         }
         
         ref = Database.database().reference()
-        if let user = Auth.auth().currentUser {
-            ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                self.achievements = snapshot.value as! [Int]
-            })
-            
-        }
+        
         if let user = Auth.auth().currentUser {
             ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 self.totalTime = snapshot.value as! Int
             })
             
         }
+        
+        if let user = Auth.auth().currentUser {
+            ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                //print(self.achievements)
+                print(snapshot.value)
+                //self.check = snapshot.value as! [Int]?
+                print(self.check)
+                //self.achievements = snapshot.value as! [Int]
+                
+            })
+            
+        }
+        
         
         checkAchievements()
         
@@ -73,7 +81,6 @@ class AchievementsTableViewController: UITableViewController {
             if achList.count > 0{
                 tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
                 tableViewCell.textLabel?.textAlignment = .center
-                print(indexPath.row)
                 tableViewCell.textLabel?.text = achList[indexPath.row]
             }
         }
@@ -85,9 +92,9 @@ class AchievementsTableViewController: UITableViewController {
         if totalTime >= 10{
             achList.append("Workaholic - Study for 10 hours in total")
         }
-        achievements[1] = 1
+        print(self.check)
         if let user = Auth.auth().currentUser {
-            ref?.child("achievementList").child(user.uid).setValue(achievements)
+           print("")
         }
     }
 

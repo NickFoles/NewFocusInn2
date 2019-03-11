@@ -40,13 +40,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
         }
         
-        ref = Database.database().reference()
-        
-        if let user = Auth.auth().currentUser{
-            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
-            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
-            ref?.child("hours").child(user.uid).setValue(0)
-        }
+//        ref = Database.database().reference()
+//        
+//        if let user = Auth.auth().currentUser{
+//            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
+//            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
+//            ref?.child("hours").child(user.uid).setValue(0)
+//            print("sent information")
+//        }
         
         moveMessage()
         self.dismiss(animated: true, completion: nil)

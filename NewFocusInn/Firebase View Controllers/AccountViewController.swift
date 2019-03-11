@@ -102,6 +102,14 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.layer.cornerRadius = imageView.frame.height/2
         imageView.clipsToBounds = true
         
+        ref = Database.database().reference()
+        
+        if let user = Auth.auth().currentUser{
+            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
+            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
+            ref?.child("hours").child(user.uid).setValue(0)
+            print("sent information")
+        }
         
 //        ref = Database.database().reference()
 //
