@@ -70,6 +70,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func downloadPicture(_ sender: UIButton) {
+        
     }
     
     func getImageURL(_completion: @escaping((_ url:String?) -> ())) {
@@ -96,11 +97,29 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker?.allowsEditing = true
         imagePicker?.sourceType = .photoLibrary
         imagePicker?.delegate = self
+        
+        // displays a circular border around the profile image
         imageView.layer.borderWidth = 1
         imageView.layer.masksToBounds = false
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.cornerRadius = imageView.frame.height/2
         imageView.clipsToBounds = true
+        
+        // displays user's profile image
+        getImageURL(){ url in
+            let storage = Storage.storage()
+            guard let imageURl = url else {return}
+            let ref = storage.reference(forURL: imageURl)
+            ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if error == nil && data != nil {
+                    self.imageView.image = UIImage(data: data!)
+                    self.reloadInputViews()
+                }
+                else{
+                    print(error?.localizedDescription as Any)
+                }
+            }
+        }
         
         ref = Database.database().reference()
         

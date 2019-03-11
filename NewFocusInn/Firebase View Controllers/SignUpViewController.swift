@@ -39,20 +39,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
-        
+//        
 //        ref = Database.database().reference()
 //        
 //        if let user = Auth.auth().currentUser{
 //            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
 //            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
 //            ref?.child("hours").child(user.uid).setValue(0)
-//            print("sent information")
+//            //ref?.child("datetTimelineHistory").child(user.uid).setValue([""])
 //        }
         
         moveMessage()
         self.dismiss(animated: true, completion: nil)
     }
     
+    // moves a message which tells the user to tap the back button to reach their account homescreen if account was successfully made
     func moveMessage() {
         signedUpHorizontalConstraint.constant = 87.5
         UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 4.5, options: .curveEaseInOut, animations: {self.view.layoutIfNeeded()}, completion: nil)

@@ -113,7 +113,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Dem-vE-N6b" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="UkP-T1-cNM"/>
+                                            <segue destination="Dem-vE-N6b" kind="custom" identifier="timeline" customClass="SWRevealViewControllerSeguePushController" id="UkP-T1-cNM"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Friends" id="rdO-cj-VXv">

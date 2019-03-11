@@ -9,6 +9,8 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -20,6 +22,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // used to access the sidebar menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))

@@ -334,7 +334,7 @@
                         <outlet property="emailTextField" destination="w0k-h0-I0w" id="vhP-fe-uUQ"/>
                         <outlet property="logInButton" destination="314-6x-fg8" id="EmX-2W-lOS"/>
                         <outlet property="passwordTextField" destination="swe-wZ-lca" id="btl-YU-wJV"/>
-                        <segue destination="KPy-tX-upZ" kind="show" identifier="toFirebaseHome" id="2YQ-8n-sPB"/>
+                        <segue destination="KPy-tX-upZ" kind="show" identifier="toAccountHome" id="2YQ-8n-sPB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6F-XH-32p" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */; };
+		930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FABBD222EDC1700165F10 /* FocusingViewController.swift */; };
+		AFBB3C5A2231E2A600AB2B74 /* FocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBB3C592231E2A500AB2B74 /* FocusingScreen.storyboard */; };
 		AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */; };
 		AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */; };
 		AFBC8FA6221CD280006B1C14 /* TimelineScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */; };
@@ -60,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		930FABBD222EDC1700165F10 /* FocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewController.swift; sourceTree = "<group>"; };
+		AFBB3C592231E2A500AB2B74 /* FocusingScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FocusingScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartFocusingScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimelineScreen.storyboard; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				AFC476992200D2B80027001E /* Main.storyboard */,
 				AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */,
 				AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */,
+				AFBB3C592231E2A500AB2B74 /* FocusingScreen.storyboard */,
 				AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */,
 				AFBC8FA7221CD2B1006B1C14 /* FriendsScreen.storyboard */,
 				AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */,
@@ -232,6 +237,7 @@
 			children = (
 				AFC476972200D2B80027001E /* GameViewController.swift */,
 				AFC476CC220136110027001E /* StartFocusingViewController.swift */,
+				930FABBD222EDC1700165F10 /* FocusingViewController.swift */,
 				AFC476CE2201365B0027001E /* TimelineTableViewController.swift */,
 				AFBC8FB1221F98E6006B1C14 /* TimelineTableViewCell.swift */,
 				AFC476D0220136790027001E /* FriendsTableViewController.swift */,
@@ -369,6 +375,7 @@
 				AFC4769D2200D2C00027001E /* Assets.xcassets in Resources */,
 				AFC476A02200D2C00027001E /* LaunchScreen.storyboard in Resources */,
 				AFC476942200D2B80027001E /* Actions.sks in Resources */,
+				AFBB3C5A2231E2A600AB2B74 /* FocusingScreen.storyboard in Resources */,
 				AFC476E12201E09B0027001E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,7 +405,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -415,7 +422,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A8ECD20703CE9B164B285BA /* [CP] Check Pods Manifest.lock */ = {
@@ -451,6 +458,7 @@
 				AFC476962200D2B80027001E /* GameScene.swift in Sources */,
 				AFC476DE22014B420027001E /* AccountViewController.swift in Sources */,
 				AFC476D3220136920027001E /* AchievementsTableViewController.swift in Sources */,
+				930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */,
 				AFC476CF2201365B0027001E /* TimelineTableViewController.swift in Sources */,
 				AFC476D1220136790027001E /* FriendsTableViewController.swift in Sources */,
 				AFC476982200D2B80027001E /* GameViewController.swift in Sources */,
@@ -640,7 +648,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R668YR2RAD;
 				INFOPLIST_FILE = NewFocusInn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -664,7 +672,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R668YR2RAD;
 				INFOPLIST_FILE = NewFocusInn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
