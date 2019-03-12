@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */; };
 		930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FABBD222EDC1700165F10 /* FocusingViewController.swift */; };
-		AFBB3C5A2231E2A600AB2B74 /* FocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBB3C592231E2A500AB2B74 /* FocusingScreen.storyboard */; };
 		AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */; };
 		AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */; };
 		AFBC8FA6221CD280006B1C14 /* TimelineScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */; };
@@ -63,7 +62,6 @@
 /* Begin PBXFileReference section */
 		90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		930FABBD222EDC1700165F10 /* FocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewController.swift; sourceTree = "<group>"; };
-		AFBB3C592231E2A500AB2B74 /* FocusingScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FocusingScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartFocusingScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimelineScreen.storyboard; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				AFC476992200D2B80027001E /* Main.storyboard */,
 				AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */,
 				AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */,
-				AFBB3C592231E2A500AB2B74 /* FocusingScreen.storyboard */,
 				AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */,
 				AFBC8FA7221CD2B1006B1C14 /* FriendsScreen.storyboard */,
 				AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */,
@@ -375,7 +372,6 @@
 				AFC4769D2200D2C00027001E /* Assets.xcassets in Resources */,
 				AFC476A02200D2C00027001E /* LaunchScreen.storyboard in Resources */,
 				AFC476942200D2B80027001E /* Actions.sks in Resources */,
-				AFBB3C5A2231E2A600AB2B74 /* FocusingScreen.storyboard in Resources */,
 				AFC476E12201E09B0027001E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,7 +401,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -422,7 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A8ECD20703CE9B164B285BA /* [CP] Check Pods Manifest.lock */ = {

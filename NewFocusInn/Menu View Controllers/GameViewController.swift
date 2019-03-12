@@ -12,8 +12,12 @@ import GameplayKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    var previousScale:CGFloat = 1.0
+
+    //var previousScale:CGFloat = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +28,7 @@ class GameViewController: UIViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
+        
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -38,8 +42,22 @@ class GameViewController: UIViewController {
             
             view.ignoresSiblingOrder = true
         }
+        
+        
+        
+
+//        let gesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:)))
+//        self.view.addGestureRecognizer(gesture)
     }
 
+//    @objc func pinchAction(sender:UIPinchGestureRecognizer) {
+//        let scale:CGFloat = previousScale * sender.scale
+//        self.view.transform = CGAffineTransform(scaleX: scale, y: scale);
+//        previousScale = sender.scale
+//    }
+//
+    
+    
     override var shouldAutorotate: Bool {
         return true
     }
