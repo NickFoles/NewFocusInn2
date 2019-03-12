@@ -127,13 +127,16 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
             ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
             ref?.child("hours").child(user.uid).setValue(0)
-            ref?.child("timelineHistory").child(user.uid).setValue([[""]])
-            ref?.child("dates").child(user.uid).setValue([""])
-            
-            // [["built", "12:00", "Successfully constructed a house", "building", "achieved", "14:00", "New achievement unlocked: hacker", "house"], ["built", "12:00", "Successfully constructed a house", "building", "achieved", "14:00", "New achievement unlocked: hacker", "house"]]
-            
-            // ["Wed/Feb 27", "Thur/Feb 28r"]
+            print("sent information")
         }
+        
+//        ref = Database.database().reference()
+//
+//        if let user = Auth.auth().currentUser{
+//            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
+//            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
+//            ref?.child("hours").child(user.uid).setValue(0)
+//        }
         
         // Do any additional setup after loading the view.
     }

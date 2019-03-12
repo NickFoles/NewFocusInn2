@@ -36,12 +36,7 @@ class AchievementsTableViewController: UITableViewController {
         }
         print(1)
         ref = Database.database().reference()
-        if let user = Auth.auth().currentUser {
-            ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                self.achievements = snapshot.value as! [Int]
-            })
-            
-        }
+        
         if let user = Auth.auth().currentUser {
             ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 self.totalTime = snapshot.value as! Int
@@ -91,9 +86,9 @@ class AchievementsTableViewController: UITableViewController {
         if totalTime >= 10{
             achList.append("Workaholic - Study for 10 hours in total")
         }
-        achievements[1] = 1
+        //print(self.check)
         if let user = Auth.auth().currentUser {
-            ref?.child("achievementList").child(user.uid).setValue(achievements)
+           print("")
         }
     }
 

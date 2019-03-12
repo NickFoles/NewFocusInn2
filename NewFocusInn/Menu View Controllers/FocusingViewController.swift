@@ -13,7 +13,8 @@ class FocusingViewController: UIViewController{
     
     var timermain = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self), userInfo: nil, repeats: false)
     
-    @IBOutlet var timerLabel: UILabel!
+    var interval : Double = globalTime
+    @IBOutlet weak var timerLabel: UILabel!
     var updatetimer: Timer?
     
     var timeleft = "00:00:00"
@@ -50,9 +51,10 @@ class FocusingViewController: UIViewController{
     }
     
     override func viewDidLoad() {
-        print("View Loaded")
+        print(globalTime)
         super.viewDidLoad()
          updatetimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
+        createTimer(interval)
         updateLabel()
     }
     override func didReceiveMemoryWarning() {
