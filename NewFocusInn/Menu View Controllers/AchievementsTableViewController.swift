@@ -86,7 +86,7 @@ class AchievementsTableViewController: UITableViewController {
         if totalTime >= 10{
             achList.append("Workaholic - Study for 10 hours in total")
         }
-        print(self.check)
+        //print(self.check)
         if let user = Auth.auth().currentUser {
            print("")
         }
