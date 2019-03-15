@@ -27,6 +27,7 @@ class FocusingViewController: UIViewController{
             timermain in
          //   self.completeNotification()
          // let shiftwin = CompletionViewController()
+            self.completeNotification()
             print("Timer Done 2.0")
             //self.navigationController?.pushViewController(shiftwin, animated: true)
         }
@@ -48,6 +49,39 @@ class FocusingViewController: UIViewController{
     //Passes total time left in seconds
     func totaltimeleft()->Int{
         return Int(timermain.fireDate.timeIntervalSinceNow)
+    }
+    
+    func timeLeftNotification() {
+        print("Time Left Notifcation Here!")
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "It's time to FocusInn!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "You have "+String(timeleft)+" left in your studying session.", arguments: nil)
+        // content.body = "You've been away from the app for "+String(stopwatch.elapsedTime) + " seconds. Test123"
+        content.badge = 1
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    func completeNotification() {
+         print("Completetion Left Notifcation Here!")
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "It's time to FocusInn!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "You have finished your studying session!", arguments: nil)
+        // content.body = "You've been away from the app for "+String(stopwatch.elapsedTime) + " seconds. Test123"
+        // content.badge = 1
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    func exitEarly(){
+        timermain.invalidate()
+        self.completeNotification()
+       // let shiftlose = LoseViewController
+        //self.navigationController?.pushViewController(shiftlose, animated: true)
     }
     
     override func viewDidLoad() {
