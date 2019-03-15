@@ -38,8 +38,8 @@ class FocusingViewController: UIViewController{
     //Updates the Label...
     @objc func updateLabel(){
         //  updatetimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
-        let hours = Int(timermain.fireDate.timeIntervalSinceNow/60/24)
-        let minutes = Int(timermain.fireDate.timeIntervalSinceNow/60)
+        let hours = Int(timermain.fireDate.timeIntervalSinceNow/60/60)
+        let minutes = Int(timermain.fireDate.timeIntervalSinceNow/60)%60
         let second = Int(timermain.fireDate.timeIntervalSinceNow) % 60
         
         timerLabel.text = String(format:"%02d:%02d:%02d", hours, minutes, second)
