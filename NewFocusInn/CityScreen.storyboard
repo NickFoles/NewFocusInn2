@@ -32,6 +32,10 @@
                     <skView key="view" contentMode="scaleToFill" id="cCi-Ut-7LN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Lwt-5w-n7K" appends="YES" id="1YX-de-QZr"/>
+                        </connections>
                     </skView>
                     <navigationItem key="navigationItem" title="City" id="qjA-yN-BNP">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="reD-4h-ycg"/>
@@ -42,6 +46,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAM-8Z-Zj2" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="Lwt-5w-n7K">
+                    <connections>
+                        <action selector="scalePiece:" destination="oBa-M1-Ycs" id="c1y-Mi-fb1"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="498" y="-187"/>
         </scene>

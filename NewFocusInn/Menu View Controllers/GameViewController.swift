@@ -42,9 +42,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
             
             view.ignoresSiblingOrder = true
         }
-        
-        
-        
 
 //        let gesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:)))
 //        self.view.addGestureRecognizer(gesture)
@@ -56,7 +53,26 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
 //        previousScale = sender.scale
 //    }
 //
-    
+    @IBAction func scalePiece(_ gestureRecognizer : UIPinchGestureRecognizer) {   guard gestureRecognizer.view != nil else { return }
+        let minScale: CGFloat = 1.0
+        let maxScale: CGFloat = 4.0
+        
+        
+        let currentScale = view.frame.width/view.bounds.size.width
+        var newScale = gestureRecognizer.scale
+        
+        if currentScale * gestureRecognizer.scale < minScale {
+            newScale = minScale / currentScale
+        }
+        else if currentScale * gestureRecognizer.scale > maxScale {
+            newScale = maxScale / currentScale
+        }
+        view.transform = view.transform.scaledBy(x: newScale, y: newScale)
+        
+//        print("current scale: \(currentScale), new scale: \(newScale)")
+        
+        gestureRecognizer.scale = 1
+    }
     
     override var shouldAutorotate: Bool {
         return true
