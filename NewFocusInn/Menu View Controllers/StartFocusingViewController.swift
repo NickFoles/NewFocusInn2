@@ -10,12 +10,6 @@ var globalTime : Double = 0
 
 import UIKit
 
-
-
-
-
-
-
 class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     private var time:[[Int]] = [[0,1,2,3],[0,5,10,15,20,25,30,35,40,45,50,55]]
@@ -25,13 +19,15 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
  
+    @IBOutlet weak var buildingImage: UIImageView!
+    
     @IBOutlet weak var timeSetter: UIPickerView!
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         
         
         
-        secondsToSend = Double(time[0][timeSetter.selectedRow(inComponent: 0)])*60*60+Double(time[1][timeSetter.selectedRow(inComponent:1)])*60
+        secondsToSend = Double(time[0][timeSetter.selectedRow(inComponent: 0)])*60*60 + Double(time[1][timeSetter.selectedRow(inComponent:1)])*60
         
         print(secondsToSend)
         
@@ -98,11 +94,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         return 2
         
     }
-    
-    
-    
-    
-    
+
     //Sets PickerView Component Lengths
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -224,6 +216,36 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     }
     
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let min = Double(time[0][timeSetter.selectedRow(inComponent: 0)])*60 + Double(time[1][timeSetter.selectedRow(inComponent:1)])
+        
+        print(min)
+        if min >= 0{
+            buildingImage.image = UIImage(named: "house")
+            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "house")!.size.height)).isActive = true
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "house")!.size.width)).isActive = true
+        }
+        if min >= 45{
+            buildingImage.image = UIImage(named: "building")
+          //  buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "building")!.size.height)*2.5).isActive = true
+          //  buildingImage.image = UIImage(named: "building")
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "building")!.size.width)*2.5).isActive = true
+        }
+        if min >= 90{
+            buildingImage.image = UIImage(named: "eiffel")
+            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "eiffel")!.size.height)*2.5).isActive = true
+            buildingImage.image = UIImage(named: "eiffel")
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "eiffel")!.size.width)*2.5).isActive = true
+        }
+        if min >= 180{
+            buildingImage.image = UIImage(named: "empire")
+            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "empire")!.size.height)*3.5).isActive = true
+            buildingImage.image = UIImage(named: "empire")
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "empire")!.size.width)*5.5).isActive = true
+        }
+        
+    }
+    
     
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
@@ -241,6 +263,8 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     
     
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -251,14 +275,8 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         
         print(time[1][2])
         
-        
-        
-        
-        
-        
-        
-        
-        
+        buildingImage.image = UIImage(named: "house")
+
         if self.revealViewController() != nil {
             
             menuButton.target = self.revealViewController()
