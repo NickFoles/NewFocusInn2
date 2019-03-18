@@ -14,10 +14,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     
+    // takes the user to their account homescreen if successfully logged in
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "toFirebaseHome", sender: self)
+            self.performSegue(withIdentifier: "toAccountHome", sender: self)
         }
     }
     

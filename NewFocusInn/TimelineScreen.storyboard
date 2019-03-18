@@ -29,18 +29,83 @@
         <scene sceneID="EAG-yf-1eF">
             <objects>
                 <tableViewController id="gGP-Tb-zR2" customClass="TimelineTableViewController" customModule="NewFocusInn" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9rA-DY-hxB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9rA-DY-hxB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.31832120752094184" green="0.80188866950118742" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JHM-GZ-G3a">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Timeline Cell" rowHeight="200" id="7q7-p6-rkV" customClass="TimelineTableViewCell" customModule="NewFocusInn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JHM-GZ-G3a" id="NfR-i3-Ip2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7q7-p6-rkV" id="ZVq-fu-z2B">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XSq-er-oIg">
+                                            <rect key="frame" x="10" y="10" width="32" height="32"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="cyC-q9-hvf"/>
+                                                <constraint firstAttribute="width" constant="32" id="stA-2B-aEA"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCX-0A-BmP">
+                                            <rect key="frame" x="50" y="40.5" width="88" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKv-XD-VPC">
+                                            <rect key="frame" x="50" y="16" width="28" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DzW-If-ycc">
+                                            <rect key="frame" x="50" y="70" width="275" height="119"/>
+                                            <color key="backgroundColor" red="0.0" green="0.67181866176918281" blue="0.8469622461928934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="119" id="ZEd-YG-27B"/>
+                                                <constraint firstAttribute="width" constant="275" id="a1m-aN-HfJ"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="7"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bCX-0A-BmP" firstAttribute="leading" secondItem="XSq-er-oIg" secondAttribute="trailing" constant="8" id="4yY-wd-CE3"/>
+                                        <constraint firstItem="DzW-If-ycc" firstAttribute="bottom" secondItem="ZVq-fu-z2B" secondAttribute="bottomMargin" id="9zh-Kq-vr9"/>
+                                        <constraint firstItem="DzW-If-ycc" firstAttribute="leading" secondItem="ZVq-fu-z2B" secondAttribute="leadingMargin" constant="34" id="G29-k3-CW3"/>
+                                        <constraint firstItem="QKv-XD-VPC" firstAttribute="leading" secondItem="XSq-er-oIg" secondAttribute="trailing" constant="8" id="JWg-lb-dHY"/>
+                                        <constraint firstItem="bCX-0A-BmP" firstAttribute="top" secondItem="QKv-XD-VPC" secondAttribute="bottom" constant="10" id="Jmp-0a-EeA"/>
+                                        <constraint firstItem="QKv-XD-VPC" firstAttribute="top" secondItem="ZVq-fu-z2B" secondAttribute="topMargin" constant="5" id="f9X-aq-jtn"/>
+                                        <constraint firstItem="XSq-er-oIg" firstAttribute="leading" secondItem="ZVq-fu-z2B" secondAttribute="leading" constant="10" id="liJ-3q-0Ww"/>
+                                        <constraint firstItem="XSq-er-oIg" firstAttribute="top" secondItem="ZVq-fu-z2B" secondAttribute="top" constant="10" id="oYg-wm-Ivm"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DzW-If-ycc" secondAttribute="trailing" constant="34" id="plW-1d-Ecj"/>
+                                        <constraint firstItem="DzW-If-ycc" firstAttribute="top" secondItem="bCX-0A-BmP" secondAttribute="bottom" constant="8.5" id="t4S-48-yNk"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="cellDescription" destination="bCX-0A-BmP" id="Qx2-pE-BUQ"/>
+                                    <outlet property="cellImage" destination="DzW-If-ycc" id="bRL-JK-Fmd"/>
+                                    <outlet property="thumbnail" destination="XSq-er-oIg" id="y6i-L0-FDu"/>
+                                    <outlet property="time" destination="QKv-XD-VPC" id="XJk-of-zyj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,7 +122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwT-0d-iNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="497" y="1527"/>
+            <point key="canvasLocation" x="496.80000000000001" y="1526.9865067466269"/>
         </scene>
     </scenes>
     <resources>

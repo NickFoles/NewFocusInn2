@@ -16,7 +16,7 @@ class AchievementsTableViewController: UITableViewController {
     
     var ref: DatabaseReference!
     var achievements: [Int] = [0,0,0,0,0]
-    var totalTime : Int = 10
+    var totalTime = 10
     
     var achList : [String] = [""]
 //                              ["Marathon - Study for 2 hours straight",
@@ -28,26 +28,22 @@ class AchievementsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // used to access the sidebar menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
+        print(1)
         ref = Database.database().reference()
-        if let user = Auth.auth().currentUser {
-            ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                self.achievements = snapshot.value as! [Int]
-            })
-            
-        }
+        
         if let user = Auth.auth().currentUser {
             ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 self.totalTime = snapshot.value as! Int
             })
             
         }
-        
+        print(2)
         checkAchievements()
         
         
@@ -57,23 +53,27 @@ class AchievementsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        print(3)
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print(4)
         return achList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        print(5)
         let tableViewCell = UITableViewCell()
         if let user = Auth.auth().currentUser{
             if achList.count > 0{
+                print(6)
                 tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
                 tableViewCell.textLabel?.textAlignment = .center
-                print(indexPath.row)
+//                print(indexPath.row)
                 tableViewCell.textLabel?.text = achList[indexPath.row]
             }
         }
@@ -82,12 +82,13 @@ class AchievementsTableViewController: UITableViewController {
  
     
     func checkAchievements(){
+        print(7)
         if totalTime >= 10{
             achList.append("Workaholic - Study for 10 hours in total")
         }
-        achievements[1] = 1
+        //print(self.check)
         if let user = Auth.auth().currentUser {
-            ref?.child("achievementList").child(user.uid).setValue(achievements)
+           print("")
         }
     }
 

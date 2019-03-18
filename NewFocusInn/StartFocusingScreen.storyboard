@@ -29,23 +29,81 @@
         <!--Start Focusing-->
         <scene sceneID="gcf-4Y-mai">
             <objects>
-                <viewController id="6c6-1l-dvt" customClass="StartFocusingViewController" customModule="NewFocusInn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartFocusingScreenViewController" id="6c6-1l-dvt" customClass="StartFocusingViewController" customModule="NewFocusInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9x-Pz-tfX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjQ-Oz-0Em">
+                                <rect key="frame" x="128" y="520" width="119" height="47"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <state key="normal" title="Set Time">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="6c6-1l-dvt" eventType="touchUpInside" id="jEg-c0-75G"/>
+                                    <segue destination="FaY-n5-zSB" kind="show" id="ofn-a0-sj9"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-L4-tqt">
+                                <rect key="frame" x="27.5" y="234" width="320" height="216"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ex5-dy-COF">
+                                <rect key="frame" x="105.3566852948959" y="110" width="164.00000000000003" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S9t-MD-yMJ" firstAttribute="bottom" secondItem="JjQ-Oz-0Em" secondAttribute="bottom" constant="100" id="5Bh-u1-5Fj"/>
+                            <constraint firstItem="JjQ-Oz-0Em" firstAttribute="top" secondItem="jRP-L4-tqt" secondAttribute="bottom" constant="70" id="5wn-Fj-L43"/>
+                            <constraint firstItem="JjQ-Oz-0Em" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="NUO-HB-QAc"/>
+                            <constraint firstItem="jRP-L4-tqt" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="lj8-Mo-CR4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S9t-MD-yMJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Start Focusing" id="fyh-h0-a2E">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="dN1-Dz-qcf"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buildingImage" destination="Ex5-dy-COF" id="8Yr-W1-HC1"/>
                         <outlet property="menuButton" destination="dN1-Dz-qcf" id="Bp7-Ov-3MS"/>
+                        <outlet property="timeSetter" destination="jRP-L4-tqt" id="uZq-wU-XVM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjZ-PR-z2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="497" y="699"/>
+            <point key="canvasLocation" x="496.80000000000001" y="698.5007496251875"/>
+        </scene>
+        <!--Focusing View Controller-->
+        <scene sceneID="QbR-au-1n0">
+            <objects>
+                <viewController storyboardIdentifier="FocusingScreenViewController" id="FaY-n5-zSB" customClass="FocusingViewController" customModule="NewFocusInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4F7-kD-OEP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-rB-t1k">
+                                <rect key="frame" x="116" y="268" width="142" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5f3-nQ-b4V"/>
+                    </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="fkF-rB-t1k" id="l32-bW-r94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryt-A8-3XF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256.8" y="700.29985007496259"/>
         </scene>
     </scenes>
     <resources>

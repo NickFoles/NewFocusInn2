@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -25,6 +27,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // used to access the sidebar menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -39,6 +42,7 @@ class SettingsTableViewController: UITableViewController {
         else {
             account.text = "Log In"
         }
+        
+        
     }
-
 }
