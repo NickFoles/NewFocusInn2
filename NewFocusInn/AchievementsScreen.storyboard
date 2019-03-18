@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2sC-8Z-T5E">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Achievements Navigation Controller-->
+        <scene sceneID="1iW-tw-kMN">
+            <objects>
+                <navigationController id="2sC-8Z-T5E" userLabel="Achievements Navigation Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="onO-PY-q0l">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZBW-q6-RBA" kind="relationship" relationship="rootViewController" id="Cpa-RW-sbN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJx-9c-Rhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-450" y="3295"/>
+        </scene>
+        <!--Achievements-->
+        <scene sceneID="zar-YC-iGN">
+            <objects>
+                <tableViewController id="ZBW-q6-RBA" customClass="AchievementsTableViewController" customModule="NewFocusInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1BB-WU-sJd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Achievement Cell" rowHeight="89" id="5xY-Ms-qfH">
+                                <rect key="frame" x="0.0" y="28" width="375" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5xY-Ms-qfH" id="qZa-HW-5YS">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-8g-jCt">
+                                            <rect key="frame" x="20" y="12.5" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="Fge-Sx-pvw"/>
+                                                <constraint firstAttribute="width" constant="64" id="b17-qw-Pfv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2n-pC-YND">
+                                            <rect key="frame" x="104" y="12.5" width="35.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXf-OT-P3l">
+                                            <rect key="frame" x="104" y="51.5" width="69.5" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pXf-OT-P3l" secondAttribute="bottom" constant="10.5" id="G2D-QO-oZp"/>
+                                        <constraint firstItem="q2n-pC-YND" firstAttribute="top" secondItem="qZa-HW-5YS" secondAttribute="topMargin" constant="1.5" id="T2G-SS-4wE"/>
+                                        <constraint firstItem="cz5-8g-jCt" firstAttribute="centerY" secondItem="qZa-HW-5YS" secondAttribute="centerY" id="Xu0-55-s9A"/>
+                                        <constraint firstItem="q2n-pC-YND" firstAttribute="leading" secondItem="cz5-8g-jCt" secondAttribute="trailing" constant="20" id="kQK-rp-luB"/>
+                                        <constraint firstItem="cz5-8g-jCt" firstAttribute="leading" secondItem="qZa-HW-5YS" secondAttribute="leading" constant="20" id="uF6-Sk-62K"/>
+                                        <constraint firstItem="pXf-OT-P3l" firstAttribute="leading" secondItem="cz5-8g-jCt" secondAttribute="trailing" constant="20" id="y7L-iT-meM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZBW-q6-RBA" id="zHt-oW-Q5l"/>
+                            <outlet property="delegate" destination="ZBW-q6-RBA" id="gVU-55-jo3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Achievements" id="4dq-Nk-TP1">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="nLY-ZY-Oe8"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="nLY-ZY-Oe8" id="fsS-Ls-FWw"/>
+                        <outlet property="table" destination="1BB-WU-sJd" id="ChC-Ke-2af"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Shu-Jp-g38" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496.80000000000001" y="3294.6026986506749"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu" width="22" height="22"/>
+    </resources>
+</document>

@@ -1,0 +1,810 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */; };
+		930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FABBD222EDC1700165F10 /* FocusingViewController.swift */; };
+		AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */; };
+		AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */; };
+		AFBC8FA6221CD280006B1C14 /* TimelineScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */; };
+		AFBC8FA8221CD2B1006B1C14 /* FriendsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA7221CD2B1006B1C14 /* FriendsScreen.storyboard */; };
+		AFBC8FAA221CD2C5006B1C14 /* AchievementsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */; };
+		AFBC8FAC221CD2D6006B1C14 /* SettingsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FAB221CD2D6006B1C14 /* SettingsScreen.storyboard */; };
+		AFBC8FAE221CD2EB006B1C14 /* FirebaseScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FAD221CD2EB006B1C14 /* FirebaseScreen.storyboard */; };
+		AFBC8FB2221F98E6006B1C14 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC8FB1221F98E6006B1C14 /* TimelineTableViewCell.swift */; };
+		AFC476902200D2B80027001E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC4768F2200D2B80027001E /* AppDelegate.swift */; };
+		AFC476922200D2B80027001E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AFC476912200D2B80027001E /* GameScene.sks */; };
+		AFC476942200D2B80027001E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = AFC476932200D2B80027001E /* Actions.sks */; };
+		AFC476962200D2B80027001E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476952200D2B80027001E /* GameScene.swift */; };
+		AFC476982200D2B80027001E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476972200D2B80027001E /* GameViewController.swift */; };
+		AFC4769B2200D2B80027001E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC476992200D2B80027001E /* Main.storyboard */; };
+		AFC4769D2200D2C00027001E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC4769C2200D2C00027001E /* Assets.xcassets */; };
+		AFC476A02200D2C00027001E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC4769E2200D2C00027001E /* LaunchScreen.storyboard */; };
+		AFC476AB2200D2C10027001E /* NewFocusInnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476AA2200D2C10027001E /* NewFocusInnTests.swift */; };
+		AFC476B62200D2C10027001E /* NewFocusInnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476B52200D2C10027001E /* NewFocusInnUITests.swift */; };
+		AFC476C42200D4030027001E /* CityTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = AFC476C32200D4030027001E /* CityTileSet.sks */; };
+		AFC476C9220116D50027001E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC476C8220116D50027001E /* SWRevealViewController.m */; };
+		AFC476CB220135A80027001E /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476CA220135A80027001E /* MenuTableViewController.swift */; };
+		AFC476CD220136110027001E /* StartFocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476CC220136110027001E /* StartFocusingViewController.swift */; };
+		AFC476CF2201365B0027001E /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476CE2201365B0027001E /* TimelineTableViewController.swift */; };
+		AFC476D1220136790027001E /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476D0220136790027001E /* FriendsTableViewController.swift */; };
+		AFC476D3220136920027001E /* AchievementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476D2220136920027001E /* AchievementsTableViewController.swift */; };
+		AFC476D5220136A10027001E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476D4220136A10027001E /* SettingsTableViewController.swift */; };
+		AFC476D822014AD50027001E /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476D722014AD50027001E /* FirebaseViewController.swift */; };
+		AFC476DA22014B270027001E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476D922014B270027001E /* SignUpViewController.swift */; };
+		AFC476DC22014B370027001E /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476DB22014B370027001E /* LogInViewController.swift */; };
+		AFC476DE22014B420027001E /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC476DD22014B420027001E /* AccountViewController.swift */; };
+		AFC476E12201E09B0027001E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFC476E02201E09B0027001E /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AFC476A72200D2C10027001E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFC476842200D2B80027001E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFC4768B2200D2B80027001E;
+			remoteInfo = NewFocusInn;
+		};
+		AFC476B22200D2C10027001E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFC476842200D2B80027001E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFC4768B2200D2B80027001E;
+			remoteInfo = NewFocusInn;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		930FABBD222EDC1700165F10 /* FocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewController.swift; sourceTree = "<group>"; };
+		AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartFocusingScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimelineScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FA7221CD2B1006B1C14 /* FriendsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AchievementsScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FAB221CD2D6006B1C14 /* SettingsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FAD221CD2EB006B1C14 /* FirebaseScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseScreen.storyboard; sourceTree = "<group>"; };
+		AFBC8FB1221F98E6006B1C14 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		AFC4768C2200D2B80027001E /* NewFocusInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewFocusInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC4768F2200D2B80027001E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AFC476912200D2B80027001E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		AFC476932200D2B80027001E /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		AFC476952200D2B80027001E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		AFC476972200D2B80027001E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AFC4769A2200D2B80027001E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AFC4769C2200D2C00027001E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFC4769F2200D2C00027001E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AFC476A12200D2C00027001E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFC476A62200D2C10027001E /* NewFocusInnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFocusInnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC476AA2200D2C10027001E /* NewFocusInnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFocusInnTests.swift; sourceTree = "<group>"; };
+		AFC476AC2200D2C10027001E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFC476B12200D2C10027001E /* NewFocusInnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFocusInnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC476B52200D2C10027001E /* NewFocusInnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFocusInnUITests.swift; sourceTree = "<group>"; };
+		AFC476B72200D2C10027001E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFC476C32200D4030027001E /* CityTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CityTileSet.sks; sourceTree = "<group>"; };
+		AFC476C6220116D40027001E /* NewFocusInn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewFocusInn-Bridging-Header.h"; sourceTree = "<group>"; };
+		AFC476C7220116D50027001E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		AFC476C8220116D50027001E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		AFC476CA220135A80027001E /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		AFC476CC220136110027001E /* StartFocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFocusingViewController.swift; sourceTree = "<group>"; };
+		AFC476CE2201365B0027001E /* TimelineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
+		AFC476D0220136790027001E /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		AFC476D2220136920027001E /* AchievementsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewController.swift; sourceTree = "<group>"; };
+		AFC476D4220136A10027001E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		AFC476D722014AD50027001E /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
+		AFC476D922014B270027001E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		AFC476DB22014B370027001E /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		AFC476DD22014B420027001E /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		AFC476E02201E09B0027001E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD45C54EEDD449B2224C7E8E /* Pods-NewFocusInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFocusInn.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn.release.xcconfig"; sourceTree = "<group>"; };
+		EDB903D6EEA6EF5566AA9C4C /* Pods-NewFocusInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFocusInn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFC476892200D2B80027001E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFC476A32200D2C10027001E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFC476AE2200D2C10027001E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7189364CAE05AEBEA17130DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDB903D6EEA6EF5566AA9C4C /* Pods-NewFocusInn.debug.xcconfig */,
+				BD45C54EEDD449B2224C7E8E /* Pods-NewFocusInn.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFC476832200D2B80027001E = {
+			isa = PBXGroup;
+			children = (
+				AFC4768E2200D2B80027001E /* NewFocusInn */,
+				AFC476A92200D2C10027001E /* NewFocusInnTests */,
+				AFC476B42200D2C10027001E /* NewFocusInnUITests */,
+				AFC4768D2200D2B80027001E /* Products */,
+				7189364CAE05AEBEA17130DC /* Pods */,
+				D3CF867703E2A03F2A6BC9F1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AFC4768D2200D2B80027001E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFC4768C2200D2B80027001E /* NewFocusInn.app */,
+				AFC476A62200D2C10027001E /* NewFocusInnTests.xctest */,
+				AFC476B12200D2C10027001E /* NewFocusInnUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFC4768E2200D2B80027001E /* NewFocusInn */ = {
+			isa = PBXGroup;
+			children = (
+				AFC476DF22014E6B0027001E /* Menu View Controllers */,
+				AFC476D622014A9A0027001E /* Firebase View Controllers */,
+				AFC476C5220116B50027001E /* SWRevealViewController */,
+				AFC476912200D2B80027001E /* GameScene.sks */,
+				AFC476C32200D4030027001E /* CityTileSet.sks */,
+				AFC476932200D2B80027001E /* Actions.sks */,
+				AFC4768F2200D2B80027001E /* AppDelegate.swift */,
+				AFC476952200D2B80027001E /* GameScene.swift */,
+				AFC476CA220135A80027001E /* MenuTableViewController.swift */,
+				AFC476992200D2B80027001E /* Main.storyboard */,
+				AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */,
+				AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */,
+				AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */,
+				AFBC8FA7221CD2B1006B1C14 /* FriendsScreen.storyboard */,
+				AFBC8FA9221CD2C5006B1C14 /* AchievementsScreen.storyboard */,
+				AFBC8FAB221CD2D6006B1C14 /* SettingsScreen.storyboard */,
+				AFBC8FAD221CD2EB006B1C14 /* FirebaseScreen.storyboard */,
+				AFC4769E2200D2C00027001E /* LaunchScreen.storyboard */,
+				AFC4769C2200D2C00027001E /* Assets.xcassets */,
+				AFC476A12200D2C00027001E /* Info.plist */,
+				AFC476E02201E09B0027001E /* GoogleService-Info.plist */,
+			);
+			path = NewFocusInn;
+			sourceTree = "<group>";
+		};
+		AFC476A92200D2C10027001E /* NewFocusInnTests */ = {
+			isa = PBXGroup;
+			children = (
+				AFC476AA2200D2C10027001E /* NewFocusInnTests.swift */,
+				AFC476AC2200D2C10027001E /* Info.plist */,
+			);
+			path = NewFocusInnTests;
+			sourceTree = "<group>";
+		};
+		AFC476B42200D2C10027001E /* NewFocusInnUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AFC476B52200D2C10027001E /* NewFocusInnUITests.swift */,
+				AFC476B72200D2C10027001E /* Info.plist */,
+			);
+			path = NewFocusInnUITests;
+			sourceTree = "<group>";
+		};
+		AFC476C5220116B50027001E /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AFC476C7220116D50027001E /* SWRevealViewController.h */,
+				AFC476C8220116D50027001E /* SWRevealViewController.m */,
+				AFC476C6220116D40027001E /* NewFocusInn-Bridging-Header.h */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		AFC476D622014A9A0027001E /* Firebase View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFC476D722014AD50027001E /* FirebaseViewController.swift */,
+				AFC476D922014B270027001E /* SignUpViewController.swift */,
+				AFC476DB22014B370027001E /* LogInViewController.swift */,
+				AFC476DD22014B420027001E /* AccountViewController.swift */,
+			);
+			path = "Firebase View Controllers";
+			sourceTree = "<group>";
+		};
+		AFC476DF22014E6B0027001E /* Menu View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFC476972200D2B80027001E /* GameViewController.swift */,
+				AFC476CC220136110027001E /* StartFocusingViewController.swift */,
+				930FABBD222EDC1700165F10 /* FocusingViewController.swift */,
+				AFC476CE2201365B0027001E /* TimelineTableViewController.swift */,
+				AFBC8FB1221F98E6006B1C14 /* TimelineTableViewCell.swift */,
+				AFC476D0220136790027001E /* FriendsTableViewController.swift */,
+				AFC476D2220136920027001E /* AchievementsTableViewController.swift */,
+				AFC476D4220136A10027001E /* SettingsTableViewController.swift */,
+			);
+			path = "Menu View Controllers";
+			sourceTree = "<group>";
+		};
+		D3CF867703E2A03F2A6BC9F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFC4768B2200D2B80027001E /* NewFocusInn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFC476BA2200D2C10027001E /* Build configuration list for PBXNativeTarget "NewFocusInn" */;
+			buildPhases = (
+				9A8ECD20703CE9B164B285BA /* [CP] Check Pods Manifest.lock */,
+				AFC476882200D2B80027001E /* Sources */,
+				AFC476892200D2B80027001E /* Frameworks */,
+				AFC4768A2200D2B80027001E /* Resources */,
+				45C0807D08919A3EA3CD9BF0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NewFocusInn;
+			productName = NewFocusInn;
+			productReference = AFC4768C2200D2B80027001E /* NewFocusInn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AFC476A52200D2C10027001E /* NewFocusInnTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFC476BD2200D2C10027001E /* Build configuration list for PBXNativeTarget "NewFocusInnTests" */;
+			buildPhases = (
+				AFC476A22200D2C10027001E /* Sources */,
+				AFC476A32200D2C10027001E /* Frameworks */,
+				AFC476A42200D2C10027001E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFC476A82200D2C10027001E /* PBXTargetDependency */,
+			);
+			name = NewFocusInnTests;
+			productName = NewFocusInnTests;
+			productReference = AFC476A62200D2C10027001E /* NewFocusInnTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AFC476B02200D2C10027001E /* NewFocusInnUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFC476C02200D2C10027001E /* Build configuration list for PBXNativeTarget "NewFocusInnUITests" */;
+			buildPhases = (
+				AFC476AD2200D2C10027001E /* Sources */,
+				AFC476AE2200D2C10027001E /* Frameworks */,
+				AFC476AF2200D2C10027001E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFC476B32200D2C10027001E /* PBXTargetDependency */,
+			);
+			name = NewFocusInnUITests;
+			productName = NewFocusInnUITests;
+			productReference = AFC476B12200D2C10027001E /* NewFocusInnUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFC476842200D2B80027001E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Dara Oseyemi (student LM)";
+				TargetAttributes = {
+					AFC4768B2200D2B80027001E = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					AFC476A52200D2C10027001E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = AFC4768B2200D2B80027001E;
+					};
+					AFC476B02200D2C10027001E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = AFC4768B2200D2B80027001E;
+					};
+				};
+			};
+			buildConfigurationList = AFC476872200D2B80027001E /* Build configuration list for PBXProject "NewFocusInn" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFC476832200D2B80027001E;
+			productRefGroup = AFC4768D2200D2B80027001E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFC4768B2200D2B80027001E /* NewFocusInn */,
+				AFC476A52200D2C10027001E /* NewFocusInnTests */,
+				AFC476B02200D2C10027001E /* NewFocusInnUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFC4768A2200D2B80027001E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC476C42200D4030027001E /* CityTileSet.sks in Resources */,
+				AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */,
+				AFC4769B2200D2B80027001E /* Main.storyboard in Resources */,
+				AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */,
+				AFBC8FAC221CD2D6006B1C14 /* SettingsScreen.storyboard in Resources */,
+				AFBC8FA6221CD280006B1C14 /* TimelineScreen.storyboard in Resources */,
+				AFBC8FAA221CD2C5006B1C14 /* AchievementsScreen.storyboard in Resources */,
+				AFBC8FAE221CD2EB006B1C14 /* FirebaseScreen.storyboard in Resources */,
+				AFBC8FA8221CD2B1006B1C14 /* FriendsScreen.storyboard in Resources */,
+				AFC476922200D2B80027001E /* GameScene.sks in Resources */,
+				AFC4769D2200D2C00027001E /* Assets.xcassets in Resources */,
+				AFC476A02200D2C00027001E /* LaunchScreen.storyboard in Resources */,
+				AFC476942200D2B80027001E /* Actions.sks in Resources */,
+				AFC476E12201E09B0027001E /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFC476A42200D2C10027001E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFC476AF2200D2C10027001E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45C0807D08919A3EA3CD9BF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A8ECD20703CE9B164B285BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewFocusInn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFC476882200D2B80027001E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC476D822014AD50027001E /* FirebaseViewController.swift in Sources */,
+				AFC476962200D2B80027001E /* GameScene.swift in Sources */,
+				AFC476DE22014B420027001E /* AccountViewController.swift in Sources */,
+				AFC476D3220136920027001E /* AchievementsTableViewController.swift in Sources */,
+				930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */,
+				AFC476CF2201365B0027001E /* TimelineTableViewController.swift in Sources */,
+				AFC476D1220136790027001E /* FriendsTableViewController.swift in Sources */,
+				AFC476982200D2B80027001E /* GameViewController.swift in Sources */,
+				AFBC8FB2221F98E6006B1C14 /* TimelineTableViewCell.swift in Sources */,
+				AFC476DC22014B370027001E /* LogInViewController.swift in Sources */,
+				AFC476DA22014B270027001E /* SignUpViewController.swift in Sources */,
+				AFC476CB220135A80027001E /* MenuTableViewController.swift in Sources */,
+				AFC476D5220136A10027001E /* SettingsTableViewController.swift in Sources */,
+				AFC476902200D2B80027001E /* AppDelegate.swift in Sources */,
+				AFC476C9220116D50027001E /* SWRevealViewController.m in Sources */,
+				AFC476CD220136110027001E /* StartFocusingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFC476A22200D2C10027001E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC476AB2200D2C10027001E /* NewFocusInnTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFC476AD2200D2C10027001E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC476B62200D2C10027001E /* NewFocusInnUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AFC476A82200D2C10027001E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFC4768B2200D2B80027001E /* NewFocusInn */;
+			targetProxy = AFC476A72200D2C10027001E /* PBXContainerItemProxy */;
+		};
+		AFC476B32200D2C10027001E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFC4768B2200D2B80027001E /* NewFocusInn */;
+			targetProxy = AFC476B22200D2C10027001E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AFC476992200D2B80027001E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFC4769A2200D2B80027001E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AFC4769E2200D2C00027001E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFC4769F2200D2C00027001E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AFC476B82200D2C10027001E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AFC476B92200D2C10027001E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFC476BB2200D2C10027001E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDB903D6EEA6EF5566AA9C4C /* Pods-NewFocusInn.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R668YR2RAD;
+				INFOPLIST_FILE = NewFocusInn/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Computer-Science-Seminar.NewFocusInn";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewFocusInn/SWRevealViewController/NewFocusInn-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFC476BC2200D2C10027001E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD45C54EEDD449B2224C7E8E /* Pods-NewFocusInn.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R668YR2RAD;
+				INFOPLIST_FILE = NewFocusInn/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Computer-Science-Seminar.NewFocusInn";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewFocusInn/SWRevealViewController/NewFocusInn-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AFC476BE2200D2C10027001E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R668YR2RAD;
+				INFOPLIST_FILE = NewFocusInnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Computer-Science-Seminar.NewFocusInnTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewFocusInn.app/NewFocusInn";
+			};
+			name = Debug;
+		};
+		AFC476BF2200D2C10027001E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R668YR2RAD;
+				INFOPLIST_FILE = NewFocusInnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Computer-Science-Seminar.NewFocusInnTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewFocusInn.app/NewFocusInn";
+			};
+			name = Release;
+		};
+		AFC476C12200D2C10027001E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R668YR2RAD;
+				INFOPLIST_FILE = NewFocusInnUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Computer-Science-Seminar.NewFocusInnUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NewFocusInn;
+			};
+			name = Debug;
+		};
+		AFC476C22200D2C10027001E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R668YR2RAD;
+				INFOPLIST_FILE = NewFocusInnUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Computer-Science-Seminar.NewFocusInnUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NewFocusInn;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFC476872200D2B80027001E /* Build configuration list for PBXProject "NewFocusInn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFC476B82200D2C10027001E /* Debug */,
+				AFC476B92200D2C10027001E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFC476BA2200D2C10027001E /* Build configuration list for PBXNativeTarget "NewFocusInn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFC476BB2200D2C10027001E /* Debug */,
+				AFC476BC2200D2C10027001E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFC476BD2200D2C10027001E /* Build configuration list for PBXNativeTarget "NewFocusInnTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFC476BE2200D2C10027001E /* Debug */,
+				AFC476BF2200D2C10027001E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFC476C02200D2C10027001E /* Build configuration list for PBXNativeTarget "NewFocusInnUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFC476C12200D2C10027001E /* Debug */,
+				AFC476C22200D2C10027001E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFC476842200D2B80027001E /* Project object */;
+}
