@@ -61,7 +61,7 @@ class GameScene: SKScene {
                 addChild(build)
             }
             else if build == empire {
-                build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 11)
+                build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 14)
                 addChild(build)
             }
             else if build == greyBuilding {
