@@ -23,6 +23,9 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     var secondsToSend: Double = 0
  
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBAction func backToStartFocusing(unwindSegue: UIStoryboardSegue) {
+        
+    }
     
  
     @IBOutlet weak var timeSetter: UIPickerView!
