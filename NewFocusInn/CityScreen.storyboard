@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0AD-Yc-acX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--City Navigation Controller-->
+        <scene sceneID="KGf-HM-ZLk">
+            <objects>
+                <navigationController id="0AD-Yc-acX" userLabel="City Navigation Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OoP-qx-erP">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oBa-M1-Ycs" kind="relationship" relationship="rootViewController" id="fz5-87-8l5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rcl-My-hYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-452" y="-188"/>
+        </scene>
+        <!--City-->
+        <scene sceneID="Cpv-YO-3qy">
+            <objects>
+                <viewController id="oBa-M1-Ycs" customClass="GameViewController" customModule="NewFocusInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <skView key="view" contentMode="scaleToFill" id="cCi-Ut-7LN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Lwt-5w-n7K" appends="YES" id="1YX-de-QZr"/>
+                        </connections>
+                    </skView>
+                    <navigationItem key="navigationItem" title="City" id="qjA-yN-BNP">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="reD-4h-ycg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="9ug-v2-gtw"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="reD-4h-ycg" id="u4J-AD-H6Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAM-8Z-Zj2" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="Lwt-5w-n7K">
+                    <connections>
+                        <action selector="scalePiece:" destination="oBa-M1-Ycs" id="c1y-Mi-fb1"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="498" y="-187"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu" width="22" height="22"/>
+    </resources>
+</document>
