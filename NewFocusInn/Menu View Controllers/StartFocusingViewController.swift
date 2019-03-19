@@ -27,7 +27,8 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         
     }
     
- 
+    @IBOutlet weak var buildingImage: UIImageView!
+    
     @IBOutlet weak var timeSetter: UIPickerView!
     
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -126,16 +127,35 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     //Gives access to Seconds sent in preparation for Segue
     
-    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    
-    //
-    
-    //        performSegue(withIdentifier: "Seconds Sent", sender: secondsToSend)
-    
-    //
-    
-    //    }
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let min = Double(time[0][timeSetter.selectedRow(inComponent: 0)])*60 + Double(time[1][timeSetter.selectedRow(inComponent:1)])
+        
+        print(min)
+        if min >= 0{
+            buildingImage.image = UIImage(named: "house")
+            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "house")!.size.height)).isActive = true
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "house")!.size.width)).isActive = true
+        }
+        if min >= 45{
+            buildingImage.image = UIImage(named: "building")
+            //  buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "building")!.size.height)*2.5).isActive = true
+            //  buildingImage.image = UIImage(named: "building")
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "building")!.size.width)*2.5).isActive = true
+        }
+        if min >= 90{
+            buildingImage.image = UIImage(named: "eiffel")
+            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "eiffel")!.size.height)*2.5).isActive = true
+            buildingImage.image = UIImage(named: "eiffel")
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "eiffel")!.size.width)*2.5).isActive = true
+        }
+        if min >= 180{
+            buildingImage.image = UIImage(named: "empire")
+            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "empire")!.size.height)*3.5).isActive = true
+            buildingImage.image = UIImage(named: "empire")
+            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "empire")!.size.width)*5.5).isActive = true
+        }
+        
+    }
     
     
     //Sets up the Label for the Hours/Minutes. A Hot mess of code, will fix eventually
@@ -247,6 +267,8 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        buildingImage.image = UIImage(named: "house")
         
         self.timeSetter.delegate = self
         
