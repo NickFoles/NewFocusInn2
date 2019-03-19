@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0AD-Yc-acX">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="0AD-Yc-acX" userLabel="City Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OoP-qx-erP">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -29,12 +29,13 @@
         <scene sceneID="Cpv-YO-3qy">
             <objects>
                 <viewController id="oBa-M1-Ycs" customClass="GameViewController" customModule="NewFocusInn" customModuleProvider="target" sceneMemberID="viewController">
-                    <skView key="view" contentMode="scaleToFill" id="cCi-Ut-7LN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <skView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="cCi-Ut-7LN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Lwt-5w-n7K" appends="YES" id="1YX-de-QZr"/>
+                            <outletCollection property="gestureRecognizers" destination="dBZ-jG-5EE" appends="YES" id="a4V-7T-9QU"/>
                         </connections>
                     </skView>
                     <navigationItem key="navigationItem" title="City" id="qjA-yN-BNP">
@@ -48,9 +49,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAM-8Z-Zj2" sceneMemberID="firstResponder"/>
                 <pinchGestureRecognizer id="Lwt-5w-n7K">
                     <connections>
-                        <action selector="scalePiece:" destination="oBa-M1-Ycs" id="c1y-Mi-fb1"/>
+                        <action selector="pinchGesture:" destination="oBa-M1-Ycs" id="c1y-Mi-fb1"/>
                     </connections>
                 </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="dBZ-jG-5EE">
+                    <connections>
+                        <action selector="panPiece:" destination="oBa-M1-Ycs" id="PBD-Tg-cid"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="498" y="-187"/>
         </scene>
