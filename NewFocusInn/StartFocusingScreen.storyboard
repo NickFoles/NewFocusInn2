@@ -39,7 +39,7 @@
                                 <state key="normal" title="Set Time"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="6c6-1l-dvt" eventType="touchUpInside" id="jEg-c0-75G"/>
-                                    <segue destination="FaY-n5-zSB" kind="show" id="ofn-a0-sj9"/>
+                                    <segue destination="FaY-n5-zSB" kind="showDetail" animates="NO" id="ofn-a0-sj9"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-L4-tqt">
@@ -78,15 +78,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-rB-t1k">
-                                <rect key="frame" x="149" y="303" width="77" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-rB-t1k">
+                                <rect key="frame" x="152.5" y="420" width="70" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihR-1X-HCe">
+                                <rect key="frame" x="163.5" y="480.5" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="4Pf-wF-HoS" kind="unwind" unwindAction="backToStartFocusingWithUnwindSegue:" id="Eyh-w2-Slf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d69-jl-Lhu">
+                                <rect key="frame" x="123.5" y="187" width="128" height="128"/>
+                                <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Fg8-po-El1"/>
+                                    <constraint firstAttribute="height" constant="128" id="Yc1-JR-byZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fkF-rB-t1k" firstAttribute="top" secondItem="5f3-nQ-b4V" secondAttribute="top" constant="400" id="Vvl-Ly-gXo"/>
+                            <constraint firstItem="ihR-1X-HCe" firstAttribute="top" secondItem="fkF-rB-t1k" secondAttribute="bottom" constant="40" id="X5a-r2-9hy"/>
+                            <constraint firstItem="fkF-rB-t1k" firstAttribute="centerX" secondItem="4F7-kD-OEP" secondAttribute="centerX" id="YVJ-E1-Mpf"/>
+                            <constraint firstItem="d69-jl-Lhu" firstAttribute="centerX" secondItem="4F7-kD-OEP" secondAttribute="centerX" id="ePc-Xc-wmz"/>
+                            <constraint firstItem="ihR-1X-HCe" firstAttribute="centerX" secondItem="4F7-kD-OEP" secondAttribute="centerX" id="ejs-0K-X4G"/>
+                            <constraint firstItem="fkF-rB-t1k" firstAttribute="top" secondItem="d69-jl-Lhu" secondAttribute="bottom" constant="105" id="lSc-DX-VCM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5f3-nQ-b4V"/>
                     </view>
                     <connections>
@@ -94,6 +116,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryt-A8-3XF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Pf-wF-HoS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1256.8" y="700.29985007496259"/>
         </scene>
