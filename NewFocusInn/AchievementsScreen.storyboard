@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Achievement Cell" rowHeight="89" id="5xY-Ms-qfH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Achievement Cell" rowHeight="89" id="5xY-Ms-qfH" customClass="AchievementsTableViewCell" customModule="NewFocusInn" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5xY-Ms-qfH" id="qZa-HW-5YS">
@@ -70,6 +70,12 @@
                                         <constraint firstItem="pXf-OT-P3l" firstAttribute="leading" secondItem="cz5-8g-jCt" secondAttribute="trailing" constant="20" id="y7L-iT-meM"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="badge" destination="cz5-8g-jCt" id="o2d-EE-qOw"/>
+                                    <outlet property="cellDescription" destination="pXf-OT-P3l" id="ww1-Ea-8qz"/>
+                                    <outlet property="title" destination="q2n-pC-YND" id="4fS-n1-GkP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

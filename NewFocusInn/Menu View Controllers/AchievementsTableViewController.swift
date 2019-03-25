@@ -12,18 +12,17 @@ import FirebaseDatabase
 
 class AchievementsTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet var table: UITableView!
     
     var ref: DatabaseReference!
-    var achievements: [Int] = [0,0,0,0,0]
+    var achievements = [Int]()
     var totalTime = 10
-    
-    var achList : [String] = [""]
+    let achList = [["Freshmen","Complete 1 study session"],["Veteran", "Complete 10 study sessions"], ["Senioritis", "Complete 100 study sessions"],["Marathon", "Focus for 2 hours straight"], ["Workaholic", "Total focus time reaches 10 hours"]]
 //                              ["Marathon - Study for 2 hours straight",
 //                              "Workaholic - Study for 10 hours in total",
 //                              "Freshmen - Complete 1 study session",
 //                              "Veteran - Complete 10 study sessions",
 //                              "Senioritis - Complete 100 study sessions"]
+    let badges = [""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +33,14 @@ class AchievementsTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        print(1)
-        ref = Database.database().reference()
-        
-        if let user = Auth.auth().currentUser {
-            ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                self.totalTime = snapshot.value as! Int
-            })
-            
-        }
-        print(2)
-        checkAchievements()
+//        ref = Database.database().reference()
+//
+//        if let user = Auth.auth().currentUser {
+//            ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//                self.totalTime = snapshot.value as! Int
+//            })
+//        }
+//        checkAchievements()
         
         
     }
@@ -53,43 +49,40 @@ class AchievementsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        print(3)
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(4)
         return achList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        print(5)
-        let tableViewCell = UITableViewCell()
-        if let user = Auth.auth().currentUser{
-            if achList.count > 0{
-                print(6)
-                tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
-                tableViewCell.textLabel?.textAlignment = .center
-//                print(indexPath.row)
-                tableViewCell.textLabel?.text = achList[indexPath.row]
-            }
-        }
-        return tableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! AchievementsTableViewCell
+        
+        // Configure the cell...
+//        cell.badge.image = UIImage(named: badges[indexPath.row])
+        cell.title.text = achList[indexPath.row][0]
+        cell.cellDescription.text = achList[indexPath.row][1]
+        
+//        let tableViewCell = UITableViewCell()
+//        if let user = Auth.auth().currentUser{
+//            if achList.count > 0{
+//                tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
+//                tableViewCell.textLabel?.textAlignment = .center
+////                print(indexPath.row)
+//                tableViewCell.textLabel?.text = achList[indexPath.row][0]
+//            }
+//        }
+//        return tableViewCell
+        return cell
     }
  
     
     func checkAchievements(){
-        print(7)
-        if totalTime >= 10{
-            achList.append("Workaholic - Study for 10 hours in total")
-        }
-        //print(self.check)
-        if let user = Auth.auth().currentUser {
-           print("")
-        }
+       
     }
 
     /*
