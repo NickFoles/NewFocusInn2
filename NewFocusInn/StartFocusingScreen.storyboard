@@ -48,6 +48,10 @@
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfO-Bo-SLn">
+                                <rect key="frame" x="111" y="115" width="171" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -62,6 +66,7 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="dN1-Dz-qcf"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buildingImage" destination="cfO-Bo-SLn" id="6bP-vG-GFI"/>
                         <outlet property="menuButton" destination="dN1-Dz-qcf" id="Bp7-Ov-3MS"/>
                         <outlet property="timeSetter" destination="jRP-L4-tqt" id="uZq-wU-XVM"/>
                     </connections>
