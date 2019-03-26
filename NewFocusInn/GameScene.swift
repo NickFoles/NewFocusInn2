@@ -15,7 +15,7 @@ class GameScene: SKScene {
     let building = SKSpriteNode(imageNamed: "building")
     let eiffel = SKSpriteNode(imageNamed: "eiffel")
     let empire = SKSpriteNode(imageNamed: "empire")
-    let greyBuilding = SKSpriteNode(imageNamed: "greyBuilding")
+    let tallBuilding = SKSpriteNode(imageNamed: "tallBuilding")
     
     // coordinates of tiles from top tile and down the column
     let coor = [
@@ -41,8 +41,8 @@ class GameScene: SKScene {
         placeBuilding(x: coor[0][0], y: coor[0][1], build: house)
         placeBuilding(x: coor[1][0], y: coor[1][1], build: eiffel)
         placeBuilding(x: coor[2][0], y: coor[2][1], build: building)
-        placeBuilding(x: coor[112][0], y: coor[112][1], build: empire)
-        placeBuilding(x: coor[4][0], y: coor[4][1], build: greyBuilding)
+        placeBuilding(x: coor[50][0], y: coor[50][1], build: empire)
+        placeBuilding(x: coor[4][0], y: coor[4][1], build: tallBuilding)
     }
     
     func placeBuilding (x: Double, y: Double, build: SKSpriteNode) {
@@ -52,19 +52,19 @@ class GameScene: SKScene {
                 build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 2)
                 addChild(build)
             }
-            else if build == building {
-                build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 7)
-                addChild(build)
-            }
             else if build == eiffel {
                 build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 9)
+                addChild(build)
+            }
+            else if build == building {
+                build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 7)
                 addChild(build)
             }
             else if build == empire {
                 build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 14)
                 addChild(build)
             }
-            else if build == greyBuilding {
+            else if build == tallBuilding {
                 build.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + build.size.height/2 * grass.yScale + 8)
                 addChild(build)
             }
