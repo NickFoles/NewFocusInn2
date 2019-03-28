@@ -10,13 +10,8 @@ var globalTime : Double = 0
 
 import UIKit
 
-
-
-
-
-
-
 class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
+    @IBOutlet weak var imagePickerView: AKPickerView!
     
     private var time:[[Int]] = [[0,1,2,3],[0,5,10,15,20,25,30,35,40,45,50,55]]
     
@@ -27,21 +22,14 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         
     }
     
- 
     @IBOutlet weak var timeSetter: UIPickerView!
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        
-        
-        
         secondsToSend = Double(time[0][timeSetter.selectedRow(inComponent: 0)])*60*60+Double(time[1][timeSetter.selectedRow(inComponent:1)])*60
         
         print(secondsToSend)
         
         globalTime = secondsToSend
-        
-        
-        
     }
     
     
@@ -60,15 +48,11 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     
     
-    
-    
     //        var passer = FocusingViewController(nibName:"FocusingViewController", bundle: nil)
     
     //        passer.interval = Int(secondsToSend)
     
     //        navigationController?.pushViewController(passer, animated: true)
-    
-    
     
     
     
@@ -92,19 +76,12 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     
     
-    
-    
     //Sets number of Components for PickerView
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 2
         
     }
-    
-    
-    
-    
     
     //Sets PickerView Component Lengths
     
@@ -117,9 +94,6 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         }
         
         return 12
-        
-        
-        
     }
     
     
@@ -225,9 +199,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         return String(time[1][row])
         
     }
-    
-    
-    
+
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     //        if segue.identifier == "focusing" {
@@ -242,8 +214,6 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     //    }
     
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -255,13 +225,6 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         print(time[1][2])
         
         
-        
-        
-        
-        
-        
-        
-        
         if self.revealViewController() != nil {
             
             menuButton.target = self.revealViewController()
@@ -271,13 +234,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
-        
-        
-        
     }
-    
-    
-    
 }
 
 
