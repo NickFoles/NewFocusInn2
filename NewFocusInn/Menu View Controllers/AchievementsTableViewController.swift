@@ -16,13 +16,13 @@ class AchievementsTableViewController: UITableViewController {
     var ref: DatabaseReference!
     var achievements = [Int]()
     var totalTime = 10
-    let achList = [["Freshmen","Complete 1 study session"], ["Veteran", "Complete 10 study sessions"], ["Senioritis", "Complete 100 study sessions"],["Marathon", "Focus for 2 hours straight"], ["Workaholic", "Total focus time reaches 10 hours"]]
+    let achList = [["Freshmen","Complete 10 study session"], ["Veteran", "Complete 25 study sessions"], ["Senioritis", "Complete 50 study sessions"], ["Workaholic", "Total focus time reaches 10 hours"]]
 //                              ["Marathon - Study for 2 hours straight",
 //                              "Workaholic - Study for 10 hours in total",
 //                              "Freshmen - Complete 1 study session",
 //                              "Veteran - Complete 10 study sessions",
 //                              "Senioritis - Complete 100 study sessions"]
-    let badges = [""]
+    let badges = ["10 buildings", "25 buildings", "50 buildings", "workaholic"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,7 @@ class AchievementsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! AchievementsTableViewCell
         
         // Configure the cell...
-//        cell.badge.image = UIImage(named: badges[indexPath.row])
+        cell.badge.image = UIImage(named: badges[indexPath.row])
         cell.title.text = achList[indexPath.row][0]
         cell.cellDescription.text = achList[indexPath.row][1]
         
