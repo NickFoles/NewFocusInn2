@@ -48,20 +48,27 @@
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-sV-YLl">
-                                <rect key="frame" x="119" y="126" width="136" height="66"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xx1-4y-4ih" customClass="AKPickerView" customModule="NewFocusInn" customModuleProvider="target">
+                                <rect key="frame" x="65" y="89" width="245" height="108"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="euS-Dw-N8Y"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfO-Bo-SLn">
+                                <rect key="frame" x="111" y="115" width="171" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Xx1-4y-4ih" firstAttribute="leading" secondItem="S9t-MD-yMJ" secondAttribute="leading" constant="65" id="3EO-1T-UzY"/>
                             <constraint firstItem="JjQ-Oz-0Em" firstAttribute="top" secondItem="jRP-L4-tqt" secondAttribute="bottom" constant="50" id="5wn-Fj-L43"/>
-                            <constraint firstItem="G3g-sV-YLl" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="Hln-iJ-Min"/>
                             <constraint firstItem="JjQ-Oz-0Em" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="NUO-HB-QAc"/>
+                            <constraint firstItem="Xx1-4y-4ih" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="SGP-bL-bZ4"/>
                             <constraint firstItem="jRP-L4-tqt" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="lj8-Mo-CR4"/>
-                            <constraint firstItem="jRP-L4-tqt" firstAttribute="top" secondItem="G3g-sV-YLl" secondAttribute="bottom" constant="30" id="uSK-Zg-Tuo"/>
+                            <constraint firstItem="Xx1-4y-4ih" firstAttribute="top" secondItem="S9t-MD-yMJ" secondAttribute="top" constant="25" id="vcN-zt-MF8"/>
                             <constraint firstItem="jRP-L4-tqt" firstAttribute="centerY" secondItem="f9x-Pz-tfX" secondAttribute="centerY" id="xP9-X0-LcL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S9t-MD-yMJ"/>
@@ -70,6 +77,10 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="dN1-Dz-qcf"/>
                     </navigationItem>
                     <connections>
+
+                        <outlet property="imagePickerView" destination="Xx1-4y-4ih" id="6Cb-me-gCh"/>
+                        <outlet property="buildingImage" destination="cfO-Bo-SLn" id="6bP-vG-GFI"/>
+
                         <outlet property="menuButton" destination="dN1-Dz-qcf" id="Bp7-Ov-3MS"/>
                         <outlet property="timeSetter" destination="jRP-L4-tqt" id="uZq-wU-XVM"/>
                     </connections>
@@ -108,7 +119,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.89019607840000003" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fkF-rB-t1k" firstAttribute="top" secondItem="5f3-nQ-b4V" secondAttribute="top" constant="400" id="Vvl-Ly-gXo"/>
                             <constraint firstItem="ihR-1X-HCe" firstAttribute="top" secondItem="fkF-rB-t1k" secondAttribute="bottom" constant="40" id="X5a-r2-9hy"/>
@@ -121,21 +132,12 @@
                     </view>
                     <connections>
                         <outlet property="timerLabel" destination="fkF-rB-t1k" id="l32-bW-r94"/>
-                        <segue destination="cwe-Js-ZrX" kind="show" identifier="complete" id="LON-mq-MVj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryt-A8-3XF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4Pf-wF-HoS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1256.8" y="700.29985007496259"/>
-        </scene>
-        <!--CityScreen-->
-        <scene sceneID="uSF-1X-UTO">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CityScreen" id="cwe-Js-ZrX" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wgD-Oz-bte" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1841" y="624"/>
         </scene>
     </scenes>
     <resources>
