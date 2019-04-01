@@ -10,7 +10,6 @@
 		221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */; };
 		930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FABBD222EDC1700165F10 /* FocusingViewController.swift */; };
 		AF0D906B224942300056F362 /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D906A224942300056F362 /* AchievementsTableViewCell.swift */; };
-		AF5F7AE8224AAC5E00054074 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF5F7AE5224AAC5E00054074 /* Info.plist */; };
 		AF5F7AE9224AAC5E00054074 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F7AE6224AAC5E00054074 /* AKPickerView.swift */; };
 		AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */; };
 		AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */; };
@@ -66,7 +65,6 @@
 		90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		930FABBD222EDC1700165F10 /* FocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewController.swift; sourceTree = "<group>"; };
 		AF0D906A224942300056F362 /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
-		AF5F7AE5224AAC5E00054074 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF5F7AE6224AAC5E00054074 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		AF5F7AE7224AAC5E00054074 /* AKPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPickerView.h; sourceTree = "<group>"; };
 		AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityScreen.storyboard; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			children = (
 				AF5F7AE7224AAC5E00054074 /* AKPickerView.h */,
 				AF5F7AE6224AAC5E00054074 /* AKPickerView.swift */,
-				AF5F7AE5224AAC5E00054074 /* Info.plist */,
 			);
 			path = AKPickerView;
 			sourceTree = "<group>";
@@ -386,7 +383,6 @@
 				AFBC8FA6221CD280006B1C14 /* TimelineScreen.storyboard in Resources */,
 				AFBC8FAA221CD2C5006B1C14 /* AchievementsScreen.storyboard in Resources */,
 				AFBC8FAE221CD2EB006B1C14 /* FirebaseScreen.storyboard in Resources */,
-				AF5F7AE8224AAC5E00054074 /* Info.plist in Resources */,
 				AFBC8FA8221CD2B1006B1C14 /* FriendsScreen.storyboard in Resources */,
 				AFC476922200D2B80027001E /* GameScene.sks in Resources */,
 				AFC4769D2200D2C00027001E /* Assets.xcassets in Resources */,
