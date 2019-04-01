@@ -40,18 +40,18 @@ class MenuTableViewController: UITableViewController {
         }
         
         // achievements
-//        else if segue.identifier == "achievements" {
-//            let vcNav = segue.destination as! UINavigationController
-//            let vc = vcNav.topViewController as! AchievementsTableViewController
-//
-//            if let user = Auth.auth().currentUser {
-//                ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//                    vc.totalTime = snapshot.value as! Int
-//                })
-//                ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//                    vc.achievements = snapshot.value as! [Int]
-//                })
-//            }
-//        }
+        else if segue.identifier == "achievements" {
+            let vcNav = segue.destination as! UINavigationController
+            let vc = vcNav.topViewController as! AchievementsTableViewController
+
+            if let user = Auth.auth().currentUser {
+                ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    vc.totalTime = snapshot.value as! Int
+                })
+                ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    vc.achievements = snapshot.value as! [Int]
+                })
+            }
+        }
     }
 }
