@@ -41,9 +41,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 print(error.debugDescription)
             }
             
-        }
-        
-
         moveMessage()
         self.dismiss(animated: true, completion: nil)
     }

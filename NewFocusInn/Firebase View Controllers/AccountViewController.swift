@@ -124,7 +124,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         if firstSignUp == 1, let user = Auth.auth().currentUser{
             
             ref = Database.database().reference().child("users").child(user.uid)
-        
+
             ref?.child("houseList").setValue([""])
             ref?.child("achievementList").setValue([0,0,0,0])       // value equal 1 if the achievement correlating to the index is achieved
             ref?.child("hours").setValue(0)                         // total hours spent focusing
