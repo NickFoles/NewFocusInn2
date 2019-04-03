@@ -57,9 +57,9 @@ class FocusingViewController: UIViewController{
         timermain = Timer.scheduledTimer(withTimeInterval: interval, repeats: false){
             
             timermain in
-            
+
             self.completeNotification()
-            
+            self.performSegue(withIdentifier: "complete", sender: nil)
             print("Timer Done 2.0")
             
         }
@@ -167,7 +167,7 @@ class FocusingViewController: UIViewController{
     }
     
     func failureNotification() {
-        
+       // if(self.isViewLoaded){
         print("Failure Notifcation Here!")
         
         let content = UNMutableNotificationContent()
@@ -203,7 +203,7 @@ class FocusingViewController: UIViewController{
         }
         
         
-        
+      // }
     }
     
     
@@ -219,6 +219,8 @@ class FocusingViewController: UIViewController{
         //self.navigationController?.pushViewController(shiftlose, animated: true)
         
     }
+    
+
     
     
     

@@ -35,7 +35,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             uploadProfilePicture(pickedImage) {url in
                 guard let uid = Auth.auth().currentUser?.uid else {return}
                 guard let imageURL = url else {return}
-                let database = Database.database().reference().child("user/\(uid)")
+                let database = Database.database().reference().child("users/\(uid)").child("profilePic")
                 
                 let userObject: [String: Any] =  ["photoURL": imageURL.absoluteString]
                 
@@ -51,7 +51,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
         // get a reference to the storage object
-        let storage = Storage.storage().reference().child("user/\(uid)")
+        let storage = Storage.storage().reference().child("users/\(uid)")
         
         // image's must be saved as data object's to convert and compress the image
         guard let image = imageView?.image, let imageData = image.jpegData(compressionQuality: 0.75) else {return}
@@ -76,7 +76,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     func getImageURL(_completion: @escaping((_ url:String?) -> ())) {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
-        let databaseRef = Database.database().reference().child("user/\(uid)")
+        let databaseRef = Database.database().reference().child("users/\(uid)").child("profilePic")
         
         databaseRef.observeSingleEvent(of: .value, with: {snapshot in
             let postDict = snapshot.value as? [String: AnyObject] ?? [:]
@@ -121,23 +121,18 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         
-        ref = Database.database().reference()
-        
-        if let user = Auth.auth().currentUser{
-            ref?.child("houseList").child(user.uid).setValue([1,1,1,1,1])
-            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
-            ref?.child("hours").child(user.uid).setValue(0)
-            ref?.child("timelineHistory").child(user.uid).setValue([[""]])
-            ref?.child("dates").child(user.uid).setValue([""])
+        if firstSignUp == 1, let user = Auth.auth().currentUser{
+            
+            ref = Database.database().reference().child("users").child(user.uid)
+
+            ref?.child("houseList").setValue([""])
+            ref?.child("achievementList").setValue([0,0,0,0])       // value equal 1 if the achievement correlating to the index is achieved
+            ref?.child("hours").setValue(0)                         // total hours spent focusing
+            
+            ref?.child("timelineHistory").setValue([[""]])
+            ref?.child("dates").setValue([""])
+            print("sent information")
         }
-        
-//        ref = Database.database().reference()
-//
-//        if let user = Auth.auth().currentUser{
-//            ref?.child("houseList").child(user.uid).setValue([0,0,0,0,0])
-//            ref?.child("achievementList").child(user.uid).setValue([0,0,0,0,0])
-//            ref?.child("hours").child(user.uid).setValue(0)
-//        }
         
         // Do any additional setup after loading the view.
     }

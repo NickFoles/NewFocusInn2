@@ -11,16 +11,30 @@ var globalTime : Double = 0
 import UIKit
 
 class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
-    @IBOutlet weak var imagePickerView: AKPickerView!
+    
+    let buildingNames = [["house", "house2"], ["building", "tallBuilding"], ["empire"], ["eiffel"]]
     
     @IBOutlet weak var buildingImage: UIImageView!
-    private var time:[[Int]] = [[0,1,2,3],[0,5,10,15,20,25,30,35,40,45,50,55]]
+    var imageClicks = 0
+    var firstRow = 0
     
+    private var time:[[Int]] = [[0,1,2,3],[0,5,10,15,20,25,30,35,40,45,50,55]]
     var secondsToSend: Double = 0
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     @IBAction func backToStartFocusing(unwindSegue: UIStoryboardSegue) {
         
+    }
+    
+    @IBAction func buildingImageButton(_ sender: UIButton) {
+        buildingImage.image = UIImage(named: buildingNames[firstRow][imageClicks])
+        if imageClicks < buildingNames[firstRow].count - 1 {
+            imageClicks += 1
+        }
+        else {
+            imageClicks = 0
+        }
     }
     
     @IBOutlet weak var timeSetter: UIPickerView!
@@ -32,8 +46,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         
         globalTime = secondsToSend
     }
-    
-    
+   
     
     //        let storyBoard = UIStoryboard(name: "FocusingScreen", bundle: nil)
     
@@ -65,7 +78,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     //  self.performSegue(withIdentifier: "sb_focusing", sender: self)
     
-    
+
     
     //        let storyboard = UIStoryboard(name: "FocusingScreen", bundle: nil)
     
@@ -103,34 +116,24 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let min = Double(time[0][timeSetter.selectedRow(inComponent: 0)])*60 + Double(time[1][timeSetter.selectedRow(inComponent:1)])
-        if min >= 0{
-            buildingImage.image = UIImage(named: "house")
-            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "house")!.size.height)).isActive = true
-            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "house")!.size.width)).isActive = true
+        if min >= 0 && min < 60 {
+            buildingImage.image = UIImage(named: buildingNames[0][0])
+            firstRow = 0
         }
-        if min >= 45{
-            buildingImage.image = UIImage(named: "building")
-            //  buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "building")!.size.height)*2.5).isActive = true
-            //  buildingImage.image = UIImage(named: "building")
-            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "building")!.size.width)*2.5).isActive = true
+        else if min >= 60 && min < 120{
+            buildingImage.image = UIImage(named: buildingNames[1][0])
+            firstRow = 1
         }
-        if min >= 90{
-            buildingImage.image = UIImage(named: "eiffel")
-            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "eiffel")!.size.height)*2.5).isActive = true
-            buildingImage.image = UIImage(named: "eiffel")
-            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "eiffel")!.size.width)*2.5).isActive = true
+        else if min >= 120 && min < 180{
+            buildingImage.image = UIImage(named: buildingNames[2][0])
+            firstRow = 2
         }
-        if min >= 180{
-            buildingImage.image = UIImage(named: "empire")
-            buildingImage.heightAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "empire")!.size.height)*3.5).isActive = true
-            buildingImage.image = UIImage(named: "empire")
-            buildingImage.widthAnchor.constraint(equalToConstant: CGFloat(UIImage(named: "empire")!.size.width)*5.5).isActive = true
+        else if min >= 180{
+            buildingImage.image = UIImage(named: buildingNames[3][0])
+            firstRow = 3
         }
         
-        
-        
-        
-        
+        imageClicks = 0
         //performSegue(withIdentifier: "Seconds Sent", sender: secondsToSend)
     }
     
@@ -243,10 +246,9 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         super.viewDidLoad()
         
         self.timeSetter.delegate = self
-        
         self.timeSetter.dataSource = self
 
-        buildingImage.image = UIImage(named: "house")
+        buildingImage.image = UIImage(named: buildingNames[0][0])
         
         print(time[1][2])
         

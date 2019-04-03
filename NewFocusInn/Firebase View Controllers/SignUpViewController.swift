@@ -5,6 +5,7 @@
 //  Created by Dara Oseyemi (student LM) on 1/29/19.
 //  Copyright © 2019 Dara Oseyemi (student LM). All rights reserved.
 //
+var firstSignUp = 0
 
 import UIKit
 import FirebaseAuth
@@ -17,6 +18,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signedUpHorizontalConstraint: NSLayoutConstraint!
     var ref: DatabaseReference!
+    
 
     @IBAction func signUpButtonTouchedUp(_ sender: UIButton) {
         guard let username = userNameTextField.text else {return}
@@ -32,13 +34,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 changeRequest?.commitChanges(completion: { (error) in
                     print("couldn't change name")
                 })
+                firstSignUp = 1
             }
             else {
                 print("used1")
                 print(error.debugDescription)
             }
             
-        }        
         moveMessage()
         self.dismiss(animated: true, completion: nil)
     }

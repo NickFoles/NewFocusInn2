@@ -63,16 +63,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
         //        print("Storing Exit Time")
-        
         //        vc.storeExitTime()
         
-        print("Sending Time Left Notification")
-        
-        vc.timeLeftNotification()
-        
-        print("Failure Notification Here")
-        
-        vc.failureNotification()
+        //        print("Sending Time Left Notification")
+        //        vc.timeLeftNotification()
+        print("Test123.")
+//        let currentViewController = getVisibleViewController(nil)
+//        print("Failure Notification Here")
+//            vc.failureNotification()
+//        
         
         
         
@@ -118,6 +117,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
+    }
+    
+    func getVisibleViewController(_ rootViewController: UIViewController?) -> UIViewController? {
+        
+        var rootVC = rootViewController
+        if rootVC == nil {
+            rootVC = UIApplication.shared.keyWindow?.rootViewController
+        }
+        
+        if rootVC?.presentedViewController == nil {
+            return rootVC
+        }
+        
+        if let presented = rootVC?.presentedViewController {
+            if presented.isKind(of: UINavigationController.self) {
+                let navigationController = presented as! UINavigationController
+                return navigationController.viewControllers.last!
+            }
+            
+            if presented.isKind(of: UITabBarController.self) {
+                let tabBarController = presented as! UITabBarController
+                return tabBarController.selectedViewController!
+            }
+            
+            return getVisibleViewController(presented)
+        }
+        return nil
     }
     
     
