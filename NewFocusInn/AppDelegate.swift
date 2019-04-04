@@ -68,10 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        print("Sending Time Left Notification")
         //        vc.timeLeftNotification()
         print("Test123.")
-//        let currentViewController = getVisibleViewController(nil)
-//        print("Failure Notification Here")
-//            vc.failureNotification()
-//        
+        if(application.topViewController is FocusingViewController){
+            print("Failure Notification Here")
+            vc.failureNotification()}
         
         
         
@@ -156,4 +155,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
+}
+
+//Found on Github. - https://gist.github.com/snikch/3661188
+
+extension UIApplication{
+    var topViewController: UIViewController?{
+        if keyWindow?.rootViewController == nil{
+            return keyWindow?.rootViewController
+        }
+        
+        var pointedViewController = keyWindow?.rootViewController
+        
+        while  pointedViewController?.presentedViewController != nil {
+            switch pointedViewController?.presentedViewController {
+            case let navagationController as UINavigationController:
+                pointedViewController = navagationController.viewControllers.last
+            case let tabBarController as UITabBarController:
+                pointedViewController = tabBarController.selectedViewController
+            default:
+                pointedViewController = pointedViewController?.presentedViewController
+            }
+        }
+        return pointedViewController
+        
+    }
 }
