@@ -49,6 +49,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func moveMessage() {
         signedUpHorizontalConstraint.constant = 87.5
         UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 4.5, options: .curveEaseInOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
