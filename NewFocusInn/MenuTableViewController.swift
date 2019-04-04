@@ -21,34 +21,32 @@ class MenuTableViewController: UITableViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        ref = Database.database().reference()
+        if let user = Auth.auth().currentUser {
+            ref = Database.database().reference().child("users").child(user.uid)
         
-        // timeline
-        if segue.identifier == "timeline" {
-            print("work")
-            let vcNav = segue.destination as! UINavigationController
-            let vc = vcNav.topViewController as! TimelineTableViewController
-            
-            if let user = Auth.auth().currentUser {
-                ref!.child("timelineHistory").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // timeline
+            if segue.identifier == "timeline" {
+                print("work")
+                let vcNav = segue.destination as! UINavigationController
+                let vc = vcNav.topViewController as! TimelineTableViewController
+                
+                ref!.child("timelineHistory").observeSingleEvent(of: .value, with: { (snapshot) in
                     vc.timelineHistory = snapshot.value as! [[String]]
                 })
-                ref!.child("dates").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                ref!.child("dates").observeSingleEvent(of: .value, with: { (snapshot) in
                     vc.dates = snapshot.value as! [String]
                 })
             }
-        }
         
-        // achievements
-        else if segue.identifier == "achievements" {
-            let vcNav = segue.destination as! UINavigationController
-            let vc = vcNav.topViewController as! AchievementsTableViewController
-
-            if let user = Auth.auth().currentUser {
-                ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // achievements
+            else if segue.identifier == "achievements" {
+                let vcNav = segue.destination as! UINavigationController
+                let vc = vcNav.topViewController as! AchievementsTableViewController
+                
+                ref?.child("hours").observeSingleEvent(of: .value, with: { (snapshot) in
                     vc.totalTime = snapshot.value as! Int
                 })
-                ref?.child("achievementList").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                ref?.child("achievementList").observeSingleEvent(of: .value, with: { (snapshot) in
                     vc.achievements = snapshot.value as! [Int]
                 })
             }
