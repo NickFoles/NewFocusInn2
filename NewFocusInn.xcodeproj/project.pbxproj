@@ -10,7 +10,6 @@
 		221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */; };
 		930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FABBD222EDC1700165F10 /* FocusingViewController.swift */; };
 		AF0D906B224942300056F362 /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D906A224942300056F362 /* AchievementsTableViewCell.swift */; };
-
 		AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */; };
 		AFBC8FA4221CD24C006B1C14 /* StartFocusingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */; };
 		AFBC8FA6221CD280006B1C14 /* TimelineScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */; };
@@ -65,7 +64,6 @@
 		90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		930FABBD222EDC1700165F10 /* FocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewController.swift; sourceTree = "<group>"; };
 		AF0D906A224942300056F362 /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
-
 		AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA3221CD24C006B1C14 /* StartFocusingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartFocusingScreen.storyboard; sourceTree = "<group>"; };
 		AFBC8FA5221CD280006B1C14 /* TimelineScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimelineScreen.storyboard; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-
 		AFC476832200D2B80027001E = {
 			isa = PBXGroup;
 			children = (
