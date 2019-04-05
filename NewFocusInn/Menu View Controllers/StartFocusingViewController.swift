@@ -8,45 +8,42 @@
 
 var globalTime : Double = 0
 
+var imageClicks = 0
+var firstRow = 0
+let buildingNames = [["house", "house2"], ["building", "tallBuilding"], ["empire"], ["eiffel"]]
+
 import UIKit
 
 class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    let buildingNames = [["house", "house2"], ["building", "tallBuilding"], ["empire"], ["eiffel"]]
-    
     @IBOutlet weak var buildingImage: UIImageView!
-    var imageClicks = 0
-    var firstRow = 0
     
     private var time:[[Int]] = [[0,1,2,3],[0,5,10,15,20,25,30,35,40,45,50,55]]
     var secondsToSend: Double = 0
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    // for the cancel button in the startFocusing view controller
     @IBAction func backToStartFocusing(unwindSegue: UIStoryboardSegue) {
         
     }
     
     @IBAction func buildingImageButton(_ sender: UIButton) {
-        buildingImage.image = UIImage(named: buildingNames[firstRow][imageClicks])
         if imageClicks < buildingNames[firstRow].count - 1 {
             imageClicks += 1
         }
         else {
             imageClicks = 0
         }
+        buildingImage.image = UIImage(named: buildingNames[firstRow][imageClicks])
     }
     
     @IBOutlet weak var timeSetter: UIPickerView!
     
-    @IBAction func buttonPressed(_ sender: UIButton) {
+    @IBAction func setFocusingTimer(_ sender: UIButton) {
         secondsToSend = Double(time[0][timeSetter.selectedRow(inComponent: 0)])*60*60+Double(time[1][timeSetter.selectedRow(inComponent:1)])*60
-        
         print(secondsToSend)
-        
         globalTime = secondsToSend
     }
-   
     
     //        let storyBoard = UIStoryboard(name: "FocusingScreen", bundle: nil)
     

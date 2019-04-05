@@ -54,18 +54,33 @@ class AchievementsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return achList.count
+        if Auth.auth().currentUser != nil {
+            return achList.count
+        }
+        else {
+            return 1
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! AchievementsTableViewCell
+        if Auth.auth().currentUser != nil {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! AchievementsTableViewCell
         
-        // Configure the cell...
-        cell.badge.image = UIImage(named: badges[indexPath.row])
-        cell.title.text = achList[indexPath.row][0]
-        cell.cellDescription.text = achList[indexPath.row][1]
+            // Configure the cell...
+            cell.badge.image = UIImage(named: badges[indexPath.row])
+            cell.title.text = achList[indexPath.row][0]
+            cell.cellDescription.text = achList[indexPath.row][1]
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "If not logged in", for: indexPath) as! AchievementsTableViewCell
+//            cell.messageConstraint.constant = (view.frame.height/2.0) - 42
+//            cell.message.topAnchor.constraint(equalTo: view.topAnchor, constant: (view.frame.height/2.0) - 42)
+            
+            return cell
+        }
         
 //        let tableViewCell = UITableViewCell()
 //        if let user = Auth.auth().currentUser{
@@ -77,7 +92,7 @@ class AchievementsTableViewController: UITableViewController {
 //            }
 //        }
 //        return tableViewCell
-        return cell
+        
     }
  
     

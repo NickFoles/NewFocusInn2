@@ -15,103 +15,54 @@
 
 
 import UIKit
-
 import UserNotifications
 
-
-
 class FocusingViewController: UIViewController{
-    
-    
-    
     var timermain = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self), userInfo: nil, repeats: false)
-    
-    
-    
     var getBackTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self), userInfo: nil, repeats: false)
-    
-    
-    
     var interval : Double = globalTime
     
     @IBOutlet weak var timerLabel: UILabel!
     
     var updatetimer: Timer?
-    
     var exitTime : String = "00:00:00"
-    
     var timeleft = "00:00:00"
-    
-    
-    
-    
-    
-    //Creates the Timer based on the passed Interval Double in seconds
-    
-    
-    
-    func createTimer(_ interval:Double){
-        
-        //timermain = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(self.timerdone(_:)), userInfo: nil, repeats: false)
-        
-        timermain = Timer.scheduledTimer(withTimeInterval: interval, repeats: false){
-            
-            timermain in
 
+    // Creates the Timer based on the passed Interval Double in seconds
+    func createTimer(_ interval:Double){
+        //timermain = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(self.timerdone(_:)), userInfo: nil, repeats: false)
+        timermain = Timer.scheduledTimer(withTimeInterval: interval, repeats: false){
+            timermain in
             self.completeNotification()
             self.performSegue(withIdentifier: "complete", sender: nil)
             print("Timer Done 2.0")
-            
         }
-        
         print("Timer Actually Created")
-        
-        
-        
     }
-    
-    
     
     //Updates the Label...
-    
     @objc func updateLabel(){
-        
         //  updatetimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
-        
         let hours = Int(timermain.fireDate.timeIntervalSinceNow/60/60)
-        
         let minutes = Int(timermain.fireDate.timeIntervalSinceNow/60)%60
-        
         let second = Int(timermain.fireDate.timeIntervalSinceNow) % 60
-        
-        
-        
+    
         timerLabel.text = String(format:"%02d:%02d:%02d", hours, minutes, second)
-        
         timeleft = String(format:"%02d:%02d:%02d", hours, minutes, second)
-        
     }
     
-    
-    
     //Passes total time left in seconds
-    
     func totaltimeleft()->Int{
-        
         return Int(timermain.fireDate.timeIntervalSinceNow)
         
     }
     
-    
-    
     func timeLeftNotification() {
-        
         print("Time Left Notifcation Here!")
         
         let content = UNMutableNotificationContent()
         
         //  content.body = NSString.localizedUserNotificationString(forKey: "You have "+String(exitTime)+" left in your studying session. You have exited early!", arguments: nil)
-        
         content.body = NSString.localizedUserNotificationString(forKey: "You have exited the app Early! Please Come Back! 30 Seconds Left!", arguments: nil)
         
         // content.badge = 1
