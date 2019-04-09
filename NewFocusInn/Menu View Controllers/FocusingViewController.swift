@@ -27,7 +27,9 @@ class FocusingViewController: UIViewController{
     var updatetimer: Timer?
     var exitTime : String = "00:00:00"
     var timeleft = "00:00:00"
-
+    
+    @IBOutlet weak var buildingImage: UIImageView!
+    
     // Creates the Timer based on the passed Interval Double in seconds
     func createTimer(_ interval:Double){
         //timermain = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(self.timerdone(_:)), userInfo: nil, repeats: false)
@@ -147,61 +149,36 @@ class FocusingViewController: UIViewController{
                 
             }
             
-            
-            
             //UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            
         }
-        
-        
       // }
     }
-    
-    
-    
+
     func exitEarly(){
-        
         timermain.invalidate()
-        
         self.completeNotification()
         
         // let shiftlose = LoseViewController
-        
         //self.navigationController?.pushViewController(shiftlose, animated: true)
-        
     }
-    
-
-    
-    
     
     func storeExitTime(){
-        
         guard var storeTime = timerLabel.text else {
-            
             exitTime = "ERROR. TEST123"
-            
             return
-            
         }
-        
         exitTime = storeTime
-        
     }
-    
-    
-    
+
     override func viewDidLoad() {
         
         print(globalTime)
-        
         super.viewDidLoad()
-        
         updatetimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
-        
         createTimer(interval)
-        
         updateLabel()
+        
+        buildingImage.image = UIImage(named: buildingNames[firstRow][imageClicks])
         
     }
     
