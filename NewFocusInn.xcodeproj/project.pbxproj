@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */; };
+		49A663320A43C3D3F29F48AB /* Pods_NewFocusInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F353747940F17BCE2EA7F605 /* Pods_NewFocusInn.framework */; };
 		930FABBE222EDC1700165F10 /* FocusingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FABBD222EDC1700165F10 /* FocusingViewController.swift */; };
 		AF0D906B224942300056F362 /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D906A224942300056F362 /* AchievementsTableViewCell.swift */; };
 		AFBC8FA2221C92A4006B1C14 /* CityScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */; };
@@ -61,7 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A78E78E8E490138B2D4679 /* Pods-NewFocusInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFocusInn.debug.xcconfig"; path = "Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn.debug.xcconfig"; sourceTree = "<group>"; };
 		930FABBD222EDC1700165F10 /* FocusingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewController.swift; sourceTree = "<group>"; };
 		AF0D906A224942300056F362 /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
 		AFBC8FA1221C92A4006B1C14 /* CityScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityScreen.storyboard; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 		AFC476DB22014B370027001E /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		AFC476DD22014B420027001E /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		AFC476E02201E09B0027001E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BD45C54EEDD449B2224C7E8E /* Pods-NewFocusInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFocusInn.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn.release.xcconfig"; sourceTree = "<group>"; };
-		EDB903D6EEA6EF5566AA9C4C /* Pods-NewFocusInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFocusInn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn.debug.xcconfig"; sourceTree = "<group>"; };
+		F353747940F17BCE2EA7F605 /* Pods_NewFocusInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewFocusInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A934BF75D4D41D2B3CE6F5 /* Pods-NewFocusInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewFocusInn.release.xcconfig"; path = "Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				221FA5205770A1EA1E5D38B2 /* Pods_NewFocusInn.framework in Frameworks */,
+				49A663320A43C3D3F29F48AB /* Pods_NewFocusInn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,13 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7189364CAE05AEBEA17130DC /* Pods */ = {
+		A98C005D955641CDF30F139C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EDB903D6EEA6EF5566AA9C4C /* Pods-NewFocusInn.debug.xcconfig */,
-				BD45C54EEDD449B2224C7E8E /* Pods-NewFocusInn.release.xcconfig */,
+				88A78E78E8E490138B2D4679 /* Pods-NewFocusInn.debug.xcconfig */,
+				F5A934BF75D4D41D2B3CE6F5 /* Pods-NewFocusInn.release.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		AFC476832200D2B80027001E = {
@@ -149,8 +150,8 @@
 				AFC476A92200D2C10027001E /* NewFocusInnTests */,
 				AFC476B42200D2C10027001E /* NewFocusInnUITests */,
 				AFC4768D2200D2B80027001E /* Products */,
-				7189364CAE05AEBEA17130DC /* Pods */,
-				D3CF867703E2A03F2A6BC9F1 /* Frameworks */,
+				A98C005D955641CDF30F139C /* Pods */,
+				C8F8605972676C7CBDA1D122 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,10 +248,10 @@
 			path = "Menu View Controllers";
 			sourceTree = "<group>";
 		};
-		D3CF867703E2A03F2A6BC9F1 /* Frameworks */ = {
+		C8F8605972676C7CBDA1D122 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				90E73B65FC59C3A5C52E18BB /* Pods_NewFocusInn.framework */,
+				F353747940F17BCE2EA7F605 /* Pods_NewFocusInn.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -262,11 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFC476BA2200D2C10027001E /* Build configuration list for PBXNativeTarget "NewFocusInn" */;
 			buildPhases = (
-				9A8ECD20703CE9B164B285BA /* [CP] Check Pods Manifest.lock */,
+				3A28127CE8523321470640B1 /* [CP] Check Pods Manifest.lock */,
 				AFC476882200D2B80027001E /* Sources */,
 				AFC476892200D2B80027001E /* Frameworks */,
 				AFC4768A2200D2B80027001E /* Resources */,
-				45C0807D08919A3EA3CD9BF0 /* [CP] Embed Pods Frameworks */,
+				758C53E1D0E0325EB229CD6D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -396,35 +397,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		45C0807D08919A3EA3CD9BF0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A8ECD20703CE9B164B285BA /* [CP] Check Pods Manifest.lock */ = {
+		3A28127CE8523321470640B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -444,6 +417,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		758C53E1D0E0325EB229CD6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewFocusInn/Pods-NewFocusInn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -642,7 +643,7 @@
 		};
 		AFC476BB2200D2C10027001E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDB903D6EEA6EF5566AA9C4C /* Pods-NewFocusInn.debug.xcconfig */;
+			baseConfigurationReference = 88A78E78E8E490138B2D4679 /* Pods-NewFocusInn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -666,7 +667,7 @@
 		};
 		AFC476BC2200D2C10027001E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD45C54EEDD449B2224C7E8E /* Pods-NewFocusInn.release.xcconfig */;
+			baseConfigurationReference = F5A934BF75D4D41D2B3CE6F5 /* Pods-NewFocusInn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
