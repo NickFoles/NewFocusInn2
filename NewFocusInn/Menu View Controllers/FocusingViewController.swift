@@ -56,7 +56,6 @@ class FocusingViewController: UIViewController{
     //Passes total time left in seconds
     func totaltimeleft()->Int{
         return Int(timermain.fireDate.timeIntervalSinceNow)
-        
     }
     
     func timeLeftNotification() {
@@ -70,53 +69,35 @@ class FocusingViewController: UIViewController{
         // content.badge = 1
         
         content.sound = UNNotificationSound.default
-        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
-        
-        
-        
         let center = UNUserNotificationCenter.current()
         
         center.add(request) { (error : Error?) in
-            
             if let theError = error {
-                
                 print(theError.localizedDescription)
-                
             }
-            
         }
-        
         //        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
     }
     
     func completeNotification() {
-        
         print("Completetion Left Notifcation Here!")
-        
+    
         let content = UNMutableNotificationContent()
-        
+
         content.title = NSString.localizedUserNotificationString(forKey: "It's time to FocusInn!", arguments: nil)
-        
         content.body = NSString.localizedUserNotificationString(forKey: "You have finished your studying session!", arguments: nil)
         
         // content.body = "You've been away from the app for "+String(stopwatch.elapsedTime) + " seconds. Test123"
-        
         // content.badge = 1
         
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
         
-        
-        
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
     }
     
     func failureNotification() {
@@ -126,7 +107,6 @@ class FocusingViewController: UIViewController{
         let content = UNMutableNotificationContent()
         
         content.title = NSString.localizedUserNotificationString(forKey: "It's time to FocusInn!", arguments: nil)
-        
         content.body = NSString.localizedUserNotificationString(forKey: "You have failed your studying session!", arguments: nil)
         
         // content.badge = 1
@@ -134,21 +114,13 @@ class FocusingViewController: UIViewController{
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
-        
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
-        
-        
-        
         let center = UNUserNotificationCenter.current()
         
         center.add(request) { (error : Error?) in
-            
             if let theError = error {
-                
                 print(theError.localizedDescription)
-                
             }
-            
             //UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
       // }
@@ -171,7 +143,6 @@ class FocusingViewController: UIViewController{
     }
 
     override func viewDidLoad() {
-        
         print(globalTime)
         super.viewDidLoad()
         updatetimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)

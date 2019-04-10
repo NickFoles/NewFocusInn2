@@ -51,7 +51,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="setFocusingTimer:" destination="6c6-1l-dvt" eventType="touchUpInside" id="jEg-c0-75G"/>
-                                    <segue destination="FaY-n5-zSB" kind="showDetail" animates="NO" id="ofn-a0-sj9"/>
+                                    <segue destination="FaY-n5-zSB" kind="showDetail" identifier="" animates="NO" id="ofn-a0-sj9"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-L4-tqt">
@@ -113,9 +113,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-rB-t1k">
-                                <rect key="frame" x="172" y="420" width="70" height="166"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-rB-t1k">
+                                <rect key="frame" x="107" y="420" width="200" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="OxB-eQ-7Dt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -138,7 +141,7 @@
                                     <segue destination="4Pf-wF-HoS" kind="unwind" unwindAction="backToStartFocusingWithUnwindSegue:" id="Eyh-w2-Slf"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d69-jl-Lhu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d69-jl-Lhu">
                                 <rect key="frame" x="143" y="187" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="Fg8-po-El1"/>
