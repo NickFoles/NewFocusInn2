@@ -91,6 +91,8 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(firstSignUp)
         username.text = Auth.auth().currentUser?.displayName
         
         imagePicker = UIImagePickerController()

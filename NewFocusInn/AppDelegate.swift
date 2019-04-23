@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 import UserNotifications
 
 @UIApplicationMain
@@ -15,6 +17,8 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var vc = FocusingViewController()
+    var ref: DatabaseReference!
+    let defaults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -40,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        vc.timeLeftNotification()
         print("Test123.")
 
-        if(application.topViewController is FocusingViewController){
+        if !(application.topViewController is FocusingViewController) {
             print("Failure Notification Here")
             vc.failureNotification()}
     }
@@ -51,6 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         //vc.exitEarly()
+        print()
+
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -59,6 +66,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        let user = Auth.auth().currentUser
+        
+        if user != nil {
+            ref = Database.database().reference().child("users").child(user!.uid)
+            
+            // city coordinates
+            
+            // timeline history and dates
+            ref!.child("timelineHistory").observeSingleEvent(of: .value, with: { (snapshot) in
+                timelineHistory = snapshot.value as! [[String]]
+            })
+            ref!.child("dates").observeSingleEvent(of: .value, with: { (snapshot) in
+                dates = snapshot.value as! [String]
+            })
+            
+            // achievements and total focusing time
+            ref?.child("hours").observeSingleEvent(of: .value, with: { (snapshot) in
+                totalTime = snapshot.value as! Int
+            })
+            ref?.child("achievementList").observeSingleEvent(of: .value, with: { (snapshot) in
+                achievements = snapshot.value as! [Int]
+            })
+            
+        }
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -91,17 +124,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return nil
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 //Found on Github. - https://gist.github.com/snikch/3661188

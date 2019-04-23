@@ -11,27 +11,14 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-// Used to set the Date Cell
-extension Date {
-    var weekdayNameAndDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E/MMM d"
-        return formatter.string(from: self as Date)
-    }
-    
-    var time: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter.string(from: self as Date)
-    }
-}
+var dates = [String]()
+var timelineHistory = [[String]]()
 
 class TimelineTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var ref: DatabaseReference!
-    var dates = [String]()
-    var timelineHistory = [[String]]()
+    
     var totalTimelineItems = 0
     var dayTimelineItems = 1
     var rowNum = 0
@@ -46,6 +33,8 @@ class TimelineTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        print(Date().time)
     }
 
     // MARK: - Table view data source

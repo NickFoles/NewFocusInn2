@@ -138,6 +138,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="cancel:" destination="FaY-n5-zSB" eventType="touchUpInside" id="5Pg-gk-KJ8"/>
                                     <segue destination="4Pf-wF-HoS" kind="unwind" unwindAction="backToStartFocusingWithUnwindSegue:" id="Eyh-w2-Slf"/>
                                 </connections>
                             </button>
