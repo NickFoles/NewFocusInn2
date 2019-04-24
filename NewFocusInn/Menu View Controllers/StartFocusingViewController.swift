@@ -24,7 +24,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     // for the cancel button in the startFocusing view controller
     @IBAction func backToStartFocusing(unwindSegue: UIStoryboardSegue) {
-        
+        globalTime = 0
     }
     
     @IBAction func buildingImageButton(_ sender: UIButton) {
@@ -239,9 +239,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     //    }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         self.timeSetter.delegate = self
         self.timeSetter.dataSource = self
 
@@ -250,11 +248,8 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         print(time[1][2])
         
         if self.revealViewController() != nil {
-            
             menuButton.target = self.revealViewController()
-            
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }

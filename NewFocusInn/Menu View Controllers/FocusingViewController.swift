@@ -38,6 +38,17 @@ class FocusingViewController: UIViewController{
             if Double(self.runCount) == globalTime {
                 timer.invalidate()
                 
+            // add building to timeline history
+                if dates[0] != Date().weekdayNameAndDate {
+                    dates.insert(Date().weekdayNameAndDate, at: 0)
+                    timelineHistory.insert(["built", Date().time, "Successfully constructed a \(Int(globalTime))-minute \(buildingNames[firstRow][imageClicks])", buildingNames[firstRow][imageClicks]], at: 0)
+                }
+                else {
+                    timelineHistory[0].insert("built", at: 0)
+                    timelineHistory[0].insert(Date().time, at: 1)
+                    timelineHistory[0].insert("Successfully constructed a \(Int(globalTime))-minute \(buildingNames[firstRow][imageClicks])", at: 2)
+                    timelineHistory[0].insert(buildingNames[firstRow][imageClicks], at: 3)
+                }
                 
             // check if achievements were completed
                 // check 10 buildings achievement
