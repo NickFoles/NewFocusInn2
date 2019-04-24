@@ -12,10 +12,13 @@ import GameplayKit
 import FirebaseAuth
 import FirebaseDatabase
 
+var houseList = [String]()
+
 class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var previousScale:CGFloat = 1.0
+    let gameScene = GameScene()
 
     //var previousScale:CGFloat = 1.0
     
@@ -37,8 +40,11 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
                 // Present the scene
                 view.presentScene(scene)
             }
-            
             view.ignoresSiblingOrder = true
+        }
+        
+        for i in 0 ..< houseList.count {
+            gameScene.placeBuilding(x: coor[i][0], y: coor[i][1], build: SKSpriteNode(imageNamed: houseList[i]))
         }
 
 //        let gesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:)))

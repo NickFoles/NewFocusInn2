@@ -127,12 +127,12 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             ref = Database.database().reference().child("users").child(user.uid)
 
-            ref?.child("houseList").setValue([""])
-            ref?.child("achievementList").setValue([0,0,0,0])       // value equal 1 if the achievement correlating to the index is achieved
+            ref?.child("houseList").setValue([""])                  // lists the buildings, indices correlate to the coordinate of the buildings
+            ref?.child("achievementList").setValue([0,0,0,0])       // value equals 1 if the achievement correlating to the index is achieved
             ref?.child("hours").setValue(0)                         // total hours spent focusing
             
-            ref?.child("timelineHistory").setValue([[""]])
-            ref?.child("dates").setValue([""])
+            ref?.child("timelineHistory").setValue([[""]])          // stores information of each item on the timeline
+            ref?.child("dates").setValue([""])                      // dates for timelineHistory
             print("sent information")
         }
         

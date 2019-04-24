@@ -112,6 +112,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ref = Database.database().reference().child("users").child(user!.uid)
             
             // city coordinates
+            ref!.child("houseList").observeSingleEvent(of: .value, with: { (snapshot) in
+               houseList  = snapshot.value as! [String]
+            })
             
             // timeline history and dates
             ref!.child("timelineHistory").observeSingleEvent(of: .value, with: { (snapshot) in

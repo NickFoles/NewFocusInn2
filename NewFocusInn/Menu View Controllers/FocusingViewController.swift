@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import FirebaseAuth
+import FirebaseDatabase
 
 class FocusingViewController: UIViewController{
     var timermain = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self), userInfo: nil, repeats: false)
@@ -20,6 +22,7 @@ class FocusingViewController: UIViewController{
     var exitTime : String = "00:00:00"
     var timeleft = "00:00:00"
     var runCount = 0
+    var ref : DatabaseReference = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
     
     @IBOutlet weak var buildingImage: UIImageView!
     
@@ -38,10 +41,13 @@ class FocusingViewController: UIViewController{
             if Double(self.runCount) == globalTime {
                 timer.invalidate()
                 
+            // add building to houseList
+                houseList.append(buildingNames[firstRow][imageClicks])
+                
             // add building to timeline history
                 if dates[0] != Date().weekdayNameAndDate {
                     dates.insert(Date().weekdayNameAndDate, at: 0)
-                    timelineHistory.insert(["built", Date().time, "Successfully constructed a \(Int(globalTime))-minute \(buildingNames[firstRow][imageClicks])", buildingNames[firstRow][imageClicks]], at: 0)
+                    timelineHistory.insert(["built", Date().time, "Successfully constructed a \(Int(globalTime)/60)-minute \(buildingNames[firstRow][imageClicks])", buildingNames[firstRow][imageClicks]], at: 0)
                 }
                 else {
                     timelineHistory[0].insert("built", at: 0)
@@ -108,6 +114,13 @@ class FocusingViewController: UIViewController{
                     }
                 }
                 totalTime += Int(globalTime)
+            
+                self.ref.child("houseList").setValue(houseList)
+                self.ref.child("timelineHistory").setValue(timelineHistory)
+                self.ref.child("dates").setValue(dates)
+                self.ref.child("achievementList").setValue(achievements)
+                self.ref.child("hours").setValue(totalTime)
+                
                 print("DONE!")
             }
         }

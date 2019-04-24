@@ -33,8 +33,6 @@ class TimelineTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
-        print(Date().time)
     }
 
     // MARK: - Table view data source

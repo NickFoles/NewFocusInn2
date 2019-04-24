@@ -18,7 +18,7 @@ var sessions = 0
 extension Date {
     var weekdayNameAndDate: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "E/MMM d"
+        formatter.dateFormat = "E/ MMM d"
         return formatter.string(from: self as Date)
     }
     
