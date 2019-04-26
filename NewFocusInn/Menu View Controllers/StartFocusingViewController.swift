@@ -24,8 +24,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     // for the cancel button in the startFocusing view controller
     @IBAction func backToStartFocusing(unwindSegue: UIStoryboardSegue) {
-        globalTime = 0
-        print("gT: \(globalTime)")
+        cancelled = 1
     }
     
     @IBAction func buildingImageButton(_ sender: UIButton) {
@@ -46,69 +45,18 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         globalTime = secondsToSend
     }
     
-    //        let storyBoard = UIStoryboard(name: "FocusingScreen", bundle: nil)
-    
-    //    let thirdVC: FocusingViewController = storyBoard.instantiateViewController(withIdentifier: "FocusingViewController") as! FocusingViewController
-    
-    
-    
-    //        storyBoard.instantiateViewController(withIdentifier: "FocusingViewController")
-    
-    //        thirdVC.passedValue = Int(secondsToSend)
-    
-    //        self.present(thirdVC, animated: true, completion: nil)
-    
-    
-    
-    //        var passer = FocusingViewController(nibName:"FocusingViewController", bundle: nil)
-    
-    //        passer.interval = Int(secondsToSend)
-    
-    //        navigationController?.pushViewController(passer, animated: true)
-    
-    
-    
-    //       if let passing = passer{
-    
-    //            print(String(secondsToSend))
-    
-    //            passing.createTimer(secondsToSend)}
-    
-    //  self.performSegue(withIdentifier: "sb_focusing", sender: self)
-    
-
-    
-    //        let storyboard = UIStoryboard(name: "FocusingScreen", bundle: nil)
-    
-    //        let transition:FocusingViewController = self.storyboard?.instantiateViewController(withIdentifier: "FocusingViewController") as! FocusingViewController
-    
-    //        self.navigationController?.pushViewController(transition, animated: false)
-    
-    //sb_focusing
-    
-    
-    
-    //Sets number of Components for PickerView
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
-        
     }
     
     //Sets PickerView Component Lengths
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        if component == 0{
-            
+        if component == 0 {
             return 4
-            
         }
-        
         return 12
     }
-    
-    
     
     //Gives access to Seconds sent in preparation for Segue
     
@@ -137,78 +85,38 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     
     
     
-    //Sets up the Label for the Hours/Minutes. A Hot mess of code, will fix eventually
-    
+    // Sets up the Label for the Hours/Minutes. A Hot mess of code, will fix eventually
     //    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-    
     //          let label = UILabel()
-    
     //          label.text = String(row)
-    
     //          label.textAlignment = .center
-    
     //          return label
-    
     //    }
     
-    //
-    
     //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    
-    //
-    
     //        if let label = pickerView.view(forRow: row, forComponent: component) as? UILabel {
-    
-    //
-    
+
     //            if component == 0, row > 1 {
-    
     //                label.text = String(row) + " hours"
-    
     //            }
-    
     //            else if component == 0 {
-    
     //                label.text = String(row) + " hour"
-    
     //            }
-    
     //            else if component == 1 {
-    
     //                label.text = String(row) + " min"
-    
     //            }
-    
     //        }
-    
     //                timeSetter.selectRow(0, inComponent: 0, animated: false)
-    
     //                timeSetter.selectRow(0, inComponent: 1, animated: false)
-    
-    //
-    
     //                timeSetter(pickerView(timeSetter, didSelectRow: 0, inComponent: 1))
-    
     //                timeSetter(pickerView(timeSetter, didSelectRow: 0, inComponent: 0))
-    
-    //
-    
     //    }
     
     //    func selectPickerViewRows() {
-    
-    //
-    
     //        timeSetter.selectRow(0, inComponent: 0, animated: false)
-    
     //        timeSetter.selectRow(0, inComponent: 1, animated: false)
-    
-    //
-    
     //        timeSetter(pickerView(timeSetter, didSelectRow: 0, inComponent: 1))
-    
     //        timeSetter(pickerView(timeSetter, didSelectRow: 0, inComponent: 0))
-    
     //    }
     
     
@@ -226,17 +134,11 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     }
 
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
     //        if segue.identifier == "focusing" {
-    
     //            print("Working123")
-    
     //            let vcTarget = segue.destination as! FocusingViewController
-    
     //
-    
     //        }
-    
     //    }
     
     override func viewDidLoad() {

@@ -20,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var ref: DatabaseReference!
     let defaults = UserDefaults.standard
     
-    let displayStatusChanged: CFNotificationCallback = { center, observer, name, object, info in
-        let str = name!.rawValue as CFString
-        if (str == "com.apple.springboard.lockcomplete" as CFString) {
-            let isDisplayStatusLocked = UserDefaults.standard
-            isDisplayStatusLocked.set(true, forKey: "isDisplayStatusLocked")
-            isDisplayStatusLocked.synchronize()
-        }
-    }
+//    let displayStatusChanged: CFNotificationCallback = { center, observer, name, object, info in
+//        let str = name!.rawValue as CFString
+//        if (str == "com.apple.springboard.lockcomplete" as CFString) {
+//            let isDisplayStatusLocked = UserDefaults.standard
+//            isDisplayStatusLocked.set(true, forKey: "isDisplayStatusLocked")
+//            isDisplayStatusLocked.synchronize()
+//        }
+//    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -38,41 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("granted")
         }
         
-        let isDisplayStatusLocked = UserDefaults.standard
-        isDisplayStatusLocked.set(false, forKey: "isDisplayStatusLocked")
-        isDisplayStatusLocked.synchronize()
+//        let isDisplayStatusLocked = UserDefaults.standard
+//        isDisplayStatusLocked.set(false, forKey: "isDisplayStatusLocked")
+//        isDisplayStatusLocked.synchronize()
+//
+//        // Darwin Notification
+//        let cfstr = "com.apple.springboard.lockcomplete" as CFString
+//        let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
+//        let function = displayStatusChanged
+//        CFNotificationCenterAddObserver(notificationCenter, nil, function, cfstr, nil, .deliverImmediately)
         
-        // Darwin Notification
-        let cfstr = "com.apple.springboard.lockcomplete" as CFString
-        let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
-        let function = displayStatusChanged
-        CFNotificationCenterAddObserver(notificationCenter, nil, function, cfstr, nil, .deliverImmediately)
-        
-        let user = Auth.auth().currentUser
-        if user != nil {
-            ref = Database.database().reference().child("users").child(user!.uid)
-            
-            // city coordinates
-            ref!.child("houseList").observeSingleEvent(of: .value, with: { (snapshot) in
-                houseList  = snapshot.value as! [String]
-            })
-            
-            // timeline history and dates
-            ref!.child("timelineHistory").observeSingleEvent(of: .value, with: { (snapshot) in
-                timelineHistory = snapshot.value as! [[String]]
-            })
-            ref!.child("dates").observeSingleEvent(of: .value, with: { (snapshot) in
-                dates = snapshot.value as! [String]
-            })
-            
-            // achievements and total focusing time
-            ref?.child("totalMinutes").observeSingleEvent(of: .value, with: { (snapshot) in
-                totalTime = snapshot.value as! Int
-            })
-            ref?.child("achievementList").observeSingleEvent(of: .value, with: { (snapshot) in
-                achievements = snapshot.value as! [Int]
-            })
-        }
         return true
     }
     
@@ -95,35 +70,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //vc.exitEarly()
         
-        print("yes \(application.isProtectedDataAvailable)")
+//        let isDisplayStatusLocked = UserDefaults.standard
+//        if let lock = isDisplayStatusLocked.value(forKey: "isDisplayStatusLocked"){
+//
+//            // user locked screen
+//            if(lock as! Bool){
+//                // do anything you want here
+//                print("Lock button pressed.")
+//            }
+//                // user pressed home button
+//            else{
+//                // do anything you want here
+//                if application.topViewController is FocusingViewController {
+//                    print("Failure Notification Here")
+//                    vc.failureNotification()
+//                }
+//                print("Home button pressed.")
+//            }
+//        }
         
-        let isDisplayStatusLocked = UserDefaults.standard
-        if let lock = isDisplayStatusLocked.value(forKey: "isDisplayStatusLocked"){
-            
-            // user locked screen
-            if(lock as! Bool){
-                // do anything you want here
-                print("Lock button pressed.")
-            }
-                // user pressed home button
-            else{
-                // do anything you want here
-                if application.topViewController is FocusingViewController {
-                    print("Failure Notification Here")
-                    vc.failureNotification()}
-                print("Home button pressed.")
-            }
-        }
+        if application.topViewController is FocusingViewController {
+            vc.timeLeftNotification()
+            vc.failureNotification()}
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
-            print("Back to foreground.")
-            //restore lock screen setting
-            let isDisplayStatusLocked = UserDefaults.standard
-            isDisplayStatusLocked.set(false, forKey: "isDisplayStatusLocked")
-            isDisplayStatusLocked.synchronize()
+//            print("Back to foreground.")
+//            //restore lock screen setting
+//            let isDisplayStatusLocked = UserDefaults.standard
+//            isDisplayStatusLocked.set(false, forKey: "isDisplayStatusLocked")
+//            isDisplayStatusLocked.synchronize()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -133,9 +111,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if user != nil {
             ref = Database.database().reference().child("users").child(user!.uid)
             
-            // city coordinates
+            // list of buildings corresponding to city coordinates and sessions
             ref!.child("houseList").observeSingleEvent(of: .value, with: { (snapshot) in
                 houseList  = snapshot.value as! [String]
+            })
+            ref?.child("sessions").observeSingleEvent(of: .value, with: { (snapshot) in
+                sessions = snapshot.value as! Int
             })
             
             // timeline history and dates
@@ -155,8 +136,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
     }
-    
-    
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

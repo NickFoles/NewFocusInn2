@@ -14,21 +14,6 @@ var achievements = [Int]()
 var totalTime = 0
 var sessions = 0
 
-// Use to set time and Date when completed achievement
-extension Date {
-    var weekdayNameAndDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E/ MMM d"
-        return formatter.string(from: self as Date)
-    }
-    
-    var time: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter.string(from: self as Date)
-    }
-}
-
 class AchievementsTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -51,16 +36,6 @@ class AchievementsTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-//        ref = Database.database().reference()
-//
-//        if let user = Auth.auth().currentUser {
-//            ref?.child("hours").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//                self.totalTime = snapshot.value as! Int
-//            })
-//        }
-//        checkAchievements()
-        
-        
     }
 
     // MARK: - Table view data source
@@ -80,9 +55,7 @@ class AchievementsTableViewController: UITableViewController {
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         if Auth.auth().currentUser != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! AchievementsTableViewCell
         
@@ -105,23 +78,6 @@ class AchievementsTableViewController: UITableViewController {
             
             return cell
         }
-        
-//        let tableViewCell = UITableViewCell()
-//        if let user = Auth.auth().currentUser{
-//            if achList.count > 0{
-//                tableViewCell.textLabel?.font = UIFont(name: "helvetica neue", size: 15)
-//                tableViewCell.textLabel?.textAlignment = .center
-////                print(indexPath.row)
-//                tableViewCell.textLabel?.text = achList[indexPath.row][0]
-//            }
-//        }
-//        return tableViewCell
-        
-    }
- 
-    
-    func checkAchievements(){
-       
     }
 
     /*

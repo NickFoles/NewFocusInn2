@@ -46,8 +46,7 @@ class GameScene: SKScene {
 //        placeBuilding(x: coor[4][0], y: coor[4][1], build: tallBuilding)
         
         for i in 0 ..< houseList.count {
-            placeBuilding(x: coor[i][0], y: coor[i][1], build: houseList[i])
-        }
+            placeBuilding(x: coor[i][0], y: coor[i][1], build: houseList[i])        }
     }
     
     func placeBuilding (x: Double, y: Double, build: String) {
@@ -55,7 +54,10 @@ class GameScene: SKScene {
             let building = SKSpriteNode(imageNamed: build)
             building.size = CGSize(width: building.size.width * grass.xScale, height: building.size.height * grass.yScale)
             
-            if build == "house" || build == "house2" {
+            if build == "house" {
+                building.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + building.size.height/2 * grass.yScale + 2)
+            }
+            else if build == "house2" {
                 building.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + building.size.height/2 * grass.yScale + 2)
             }
             else if build == "eiffel" {

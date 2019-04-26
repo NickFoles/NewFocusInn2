@@ -14,18 +14,28 @@ import FirebaseStorage
 var dates = [String]()
 var timelineHistory = [[String]]()
 
+// Use to set time and Date when completed achievement
+extension Date {
+    var weekdayNameAndDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E/MMM d"
+        return formatter.string(from: self as Date)
+    }
+    
+    var time: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: self as Date)
+    }
+}
+
 class TimelineTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var ref: DatabaseReference!
     
-    var totalTimelineItems = 0
-    var dayTimelineItems = 1
-    var rowNum = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        totalTimelineItems += dayTimelineItems
         
         // used to access the sidebar menu
         if self.revealViewController() != nil {

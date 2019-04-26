@@ -11,6 +11,8 @@ import UserNotifications
 import FirebaseAuth
 import FirebaseDatabase
 
+var cancelled = 0
+
 class FocusingViewController: UIViewController{
     var timermain = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self), userInfo: nil, repeats: false)
     var getBackTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self), userInfo: nil, repeats: false)
@@ -41,10 +43,16 @@ class FocusingViewController: UIViewController{
             if Double(self.runCount) == globalTime {
                 timer.invalidate()
                 
-            //  add focus time to total time
+            //  add focus time to total time and increase sessions by 1
                 totalTime += Int(globalTime/60)
+                sessions += 1
                 
             // add building name to houseList
+                if houseList.count == 225 {
+                    houseList.removeAll()
+                    houseList.append("")
+                }
+                
                 if houseList[0] == "" {
                     houseList[0] = buildingNames[firstRow][imageClicks]
                 }
@@ -60,7 +68,7 @@ class FocusingViewController: UIViewController{
                 else {
                     timelineHistory[0].insert("built", at: 0)
                     timelineHistory[0].insert(Date().time, at: 1)
-                    timelineHistory[0].insert("Successfully constructed a \(Int(globalTime))-minute \(buildingNames[firstRow][imageClicks])", at: 2)
+                    timelineHistory[0].insert("Successfully constructed a \(Int(globalTime)/60)-minute \(buildingNames[firstRow][imageClicks])", at: 2)
                     timelineHistory[0].insert(buildingNames[firstRow][imageClicks], at: 3)
                 }
                 
@@ -122,6 +130,7 @@ class FocusingViewController: UIViewController{
                     }
                 }
                 
+                // push information into firebase
                 let user = Auth.auth().currentUser
                 if user != nil {
                     self.ref = Database.database().reference().child("users").child(user!.uid)
@@ -131,9 +140,15 @@ class FocusingViewController: UIViewController{
                     self.ref.child("dates").setValue(dates)
                     self.ref.child("achievementList").setValue(achievements)
                     self.ref.child("totalMinutes").setValue(totalTime)
+                    self.ref.child("sessions").setValue(sessions)
                 }
                 self.performSegue(withIdentifier: "timesUp", sender: self)
                 print("DONE!")
+            }
+                
+            // if cancelled button is pressed
+            else if cancelled == 1 {
+               timer.invalidate()
             }
         }
         print("Timer Actually Created")
@@ -150,7 +165,7 @@ class FocusingViewController: UIViewController{
         let content = UNMutableNotificationContent()
         
         //  content.body = NSString.localizedUserNotificationString(forKey: "You have "+String(exitTime)+" left in your studying session. You have exited early!", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "You have exited the app Early! Please Come Back! 30 Seconds Left!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "You have exited the app Early! Please Come Back! 10 Seconds Left!", arguments: nil)
         
         // content.badge = 1
         
@@ -209,26 +224,28 @@ class FocusingViewController: UIViewController{
             }
             //UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
+        self.performSegue(withIdentifier: "timesUp", sender: self)
       // }
     }
 
-    func exitEarly(){
-        timermain.invalidate()
-        self.completeNotification()
-        
-        // let shiftlose = LoseViewController
-        //self.navigationController?.pushViewController(shiftlose, animated: true)
-    }
-    
-    func storeExitTime(){
-        guard var storeTime = timerLabel.text else {
-            exitTime = "ERROR. TEST123"
-            return
-        }
-        exitTime = storeTime
-    }
+//    func exitEarly(){
+//        timermain.invalidate()
+//        self.completeNotification()
+//
+//        // let shiftlose = LoseViewController
+//        //self.navigationController?.pushViewController(shiftlose, animated: true)
+//    }
+//
+//    func storeExitTime(){
+//        guard var storeTime = timerLabel.text else {
+//            exitTime = "ERROR. TEST123"
+//            return
+//        }
+//        exitTime = storeTime
+//    }
 
     override func viewDidLoad() {
+        cancelled = 0
         print(globalTime)
         super.viewDidLoad()
         createTimer(interval)
