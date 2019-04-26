@@ -224,7 +224,6 @@ class FocusingViewController: UIViewController{
             }
             //UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
-        self.performSegue(withIdentifier: "timesUp", sender: self)
       // }
     }
 

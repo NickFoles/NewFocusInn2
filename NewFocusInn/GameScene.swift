@@ -46,7 +46,8 @@ class GameScene: SKScene {
 //        placeBuilding(x: coor[4][0], y: coor[4][1], build: tallBuilding)
         
         for i in 0 ..< houseList.count {
-            placeBuilding(x: coor[i][0], y: coor[i][1], build: houseList[i])        }
+            placeBuilding(x: coor[i][0], y: coor[i][1], build: houseList[i])
+        }
     }
     
     func placeBuilding (x: Double, y: Double, build: String) {

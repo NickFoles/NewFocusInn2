@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
         if application.topViewController is FocusingViewController {
-            vc.timeLeftNotification()
+//            vc.timeLeftNotification()
             vc.failureNotification()}
     }
 
