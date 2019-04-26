@@ -116,33 +116,8 @@
                                             <segue destination="Dem-vE-N6b" kind="custom" identifier="timeline" customClass="SWRevealViewControllerSeguePushController" id="UkP-T1-cNM"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Friends" id="rdO-cj-VXv">
-                                        <rect key="frame" x="0.0" y="167" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rdO-cj-VXv" id="lad-01-rZ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👥 Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsJ-wl-AdD">
-                                                    <rect key="frame" x="28" y="11" width="358" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="LsJ-wl-AdD" firstAttribute="leading" secondItem="lad-01-rZ7" secondAttribute="leadingMargin" constant="8" id="Gr2-Qr-sAe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LsJ-wl-AdD" secondAttribute="bottom" id="MWL-cy-uMw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="LsJ-wl-AdD" secondAttribute="trailing" constant="8" id="PiC-h8-4T0"/>
-                                                <constraint firstItem="LsJ-wl-AdD" firstAttribute="top" secondItem="lad-01-rZ7" secondAttribute="topMargin" id="hDk-0j-ptz"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="w9N-7e-Svm" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="7qK-re-HYe"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Achievements" id="0Nw-hJ-138">
-                                        <rect key="frame" x="0.0" y="211" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="167" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Nw-hJ-138" id="oaL-Ww-lEn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -167,7 +142,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Settings" id="aJp-yW-Ftu">
-                                        <rect key="frame" x="0.0" y="255" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="211" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJp-yW-Ftu" id="MoQ-71-M7k">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>

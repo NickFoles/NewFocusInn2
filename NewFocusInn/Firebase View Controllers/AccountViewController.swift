@@ -14,6 +14,10 @@ import FirebaseDatabase
 class AccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var stats: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    
+    var achieved = 0
     var imagePicker: UIImagePickerController?
     var ref: DatabaseReference!
     
@@ -123,13 +127,43 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         
+        for i in 0 ..< achievements.count {
+            if achievements[i] == 1 {
+                achieved += 1
+            }
+        }
+    
+        stats.text = "🏠 \(houseList.count)     🏆 \(achieved)"
+        
+        // days
+        if totalTime/1440 < 2 {
+            totalTimeLabel.text = "🕒 \(totalTime/1440) day"
+        }
+        else {
+            totalTimeLabel.text = "🕒 \(totalTime/1440) days"
+        }
+        // hours
+        if totalTime/60 < 2 {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime/60) hour"
+        }
+        else {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime/60) hours"
+        }
+        // minutes
+        if totalTime < 2 {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) min"
+        }
+        else {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) mins"
+        }
+        
         if firstSignUp == 1, let user = Auth.auth().currentUser{
             
             ref = Database.database().reference().child("users").child(user.uid)
 
             ref?.child("houseList").setValue([""])                  // lists the buildings, indices correlate to the coordinate of the buildings
             ref?.child("achievementList").setValue([0,0,0,0])       // value equals 1 if the achievement correlating to the index is achieved
-            ref?.child("hours").setValue(0)                         // total hours spent focusing
+            ref?.child("totalMinutes").setValue(0)                  // total hours spent focusing
             
             ref?.child("timelineHistory").setValue([[""]])          // stores information of each item on the timeline
             ref?.child("dates").setValue([""])                      // dates for timelineHistory

@@ -48,13 +48,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let function = displayStatusChanged
         CFNotificationCenterAddObserver(notificationCenter, nil, function, cfstr, nil, .deliverImmediately)
         
+        let user = Auth.auth().currentUser
+        if user != nil {
+            ref = Database.database().reference().child("users").child(user!.uid)
+            
+            // city coordinates
+            ref!.child("houseList").observeSingleEvent(of: .value, with: { (snapshot) in
+                houseList  = snapshot.value as! [String]
+            })
+            
+            // timeline history and dates
+            ref!.child("timelineHistory").observeSingleEvent(of: .value, with: { (snapshot) in
+                timelineHistory = snapshot.value as! [[String]]
+            })
+            ref!.child("dates").observeSingleEvent(of: .value, with: { (snapshot) in
+                dates = snapshot.value as! [String]
+            })
+            
+            // achievements and total focusing time
+            ref?.child("totalMinutes").observeSingleEvent(of: .value, with: { (snapshot) in
+                totalTime = snapshot.value as! Int
+            })
+            ref?.child("achievementList").observeSingleEvent(of: .value, with: { (snapshot) in
+                achievements = snapshot.value as! [Int]
+            })
+        }
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
         
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
         //        print("Storing Exit Time")
@@ -63,20 +87,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        print("Sending Time Left Notification")
         //        vc.timeLeftNotification()
         print("Test123.")
-        
-        
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         //vc.exitEarly()
-        print(UIScreen.main.brightness)
+        
+        print("yes \(application.isProtectedDataAvailable)")
         
         let isDisplayStatusLocked = UserDefaults.standard
         if let lock = isDisplayStatusLocked.value(forKey: "isDisplayStatusLocked"){
+            
             // user locked screen
             if(lock as! Bool){
                 // do anything you want here
@@ -95,25 +118,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        func applicationWillEnterForeground(_ application: UIApplication) {
+        
             print("Back to foreground.")
             //restore lock screen setting
             let isDisplayStatusLocked = UserDefaults.standard
             isDisplayStatusLocked.set(false, forKey: "isDisplayStatusLocked")
             isDisplayStatusLocked.synchronize()
-        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        let user = Auth.auth().currentUser
         
+        let user = Auth.auth().currentUser
         if user != nil {
             ref = Database.database().reference().child("users").child(user!.uid)
             
             // city coordinates
             ref!.child("houseList").observeSingleEvent(of: .value, with: { (snapshot) in
-               houseList  = snapshot.value as! [String]
+                houseList  = snapshot.value as! [String]
             })
             
             // timeline history and dates
@@ -125,20 +147,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
             
             // achievements and total focusing time
-            ref?.child("hours").observeSingleEvent(of: .value, with: { (snapshot) in
+            ref?.child("totalMinutes").observeSingleEvent(of: .value, with: { (snapshot) in
                 totalTime = snapshot.value as! Int
             })
             ref?.child("achievementList").observeSingleEvent(of: .value, with: { (snapshot) in
                 achievements = snapshot.value as! [Int]
             })
-            
         }
-        
     }
+    
+    
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
     }
     
     func getVisibleViewController(_ rootViewController: UIViewController?) -> UIViewController? {

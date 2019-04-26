@@ -138,7 +138,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="4Pf-wF-HoS" kind="unwind" unwindAction="backToStartFocusingWithUnwindSegue:" id="Eyh-w2-Slf"/>
+                                    <segue destination="4Pf-wF-HoS" kind="unwind" identifier="cancelled" unwindAction="backToStartFocusingWithUnwindSegue:" id="Eyh-w2-Slf"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d69-jl-Lhu">
@@ -164,6 +164,7 @@
                     <connections>
                         <outlet property="buildingImage" destination="d69-jl-Lhu" id="nJG-Ez-nmS"/>
                         <outlet property="timerLabel" destination="fkF-rB-t1k" id="l32-bW-r94"/>
+                        <segue destination="4Pf-wF-HoS" kind="unwind" identifier="timesUp" unwindAction="backToStartFocusingWithUnwindSegue:" id="yeW-hh-hyL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryt-A8-3XF" userLabel="First Responder" sceneMemberID="firstResponder"/>

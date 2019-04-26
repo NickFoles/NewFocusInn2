@@ -25,6 +25,7 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     // for the cancel button in the startFocusing view controller
     @IBAction func backToStartFocusing(unwindSegue: UIStoryboardSegue) {
         globalTime = 0
+        print("gT: \(globalTime)")
     }
     
     @IBAction func buildingImageButton(_ sender: UIButton) {

@@ -22,7 +22,7 @@ class FocusingViewController: UIViewController{
     var exitTime : String = "00:00:00"
     var timeleft = "00:00:00"
     var runCount = 0
-    var ref : DatabaseReference = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
+    var ref : DatabaseReference!
     
     @IBOutlet weak var buildingImage: UIImageView!
     
@@ -41,8 +41,16 @@ class FocusingViewController: UIViewController{
             if Double(self.runCount) == globalTime {
                 timer.invalidate()
                 
-            // add building to houseList
-                houseList.append(buildingNames[firstRow][imageClicks])
+            //  add focus time to total time
+                totalTime += Int(globalTime/60)
+                
+            // add building name to houseList
+                if houseList[0] == "" {
+                    houseList[0] = buildingNames[firstRow][imageClicks]
+                }
+                else {
+                    houseList.append(buildingNames[firstRow][imageClicks])
+                }
                 
             // add building to timeline history
                 if dates[0] != Date().weekdayNameAndDate {
@@ -113,14 +121,18 @@ class FocusingViewController: UIViewController{
                         timelineHistory[0].insert("workaholic", at: 3)
                     }
                 }
-                totalTime += Int(globalTime)
-            
-                self.ref.child("houseList").setValue(houseList)
-                self.ref.child("timelineHistory").setValue(timelineHistory)
-                self.ref.child("dates").setValue(dates)
-                self.ref.child("achievementList").setValue(achievements)
-                self.ref.child("hours").setValue(totalTime)
                 
+                let user = Auth.auth().currentUser
+                if user != nil {
+                    self.ref = Database.database().reference().child("users").child(user!.uid)
+                
+                    self.ref.child("houseList").setValue(houseList)
+                    self.ref.child("timelineHistory").setValue(timelineHistory)
+                    self.ref.child("dates").setValue(dates)
+                    self.ref.child("achievementList").setValue(achievements)
+                    self.ref.child("totalMinutes").setValue(totalTime)
+                }
+                self.performSegue(withIdentifier: "timesUp", sender: self)
                 print("DONE!")
             }
         }

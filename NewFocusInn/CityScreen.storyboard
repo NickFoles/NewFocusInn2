@@ -40,7 +40,6 @@
                     </skView>
                     <navigationItem key="navigationItem" title="City" id="qjA-yN-BNP">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="reD-4h-ycg"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="9ug-v2-gtw"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="reD-4h-ycg" id="u4J-AD-H6Y"/>
