@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-var achievements = [Int]()
+var achievements = [0,0,0,0]
 var totalTime = 0
 var sessions = 0
 

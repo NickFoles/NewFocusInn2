@@ -11,8 +11,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-var dates = [String]()
-var timelineHistory = [[String]]()
+var dates = [""]
+var timelineHistory = [[""]]
 
 // Use to set time and Date when completed achievement
 extension Date {
