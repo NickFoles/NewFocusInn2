@@ -45,8 +45,10 @@ class GameScene: SKScene {
 //        placeBuilding(x: coor[50][0], y: coor[50][1], build: empire)
 //        placeBuilding(x: coor[4][0], y: coor[4][1], build: tallBuilding)
         
-        for i in 0 ..< houseList.count {
-            placeBuilding(x: coor[i][0], y: coor[i][1], build: houseList[i])
+        if houseList[0] != "" {
+            for i in 0 ..< houseList.count {
+                placeBuilding(x: coor[i][0], y: coor[i][1], build: houseList[i])
+            }
         }
     }
     

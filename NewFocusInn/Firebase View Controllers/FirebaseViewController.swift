@@ -26,5 +26,9 @@ class FirebaseViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func firebaseHome(unwindSegue: UIStoryboardSegue) {
+        
+    }
 
 }

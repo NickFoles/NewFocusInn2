@@ -98,7 +98,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="V7t-rI-4jY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="1" green="0.35294117650000001" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -286,9 +286,11 @@
                         <outlet property="logInButton" destination="314-6x-fg8" id="EmX-2W-lOS"/>
                         <outlet property="passwordTextField" destination="swe-wZ-lca" id="btl-YU-wJV"/>
                         <segue destination="KPy-tX-upZ" kind="show" identifier="toAccountHome" id="2YQ-8n-sPB"/>
+                        <segue destination="zuj-IU-9TF" kind="unwind" identifier="firebaseHome" unwindAction="firebaseHomeWithUnwindSegue:" id="x6x-vw-s7l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6F-XH-32p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zuj-IU-9TF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2610" y="3749"/>
         </scene>

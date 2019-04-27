@@ -41,8 +41,9 @@
                                     <constraint firstAttribute="height" constant="50" id="CYQ-CD-1os"/>
                                     <constraint firstAttribute="width" constant="200" id="qhN-pf-09p"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Start Focusing">
-                                    <color key="titleColor" red="0.94901960780000005" green="0.59607843140000005" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="0.35294117650000001" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -84,7 +85,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.52058645510000001" green="0.85636422069999996" blue="0.94249869360000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstItem="jRP-L4-tqt" firstAttribute="top" secondItem="S9t-MD-yMJ" secondAttribute="top" constant="30" id="DLY-1a-2Aj"/>
                             <constraint firstItem="cfO-Bo-SLn" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="Irr-Ck-gdX"/>
@@ -134,8 +135,9 @@
                                     <constraint firstAttribute="height" constant="50" id="gbl-a6-an1"/>
                                     <constraint firstAttribute="width" constant="200" id="qFW-0u-KVa"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.94901960780000005" green="0.59607843140000005" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="0.35294117650000001" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -154,7 +156,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.52058645510000001" green="0.85636422069999996" blue="0.94249869360000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstItem="5f3-nQ-b4V" firstAttribute="bottom" secondItem="ihR-1X-HCe" secondAttribute="bottom" constant="60" id="Pnu-Um-dk4"/>
                             <constraint firstItem="fkF-rB-t1k" firstAttribute="top" secondItem="5f3-nQ-b4V" secondAttribute="top" constant="400" id="Vvl-Ly-gXo"/>

@@ -22,7 +22,7 @@
                     </view>
                     <connections>
                         <segue destination="pps-dU-d5n" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="mRI-ss-UJ0"/>
-                        <segue destination="iQ2-Ct-y4U" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="s1S-6c-3yS"/>
+                        <segue destination="jn1-7t-JYZ" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Emx-DE-6rt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUL-rF-oKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,6 +229,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lw7-zG-Y4Z"/>
+        <segue reference="q1t-28-ZIm"/>
     </inferredMetricsTieBreakers>
 </document>

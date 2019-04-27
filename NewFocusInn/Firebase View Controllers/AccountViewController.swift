@@ -47,7 +47,6 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         imagePicker?.dismiss(animated: true, completion: nil)
-        
     }
     
     func uploadProfilePicture(_ image: UIImage, _ completion: @escaping((_ url: URL?) -> ())) {
@@ -73,10 +72,6 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    @IBAction func downloadPicture(_ sender: UIButton) {
-        
-    }
-    
     func getImageURL(_completion: @escaping((_ url:String?) -> ())) {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
@@ -96,7 +91,6 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(firstSignUp)
         username.text = Auth.auth().currentUser?.displayName
         
         imagePicker = UIImagePickerController()
@@ -125,36 +119,6 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
                     print(error?.localizedDescription as Any)
                 }
             }
-        }
-        
-        for i in 0 ..< achievements.count {
-            if achievements[i] == 1 {
-                achieved += 1
-            }
-        }
-    
-        stats.text = "🏠 \(houseList.count)     🏆 \(achieved)"
-        
-        // days
-        if totalTime/1440 < 2 {
-            totalTimeLabel.text = "🕒 \(totalTime/1440) day"
-        }
-        else {
-            totalTimeLabel.text = "🕒 \(totalTime/1440) days"
-        }
-        // hours
-        if totalTime/60 < 2 {
-            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime/60) hour"
-        }
-        else {
-            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime/60) hours"
-        }
-        // minutes
-        if totalTime < 2 {
-            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) min"
-        }
-        else {
-            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) mins"
         }
         
         if firstSignUp == 1, let user = Auth.auth().currentUser{
@@ -201,7 +165,34 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         
-        // Do any additional setup after loading the view.
+        for i in 0 ..< achievements.count {
+            if achievements[i] == 1 {
+                achieved += 1
+            }
+        }
+        
+        stats.text = "🏠 \(sessions)     🏆 \(achieved)"
+        
+        // days
+        if totalTime/1440 < 2 {
+            totalTimeLabel.text = "🕒 \(totalTime/1440) day"
+        }
+        else {
+            totalTimeLabel.text = "🕒 \(totalTime/1440) days"
+        }
+        // hours
+        if totalTime/60 < 2 {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime/60) hour"
+        }
+        else {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime/60) hours"
+        }
+        // minutes
+        if totalTime < 2 {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) min"
+        }
+        else {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) mins"
+        }
     }
-
 }

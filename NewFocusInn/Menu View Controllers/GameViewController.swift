@@ -12,7 +12,7 @@ import GameplayKit
 import FirebaseAuth
 import FirebaseDatabase
 
-var houseList = [String]()
+var houseList = [""]
 
 class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!

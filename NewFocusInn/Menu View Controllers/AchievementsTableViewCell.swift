@@ -12,8 +12,7 @@ class AchievementsTableViewCell: UITableViewCell {
     @IBOutlet weak var badge: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var cellDescription: UILabel!
-    
-    @IBOutlet weak var message: UILabel!
+
     @IBOutlet weak var messageConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
