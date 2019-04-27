@@ -73,9 +73,7 @@ class AchievementsTableViewController: UITableViewController {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "If not logged in", for: indexPath) as! AchievementsTableViewCell
-//            cell.messageConstraint.constant = (view.frame.height/2.0) - 42
-//            cell.message.topAnchor.constraint(equalTo: view.topAnchor, constant: (view.frame.height/2.0) - 42)
-            
+            cell.messageConstraint.constant = (view.frame.height/2.0) - 42
             return cell
         }
     }

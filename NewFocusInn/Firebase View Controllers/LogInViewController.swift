@@ -8,17 +8,21 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var errorMessage: UILabel!
+    
+    var ref: DatabaseReference!
     
     // takes the user to their account homescreen if successfully logged in
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "toAccountHome", sender: self)
+            self.performSegue(withIdentifier: "firebaseHome", sender: self)
         }
     }
     
@@ -31,6 +35,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.viewDidAppear(true)
             }
             else {
+                self.errorMessage.text = error!.localizedDescription
                 print(error!.localizedDescription)
             }
         }        

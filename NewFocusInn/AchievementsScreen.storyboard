@@ -92,12 +92,12 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="If not logged in" rowHeight="1000" id="WRZ-um-0GI" customClass="AchievementsTableViewCell" customModule="NewFocusInn" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="118" width="414" height="1000"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WRZ-um-0GI" id="gUz-hF-lcN">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WRZ-um-0GI" id="gUz-hF-lcN">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhM-tJ-Pan">
-                                            <rect key="frame" x="94.666666666666686" y="200" width="225" height="42"/>
+                                            <rect key="frame" x="94.666666666666686" y="311" width="225" height="42"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="42" id="SJl-pv-j6m"/>
                                                 <constraint firstAttribute="width" constant="225" id="wg3-wP-5Ry"/>
@@ -110,14 +110,14 @@ account in the settings page.</string>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="nhM-tJ-Pan" firstAttribute="top" secondItem="gUz-hF-lcN" secondAttribute="top" constant="200" id="Px3-VD-Lnn"/>
-                                        <constraint firstItem="nhM-tJ-Pan" firstAttribute="centerX" secondItem="gUz-hF-lcN" secondAttribute="centerX" id="q4A-Y8-HSr"/>
+                                        <constraint firstItem="nhM-tJ-Pan" firstAttribute="centerX" secondItem="gUz-hF-lcN" secondAttribute="centerX" id="Xrv-30-QkL"/>
+                                        <constraint firstItem="nhM-tJ-Pan" firstAttribute="centerY" secondItem="gUz-hF-lcN" secondAttribute="centerY" id="hWg-DT-2M1"/>
+                                        <constraint firstItem="nhM-tJ-Pan" firstAttribute="top" secondItem="gUz-hF-lcN" secondAttribute="topMargin" constant="300" id="rcu-oa-O6o"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="message" destination="nhM-tJ-Pan" id="abe-KU-f5V"/>
-                                    <outlet property="messageConstraint" destination="Px3-VD-Lnn" id="wfc-DS-PrD"/>
+                                    <outlet property="messageConstraint" destination="rcu-oa-O6o" id="2Vk-UY-BTm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

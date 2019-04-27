@@ -42,7 +42,5 @@ class SettingsTableViewController: UITableViewController {
         else {
             account.text = "Log In"
         }
-        
-        
     }
 }

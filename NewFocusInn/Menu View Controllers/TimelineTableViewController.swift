@@ -47,22 +47,22 @@ class TimelineTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-        override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return dates.count
     }
-
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         let sectionTimelineHistory = timelineHistory[section]
         return sectionTimelineHistory.count/4
     }
 
-        override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return dates[section]
     }
     
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dates.count > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Timeline Cell", for: indexPath) as! TimelineTableViewCell
             let sectionTimelineHistory = timelineHistory[indexPath.section]
@@ -74,47 +74,11 @@ class TimelineTableViewController: UITableViewController {
             cell.cellImage.image = UIImage(named: sectionTimelineHistory[indexPath.row * 4 + 3])
             return cell
         }
-        
-        // uncomment when startFocusing is setup
-     /*
-        // creates the Building Cell, displaying the time a new building was constructed/destroyed, the description of the building, and its image
-        else if newBuilding || destroyedBuilding {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Building Cell", for: indexPath) as! TimelineTableViewCell
-         
-            // Configure the cell...
-            cell.buildingTime.text = Date().time
-         
-            if newBuilding {
-                cell.buildingDescription = "Successfully constructed a \(timeConstructing)-minute \(buildingType)."
-            }
-            else {
-                cell.buildingDescription = "You've destroyed a \(buildingType)."
-            }
-         
-            cell.buildingImage.image = UIImage(named: "\(buildingType)")
-            timelineHistory.append(cell)
-            return cell
-        }
-         
-         // creates the Achievement Cell, displaying the time an achievement was achieved, the name of the achievemnet , and its image
-         else if newAchievement {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement Cell", for: indexPath) as! TimelineTableViewCell
-         
-            // Configure the cell...
-            cell.achievementTime.text = Date().time
-            cell.achievementDescription = "New achievement unlocked: \(achievementType)."
-            cell.achievementImage.image = UIImage(named: "\(achievementType)")
-            timelineHistory.append(cell)
-            return cell
-            }
-         */
         else {
             return UITableViewCell()
         }
     }
     
- 
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
