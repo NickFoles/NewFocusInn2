@@ -29,6 +29,7 @@ class FirebaseViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // accesses database info from user's account
     @IBAction func firebaseHome(unwindSegue: UIStoryboardSegue) {
         if Auth.auth().currentUser != nil {
             let user = Auth.auth().currentUser
