@@ -159,11 +159,11 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime/60) hours"
         }
         // minutes
-        if totalTime < 2 {
-            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) min"
+        if totalTime%60 < 2 {
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime%60) min"
         }
         else {
-            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime) mins"
+            totalTimeLabel.text = "\(totalTimeLabel.text!) \(totalTime%60) mins"
         }
     }
 }
