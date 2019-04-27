@@ -1,21 +1,17 @@
 //
-
 //  FocusingViewController.swift
-
 //  NewFocusInn
-
 //
-
 //  Created by Trent Gaylord (student LM) on 3/5/19.
-
 //  Copyright © 2019 Dara Oseyemi (student LM). All rights reserved.
-
 //
-
-
 
 import UIKit
 import UserNotifications
+import FirebaseAuth
+import FirebaseDatabase
+
+var cancelled = 0
 
 class FocusingViewController: UIViewController{
     var timermain = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self), userInfo: nil, repeats: false)
@@ -27,30 +23,135 @@ class FocusingViewController: UIViewController{
     var updatetimer: Timer?
     var exitTime : String = "00:00:00"
     var timeleft = "00:00:00"
+    var runCount = 0
+    var ref : DatabaseReference!
     
     @IBOutlet weak var buildingImage: UIImageView!
     
     // Creates the Timer based on the passed Interval Double in seconds
     func createTimer(_ interval:Double){
-        //timermain = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(self.timerdone(_:)), userInfo: nil, repeats: false)
-        timermain = Timer.scheduledTimer(withTimeInterval: interval, repeats: false){
-            timermain in
-            self.completeNotification()
-            self.performSegue(withIdentifier: "complete", sender: nil)
-            print("Timer Done 2.0")
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            
+            self.runCount += 1
+            let hours = Int((globalTime - Double(self.runCount))/60/60)
+            let minutes = Int((globalTime - Double(self.runCount))/60)%60
+            let second = Int((globalTime - Double(self.runCount))) % 60
+            
+            self.timerLabel.text = String(format:"%02d:%02d:%02d", hours, minutes, second)
+            self.timeleft = String(format:"%02d:%02d:%02d", hours, minutes, second)
+            
+            if Double(self.runCount) == globalTime {
+                timer.invalidate()
+                
+            //  add focus time to total time and increase sessions by 1
+                totalTime += Int(globalTime/60)
+                sessions += 1
+                
+            // add building name to houseList
+                if houseList.count == 225 {
+                    houseList.removeAll()
+                    houseList.append("")
+                }
+                
+                if houseList[0] == "" {
+                    houseList[0] = buildingNames[firstRow][imageClicks]
+                }
+                else {
+                    houseList.append(buildingNames[firstRow][imageClicks])
+                }
+                
+            // add building to timeline history
+                if dates[0] != Date().weekdayNameAndDate {
+                    dates.insert(Date().weekdayNameAndDate, at: 0)
+                    timelineHistory.insert(["built", Date().time, "Successfully constructed a \(Int(globalTime)/60)-minute \(buildingNames[firstRow][imageClicks])", buildingNames[firstRow][imageClicks]], at: 0)
+                }
+                else {
+                    timelineHistory[0].insert("built", at: 0)
+                    timelineHistory[0].insert(Date().time, at: 1)
+                    timelineHistory[0].insert("Successfully constructed a \(Int(globalTime)/60)-minute \(buildingNames[firstRow][imageClicks])", at: 2)
+                    timelineHistory[0].insert(buildingNames[firstRow][imageClicks], at: 3)
+                }
+                
+            // check if achievements were completed
+                // check 10 buildings achievement
+                if sessions >= 10 && achievements[0] == 0 {
+                    achievements[0] = 1
+                    if dates[0] != Date().weekdayNameAndDate {
+                        dates.insert(Date().weekdayNameAndDate, at: 0)
+                        timelineHistory.insert(["achieved", Date().time, "New achievement unlocked: Freshmen", "10 buildings"], at: 0)
+                    }
+                    else {
+                        timelineHistory[0].insert("achieved", at: 0)
+                        timelineHistory[0].insert(Date().time, at: 1)
+                        timelineHistory[0].insert("New achievement unlocked: Freshmen", at: 2)
+                        timelineHistory[0].insert("10 buildings", at: 3)
+                    }
+                }
+                // check 25 buildings achievement
+                if sessions >= 25 && achievements[1] == 0 {
+                    achievements[1] = 1
+                    if dates[0] != Date().weekdayNameAndDate {
+                        dates.insert(Date().weekdayNameAndDate, at: 0)
+                        timelineHistory.insert(["achieved", Date().time, "New achievement unlocked: Veteran", "25 buildings"], at: 0)
+                    }
+                    else {
+                        timelineHistory[0].insert("achieved", at: 0)
+                        timelineHistory[0].insert(Date().time, at: 1)
+                        timelineHistory[0].insert("New achievement unlocked: Veteran", at: 2)
+                        timelineHistory[0].insert("25 buildings", at: 3)
+                    }
+                }
+                // check 50 buildings achievement
+                if sessions >= 50 && achievements[2] == 0 {
+                    achievements[2] = 1
+                    if dates[0] != Date().weekdayNameAndDate {
+                        dates.insert(Date().weekdayNameAndDate, at: 0)
+                        timelineHistory.insert(["achieved", Date().time, "New achievement unlocked: Senioritis", "50 buildings"], at: 0)
+                    }
+                    else {
+                        timelineHistory[0].insert("achieved", at: 0)
+                        timelineHistory[0].insert(Date().time, at: 1)
+                        timelineHistory[0].insert("New achievement unlocked: Senioritis", at: 2)
+                        timelineHistory[0].insert("50 buildings", at: 3)
+                    }
+                }
+                // check workaholic achievement
+                if totalTime >= 600 && achievements[3] == 0 {
+                    achievements[3] = 1
+                    if dates[0] != Date().weekdayNameAndDate {
+                        dates.insert(Date().weekdayNameAndDate, at: 0)
+                        timelineHistory.insert(["achieved", Date().time, "New achievement unlocked: Workaholic", "workaholic"], at: 0)
+                    }
+                    else {
+                        timelineHistory[0].insert("achieved", at: 0)
+                        timelineHistory[0].insert(Date().time, at: 1)
+                        timelineHistory[0].insert("New achievement unlocked: Workaholic", at: 2)
+                        timelineHistory[0].insert("workaholic", at: 3)
+                    }
+                }
+                
+                // push information into firebase
+                let user = Auth.auth().currentUser
+                if user != nil {
+                    self.ref = Database.database().reference().child("users").child(user!.uid)
+                
+                    self.ref.child("houseList").setValue(houseList)
+                    self.ref.child("timelineHistory").setValue(timelineHistory)
+                    self.ref.child("dates").setValue(dates)
+                    self.ref.child("achievementList").setValue(achievements)
+                    self.ref.child("totalMinutes").setValue(totalTime)
+                    self.ref.child("sessions").setValue(sessions)
+                }
+                self.performSegue(withIdentifier: "timesUp", sender: self)
+                print("DONE!")
+            }
+                
+            // if cancelled button is pressed
+            else if cancelled == 1 {
+               timer.invalidate()
+            }
         }
         print("Timer Actually Created")
-    }
-    
-    //Updates the Label...
-    @objc func updateLabel(){
-        //  updatetimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
-        let hours = Int(timermain.fireDate.timeIntervalSinceNow/60/60)
-        let minutes = Int(timermain.fireDate.timeIntervalSinceNow/60)%60
-        let second = Int(timermain.fireDate.timeIntervalSinceNow) % 60
-    
-        timerLabel.text = String(format:"%02d:%02d:%02d", hours, minutes, second)
-        timeleft = String(format:"%02d:%02d:%02d", hours, minutes, second)
     }
     
     //Passes total time left in seconds
@@ -64,7 +165,7 @@ class FocusingViewController: UIViewController{
         let content = UNMutableNotificationContent()
         
         //  content.body = NSString.localizedUserNotificationString(forKey: "You have "+String(exitTime)+" left in your studying session. You have exited early!", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "You have exited the app Early! Please Come Back! 30 Seconds Left!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "You have exited the app Early! Please Come Back! 10 Seconds Left!", arguments: nil)
         
         // content.badge = 1
         
@@ -126,29 +227,28 @@ class FocusingViewController: UIViewController{
       // }
     }
 
-    func exitEarly(){
-        timermain.invalidate()
-        self.completeNotification()
-        
-        // let shiftlose = LoseViewController
-        //self.navigationController?.pushViewController(shiftlose, animated: true)
-    }
-    
-    func storeExitTime(){
-        guard var storeTime = timerLabel.text else {
-            exitTime = "ERROR. TEST123"
-            return
-        }
-        exitTime = storeTime
-    }
+//    func exitEarly(){
+//        timermain.invalidate()
+//        self.completeNotification()
+//
+//        // let shiftlose = LoseViewController
+//        //self.navigationController?.pushViewController(shiftlose, animated: true)
+//    }
+//
+//    func storeExitTime(){
+//        guard var storeTime = timerLabel.text else {
+//            exitTime = "ERROR. TEST123"
+//            return
+//        }
+//        exitTime = storeTime
+//    }
 
     override func viewDidLoad() {
+        cancelled = 0
         print(globalTime)
         super.viewDidLoad()
-        updatetimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
         createTimer(interval)
-        updateLabel()
-        
+    
         buildingImage.image = UIImage(named: buildingNames[firstRow][imageClicks])
         
     }

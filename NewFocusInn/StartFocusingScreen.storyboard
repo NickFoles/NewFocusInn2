@@ -56,10 +56,15 @@
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-L4-tqt">
                                 <rect key="frame" x="47" y="94" width="320" height="216"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JS8-78-fVt">
                                 <rect key="frame" x="149.66666666666666" y="376" width="114.99999999999997" height="115"/>
@@ -138,7 +143,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="4Pf-wF-HoS" kind="unwind" unwindAction="backToStartFocusingWithUnwindSegue:" id="Eyh-w2-Slf"/>
+                                    <segue destination="4Pf-wF-HoS" kind="unwind" identifier="cancelled" unwindAction="backToStartFocusingWithUnwindSegue:" id="Eyh-w2-Slf"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d69-jl-Lhu">
@@ -164,6 +169,7 @@
                     <connections>
                         <outlet property="buildingImage" destination="d69-jl-Lhu" id="nJG-Ez-nmS"/>
                         <outlet property="timerLabel" destination="fkF-rB-t1k" id="l32-bW-r94"/>
+                        <segue destination="4Pf-wF-HoS" kind="unwind" identifier="timesUp" unwindAction="backToStartFocusingWithUnwindSegue:" id="yeW-hh-hyL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryt-A8-3XF" userLabel="First Responder" sceneMemberID="firstResponder"/>

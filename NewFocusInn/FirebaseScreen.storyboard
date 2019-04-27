@@ -308,7 +308,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Log Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="1" green="0.35294117650000001" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -321,25 +321,6 @@
                                     <segue destination="AAR-IE-IJL" kind="unwind" unwindAction="outOfAccountSettingsWithUnwindSegue:" id="r7w-Ke-RsM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idj-CP-2g1">
-                                <rect key="frame" x="87.5" y="477" width="200" height="50"/>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.91764705882352937" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="oCa-ta-4HH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Change Picture">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="changePictureTouchedUp:" destination="W3e-Be-R5C" eventType="touchUpInside" id="U5N-vC-dn4"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-1p-6n1">
                                 <rect key="frame" x="112.5" y="120" width="150" height="150"/>
                                 <constraints>
@@ -347,30 +328,14 @@
                                     <constraint firstAttribute="height" constant="150" id="6Ki-Yi-Pgf"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUR-JU-6X3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUR-JU-6X3" userLabel="Change Picture">
                                 <rect key="frame" x="112.5" y="120" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="C64-pe-jvl"/>
                                     <constraint firstAttribute="height" constant="150" id="dSc-aY-yFQ"/>
                                 </constraints>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaY-iJ-aux">
-                                <rect key="frame" x="87.5" y="387" width="200" height="50"/>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.91764705882352937" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kHX-sa-vWB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Download Picture">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="downloadPicture:" destination="W3e-Be-R5C" eventType="touchUpInside" id="WvN-KN-IUv"/>
+                                    <action selector="changePictureTouchedUp:" destination="W3e-Be-R5C" eventType="touchUpInside" id="Gz7-gc-cah"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-gN-T4d">
@@ -394,28 +359,46 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbW-VI-c0t" userLabel="Stats">
+                                <rect key="frame" x="20" y="424" width="335" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="NDz-hi-9ge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6g-mp-gwj" userLabel="Total Time">
+                                <rect key="frame" x="20" y="449" width="335" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Hpg-Z8-ZP6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.52941176469999995" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="KbW-VI-c0t" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="25U-TB-6Vd"/>
+                            <constraint firstItem="n6g-mp-gwj" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="2iQ-Fg-l6M"/>
                             <constraint firstItem="4Wa-gN-T4d" firstAttribute="top" secondItem="RVa-1p-6n1" secondAttribute="bottom" constant="68" id="7vZ-RC-ylR"/>
-                            <constraint firstItem="Idj-CP-2g1" firstAttribute="leading" secondItem="ZI8-CM-6xF" secondAttribute="leading" constant="87.5" id="Bo2-rq-s7S"/>
-                            <constraint firstItem="FaY-iJ-aux" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="E6D-Ud-l4R"/>
+                            <constraint firstItem="n6g-mp-gwj" firstAttribute="top" secondItem="KbW-VI-c0t" secondAttribute="bottom" id="8VC-dm-22d"/>
                             <constraint firstItem="4Wa-gN-T4d" firstAttribute="leading" secondItem="ZI8-CM-6xF" secondAttribute="leading" constant="20" id="FYk-9W-Yvm"/>
                             <constraint firstItem="RVa-1p-6n1" firstAttribute="top" secondItem="ZI8-CM-6xF" secondAttribute="top" constant="100" id="Lhh-8z-ABB"/>
+                            <constraint firstItem="KbW-VI-c0t" firstAttribute="top" secondItem="4Wa-gN-T4d" secondAttribute="bottom" constant="36" id="M0n-Mb-Ra9"/>
                             <constraint firstItem="uUR-JU-6X3" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="Utc-HJ-8jX"/>
-                            <constraint firstItem="oO9-4v-6uT" firstAttribute="top" secondItem="Idj-CP-2g1" secondAttribute="bottom" constant="40" id="VSN-i0-Ib3"/>
                             <constraint firstItem="4Wa-gN-T4d" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="Vnn-3d-a8G"/>
-                            <constraint firstItem="Idj-CP-2g1" firstAttribute="top" secondItem="FaY-iJ-aux" secondAttribute="bottom" constant="40" id="WO9-7e-alB"/>
                             <constraint firstItem="ZI8-CM-6xF" firstAttribute="bottom" secondItem="oO9-4v-6uT" secondAttribute="bottom" constant="50" id="WjH-gF-PtI"/>
                             <constraint firstItem="CJT-Qk-G8l" firstAttribute="leading" secondItem="ZI8-CM-6xF" secondAttribute="leading" id="Zmw-ph-kvG"/>
                             <constraint firstItem="4Wa-gN-T4d" firstAttribute="top" secondItem="uUR-JU-6X3" secondAttribute="bottom" constant="68" id="dhK-gN-Gwd"/>
-                            <constraint firstItem="FaY-iJ-aux" firstAttribute="leading" secondItem="ZI8-CM-6xF" secondAttribute="leading" constant="87.5" id="eoz-35-TpB"/>
+                            <constraint firstItem="n6g-mp-gwj" firstAttribute="leading" secondItem="ZI8-CM-6xF" secondAttribute="leading" constant="20" id="fqk-wX-WdW"/>
                             <constraint firstItem="CJT-Qk-G8l" firstAttribute="trailing" secondItem="ZI8-CM-6xF" secondAttribute="trailing" id="fvF-AQ-igv"/>
                             <constraint firstItem="CJT-Qk-G8l" firstAttribute="top" secondItem="0gt-kH-UGA" secondAttribute="top" constant="-14" id="gvn-Wx-anB"/>
                             <constraint firstItem="RVa-1p-6n1" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="hs9-jS-s4J"/>
                             <constraint firstItem="oO9-4v-6uT" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="oLz-kC-ilV"/>
                             <constraint firstItem="uUR-JU-6X3" firstAttribute="top" secondItem="ZI8-CM-6xF" secondAttribute="top" constant="100" id="v7m-N8-ieA"/>
-                            <constraint firstItem="Idj-CP-2g1" firstAttribute="centerX" secondItem="0gt-kH-UGA" secondAttribute="centerX" id="vOX-41-9Cg"/>
+                            <constraint firstItem="KbW-VI-c0t" firstAttribute="leading" secondItem="ZI8-CM-6xF" secondAttribute="leading" constant="20" id="wpr-St-AVq"/>
                             <constraint firstItem="oO9-4v-6uT" firstAttribute="leading" secondItem="ZI8-CM-6xF" secondAttribute="leading" constant="87.5" id="yaG-vA-TXz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZI8-CM-6xF"/>
@@ -423,6 +406,8 @@
                     <navigationItem key="navigationItem" id="Cmx-2c-yLm"/>
                     <connections>
                         <outlet property="imageView" destination="RVa-1p-6n1" id="2Dy-Xn-RdF"/>
+                        <outlet property="stats" destination="KbW-VI-c0t" id="sJe-dq-CnD"/>
+                        <outlet property="totalTimeLabel" destination="n6g-mp-gwj" id="deU-iJ-p1c"/>
                         <outlet property="username" destination="4Wa-gN-T4d" id="gII-Od-eDO"/>
                     </connections>
                 </viewController>

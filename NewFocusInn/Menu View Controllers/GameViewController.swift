@@ -12,6 +12,8 @@ import GameplayKit
 import FirebaseAuth
 import FirebaseDatabase
 
+var houseList = [String]()
+
 class GameViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -37,7 +39,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
                 // Present the scene
                 view.presentScene(scene)
             }
-            
             view.ignoresSiblingOrder = true
         }
 

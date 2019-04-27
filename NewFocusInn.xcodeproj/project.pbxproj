@@ -139,7 +139,6 @@
 				1C00A622AAAA9ADA130DCAA8 /* Pods-NewFocusInn.debug.xcconfig */,
 				8A713E8A7BC9AC8D0B2E6C12 /* Pods-NewFocusInn.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
