@@ -14,6 +14,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var errorMessage: UILabel!
     
     var ref: DatabaseReference!
     
@@ -21,32 +22,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-            let user = Auth.auth().currentUser
-            ref = Database.database().reference().child("users").child(user!.uid)
-            
-            // list of buildings corresponding to city coordinates and sessions
-            ref!.child("houseList").observeSingleEvent(of: .value, with: { (snapshot) in
-                houseList  = snapshot.value as! [String]
-            })
-            ref?.child("sessions").observeSingleEvent(of: .value, with: { (snapshot) in
-                sessions = snapshot.value as! Int
-            })
-            
-            // timeline history and dates
-            ref!.child("timelineHistory").observeSingleEvent(of: .value, with: { (snapshot) in
-                timelineHistory = snapshot.value as! [[String]]
-            })
-            ref!.child("dates").observeSingleEvent(of: .value, with: { (snapshot) in
-                dates = snapshot.value as! [String]
-            })
-            
-            // achievements and total focusing time
-            ref?.child("totalMinutes").observeSingleEvent(of: .value, with: { (snapshot) in
-                totalTime = snapshot.value as! Int
-            })
-            ref?.child("achievementList").observeSingleEvent(of: .value, with: { (snapshot) in
-                achievements = snapshot.value as! [Int]
-            })
             self.performSegue(withIdentifier: "firebaseHome", sender: self)
         }
     }
@@ -60,6 +35,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.viewDidAppear(true)
             }
             else {
+                self.errorMessage.text = error!.localizedDescription
                 print(error!.localizedDescription)
             }
         }        

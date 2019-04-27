@@ -84,9 +84,16 @@
                                     <constraint firstAttribute="width" constant="115" id="aSx-MU-QYB"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap image to change building" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7c-Yu-cU0">
+                                <rect key="frame" x="95.333333333333329" y="511" width="223.66666666666669" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
+                            <constraint firstItem="Q7c-Yu-cU0" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="7S6-9w-eiD"/>
                             <constraint firstItem="jRP-L4-tqt" firstAttribute="top" secondItem="S9t-MD-yMJ" secondAttribute="top" constant="30" id="DLY-1a-2Aj"/>
                             <constraint firstItem="cfO-Bo-SLn" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="Irr-Ck-gdX"/>
                             <constraint firstItem="JjQ-Oz-0Em" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="NUO-HB-QAc"/>
@@ -94,6 +101,7 @@
                             <constraint firstItem="JS8-78-fVt" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="XpC-vo-j0D"/>
                             <constraint firstItem="JS8-78-fVt" firstAttribute="top" secondItem="jRP-L4-tqt" secondAttribute="bottom" constant="66" id="bYl-Ii-efh"/>
                             <constraint firstItem="S9t-MD-yMJ" firstAttribute="bottom" secondItem="JjQ-Oz-0Em" secondAttribute="bottom" constant="60" id="kUV-Eg-4ix"/>
+                            <constraint firstItem="Q7c-Yu-cU0" firstAttribute="top" secondItem="cfO-Bo-SLn" secondAttribute="bottom" constant="20" id="lPn-AD-tA6"/>
                             <constraint firstItem="jRP-L4-tqt" firstAttribute="centerX" secondItem="f9x-Pz-tfX" secondAttribute="centerX" id="lj8-Mo-CR4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S9t-MD-yMJ"/>
@@ -109,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjZ-PR-z2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496.80000000000001" y="698.5007496251875"/>
+            <point key="canvasLocation" x="495.6521739130435" y="697.82608695652175"/>
         </scene>
         <!--Focusing View Controller-->
         <scene sceneID="QbR-au-1n0">

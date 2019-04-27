@@ -17,9 +17,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signedUpHorizontalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var errorMessage: UILabel!
     var ref: DatabaseReference!
     
-
     @IBAction func signUpButtonTouchedUp(_ sender: UIButton) {
         guard let username = userNameTextField.text else {return}
         guard let email = emailTextField.text else {return}
@@ -34,14 +34,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 changeRequest?.commitChanges(completion: { (error) in
                     print("couldn't change name")
                 })
+                self.errorMessage.text = ""
+                moveMessage()
                 firstSignUp = 1
             }
             else {
-                print("used1")
-                print(error.debugDescription)
+                self.errorMessage.text = error!.localizedDescription
+                print(error!.localizedDescription)
             }
-            
-        moveMessage()
+    
         self.dismiss(animated: true, completion: nil)
     }
     

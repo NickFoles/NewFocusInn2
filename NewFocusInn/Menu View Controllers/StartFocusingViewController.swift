@@ -10,7 +10,7 @@ var globalTime : Double = 0
 
 var imageClicks = 0
 var firstRow = 0
-let buildingNames = [["house", "house2"], ["building", "tallBuilding"], ["empire"], ["eiffel"]]
+let buildingNames = [["house", "pink house", "newspaper place"], ["ice cream store", "cinema", "petco"], ["tall building", "gray building", "wawa"], ["state building", "eiffel tower"]]
 
 import UIKit
 
@@ -80,7 +80,6 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         }
         
         imageClicks = 0
-        //performSegue(withIdentifier: "Seconds Sent", sender: secondsToSend)
     }
     
     
@@ -124,22 +123,11 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
     //Sets up the Data inside the PickerView
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
         if component == 0{
-            
-            return String(time[0][row])}
-        
+            return String(time[0][row])
+        }
         return String(time[1][row])
-        
     }
-
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "focusing" {
-    //            print("Working123")
-    //            let vcTarget = segue.destination as! FocusingViewController
-    //
-    //        }
-    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,8 +135,6 @@ class StartFocusingViewController: UIViewController,UIPickerViewDataSource, UIPi
         self.timeSetter.dataSource = self
 
         buildingImage.image = UIImage(named: buildingNames[0][0])
-        
-        print(time[1][2])
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
