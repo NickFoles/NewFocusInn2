@@ -121,26 +121,27 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         
+        // sets up database info when a user first signs up
         if firstSignUp == 1, let user = Auth.auth().currentUser{
-            
             ref = Database.database().reference().child("users").child(user.uid)
-
-            ref?.child("houseList").setValue([""])                  // lists the buildings, indices correlate to the coordinate of the buildings
-            ref?.child("sessions").setValue(0)                      // total amount of session taken
-            ref?.child("achievementList").setValue([0,0,0,0])       // value equals 1 if the achievement correlating to the index is achieved
-            ref?.child("totalMinutes").setValue(0)                  // total hours spent focusing
+            ref?.child("houseList").setValue(["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""])                  // lists the buildings, indices correlate to the coordinate of the buildings, max: 225
+            ref?.child("sessions").setValue(0)                  // total amount of session taken
+            ref?.child("achievementList").setValue([0,0,0,0])   // value equals 1 if the achievement correlating to the index is achieved
+            ref?.child("totalMinutes").setValue(0)              // total hours spent focusing
             
-            ref?.child("timelineHistory").setValue([[""]])          // stores information of each item on the timeline
-            ref?.child("dates").setValue([""])                      // dates for timelineHistory
+            ref?.child("timelineHistory").setValue([[""]])      // stores information of each item on the timeline
+            ref?.child("dates").setValue([""])                  // dates for timelineHistory
             print("sent information")
         }
         
+        // counts number of completed achievements
         for i in 0 ..< achievements.count {
             if achievements[i] == 1 {
                 achieved += 1
             }
         }
         
+        // displays number of sessions and completed achievements on account page
         stats.text = "🏠 \(sessions)     🏆 \(achieved)"
         
         // days

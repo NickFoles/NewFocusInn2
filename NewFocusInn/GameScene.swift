@@ -33,8 +33,8 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.grass = self.childNode(withName: "//Grass Map Node") as? SKTileMapNode
-        if houseList[0] != "" {
-            for i in 0 ..< houseList.count {
+        for i in 0 ..< houseList.count {
+            if houseList[i] != "" {
                 placeBuilding(x: coor[i][0], y: coor[i][1], build: houseList[i])
             }
         }

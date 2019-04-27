@@ -42,23 +42,24 @@ class FocusingViewController: UIViewController{
             
             if Double(self.runCount) == globalTime {
                 timer.invalidate()
+            
+            // if houseList is full, remove all previous buildings
+                if sessions%225 == 0 {
+                    for i in 0 ..< 225 {
+                        houseList[i] = ""
+                    }
+                }
+            // set index of house
+                var indexOfHouse = Int(arc4random_uniform(225))
+                while houseList[indexOfHouse] != "" {
+                    indexOfHouse = Int(arc4random_uniform(225))
+                }
+            // add building name to houseList
+                houseList[indexOfHouse] = buildingNames[firstRow][imageClicks]
                 
             //  add focus time to total time and increase sessions by 1
                 totalTime += Int(globalTime/60)
                 sessions += 1
-                
-            // add building name to houseList
-                if houseList.count == 225 {
-                    houseList.removeAll()
-                    houseList.append("")
-                }
-                
-                if houseList[0] == "" {
-                    houseList[0] = buildingNames[firstRow][imageClicks]
-                }
-                else {
-                    houseList.append(buildingNames[firstRow][imageClicks])
-                }
                 
             // add building to timeline history
                 if dates[0] != Date().weekdayNameAndDate {
@@ -142,8 +143,8 @@ class FocusingViewController: UIViewController{
                     self.ref.child("totalMinutes").setValue(totalTime)
                     self.ref.child("sessions").setValue(sessions)
                 }
-                self.performSegue(withIdentifier: "timesUp", sender: self)
                 print("DONE!")
+                self.performSegue(withIdentifier: "timesUp", sender: self)
             }
                 
             // if cancelled button is pressed
@@ -165,10 +166,8 @@ class FocusingViewController: UIViewController{
         let content = UNMutableNotificationContent()
         
         content.body = NSString.localizedUserNotificationString(forKey: "You have exited the app Early! Please Come Back! 10 Seconds Left!", arguments: nil)
-        
-        // content.badge = 1
-        
         content.sound = UNNotificationSound.default
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
         let center = UNUserNotificationCenter.current()
@@ -181,17 +180,22 @@ class FocusingViewController: UIViewController{
     }
     
     func completeNotification() {
-        print("Completetion Left Notifcation Here!")
+        print("Completetion Notifcation Here!")
         let content = UNMutableNotificationContent()
 
         content.title = NSString.localizedUserNotificationString(forKey: "It's time to FocusInn!", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "You have finished your studying session!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "You have finished your focusing session!", arguments: nil)
         content.sound = UNNotificationSound.default
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
         
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        center.add(request) { (error : Error?) in
+            if let theError = error {
+                print(theError.localizedDescription)
+            }
+        }
     }
     
     func failureNotification() {
@@ -199,7 +203,7 @@ class FocusingViewController: UIViewController{
         let content = UNMutableNotificationContent()
         
         content.title = NSString.localizedUserNotificationString(forKey: "It's time to FocusInn!", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "You have failed your studying session!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "You have failed your focusing session!", arguments: nil)
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
@@ -214,9 +218,8 @@ class FocusingViewController: UIViewController{
     }
 
     override func viewDidLoad() {
-        cancelled = 0
-        print(globalTime)
         super.viewDidLoad()
+        cancelled = 0
         createTimer(interval)
         buildingImage.image = UIImage(named: buildingNames[firstRow][imageClicks])
     }
