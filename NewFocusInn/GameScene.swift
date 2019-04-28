@@ -45,7 +45,7 @@ class GameScene: SKScene {
             let building = SKSpriteNode(imageNamed: build)
             building.size = CGSize(width: building.size.width * grass.xScale, height: building.size.height * grass.yScale)
             
-            if build == "house" || build == "pink house" || build == "newspaper place" || build == "ice cream store" || build == "cinema" || build == "petco" || build == "wawa" {
+            if build == "house" || build == "pink house" || build == "news place" || build == "ice cream store" || build == "cinema" || build == "petco" || build == "wawa" {
                 building.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + building.size.height/2 * grass.yScale + 2)
             }
             else if build == "eiffel tower" {
@@ -54,7 +54,7 @@ class GameScene: SKScene {
             else if build == "tall building" {
                 building.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + building.size.height/2 * grass.yScale + 7)
             }
-            else if build == "empire state building" {
+            else if build == "empire state" {
                 building.position = CGPoint(x: grass.tileSize.width * grass.xScale * CGFloat(x), y: grass.tileSize.height * grass.yScale * CGFloat(y) + building.size.height/2 * grass.yScale + 14)
             }
             else if build == "gray building" {

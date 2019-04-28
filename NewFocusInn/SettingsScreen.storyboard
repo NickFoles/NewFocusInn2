@@ -61,12 +61,28 @@
                                             <segue destination="Ub1-0f-8dH" kind="show" id="qWa-ys-mKy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eJo-ay-EnH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eJo-ay-EnH" userLabel="Sync">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eJo-ay-EnH" id="cS9-BE-2qg">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SV-nB-Fgm">
+                                                    <rect key="frame" x="24" y="0.0" width="327" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <state key="normal" title="Sync"/>
+                                                    <connections>
+                                                        <action selector="syncing:" destination="r0w-wI-bcF" eventType="touchUpInside" id="Xl2-8B-DQT"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6SV-nB-Fgm" secondAttribute="trailing" constant="8" id="1MS-EI-N2m"/>
+                                                <constraint firstItem="6SV-nB-Fgm" firstAttribute="leading" secondItem="cS9-BE-2qg" secondAttribute="leadingMargin" constant="8" id="Jkr-SV-9S0"/>
+                                                <constraint firstAttribute="bottom" secondItem="6SV-nB-Fgm" secondAttribute="bottom" id="OQA-t8-xRL"/>
+                                                <constraint firstItem="6SV-nB-Fgm" firstAttribute="top" secondItem="cS9-BE-2qg" secondAttribute="top" id="wbn-GQ-EDS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6FR-rg-rPK">
@@ -119,6 +135,7 @@
                     <connections>
                         <outlet property="account" destination="RxM-Bm-dbP" id="0ui-2U-u5p"/>
                         <outlet property="menuButton" destination="oUd-US-F8c" id="5XG-R3-jPK"/>
+                        <outlet property="sync" destination="6SV-nB-Fgm" id="g8E-8S-d1i"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgt-Tx-g66" userLabel="First Responder" sceneMemberID="firstResponder"/>
