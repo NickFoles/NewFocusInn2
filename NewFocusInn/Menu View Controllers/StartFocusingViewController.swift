@@ -10,7 +10,7 @@ var globalTime : Double = 0
 
 var imageClicks = 0
 var firstRow = 0
-let buildingNames = [["house", "pink house", "newspaper place"], ["ice cream store", "cinema", "petco"], ["tall building", "gray building", "wawa"], ["empire state building", "eiffel tower"]]
+let buildingNames = [["house", "pink house", "news place"], ["ice cream store", "cinema", "petco"], ["tall building", "gray building", "wawa"], ["empire statee", "eiffel tower"]]
 
 import UIKit
 
